@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Arsalan - CV</title>
+    <style>
+        /* ===== Print-friendly Professional CV ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            line-height: 1.5;
+            font-size: 11pt;
+        }
+
+        .cv-page {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 35px 40px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .cv-header {
+            text-align: center;
+            padding-bottom: 18px;
+            border-bottom: 3px solid #ff8c00;
+            margin-bottom: 20px;
+        }
+
+        .cv-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .cv-title {
+            font-size: 13pt;
+            font-weight: 400;
+            color: #ff8c00;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 9.5pt;
+            color: #444;
+        }
+
+        .cv-contact a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        .cv-contact a:hover {
+            color: #ff8c00;
+        }
+
+        .cv-contact span::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #ff8c00;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* Section */
+        .cv-section {
+            margin-bottom: 18px;
+        }
+
+        .cv-section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid #e0e0e0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cv-section-title::before {
+            content: '';
+            width: 14px;
+            height: 3px;
+            background: #ff8c00;
+            display: inline-block;
+        }
+
+        /* Summary */
+        .cv-summary {
+            font-size: 10.5pt;
+            color: #333;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Experience & Education Items */
+        .cv-item {
+            margin-bottom: 14px;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .cv-item-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #1a1a1a;
+        }
+
+        .cv-item-date {
+            font-size: 9.5pt;
+            color: #777;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .cv-item-subtitle {
+            font-size: 10pt;
+            color: #ff8c00;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .cv-item ul {
+            padding-left: 18px;
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .cv-item li {
+            margin-bottom: 3px;
+            line-height: 1.45;
+        }
+
+        /* Skills */
+        .cv-skills-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 6px 16px;
+            font-size: 10pt;
+        }
+
+        .cv-skill-category {
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: right;
+        }
+
+        .cv-skill-items {
+            color: #444;
+        }
+
+        /* Projects */
+        .cv-project {
+            margin-bottom: 12px;
+        }
+
+        .cv-project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .cv-project-name {
+            font-weight: 700;
+            font-size: 10.5pt;
+            color: #1a1a1a;
+        }
+
+        .cv-project-link {
+            font-size: 8.5pt;
+            color: #888;
+        }
+
+        .cv-project-link a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .cv-project ul {
+            padding-left: 18px;
+            font-size: 9.5pt;
+            color: #444;
+        }
+
+        .cv-project li {
+            margin-bottom: 2px;
+            line-height: 1.45;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            .cv-page {
+                margin: 0;
+                padding: 25px 30px;
+                box-shadow: none;
+                min-height: auto;
+            }
+            .no-print { display: none; }
+        }
+
+        /* Download Button (on-screen only) */
+        .cv-download-bar {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .cv-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff8c00, #e07800);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .cv-tip {
+            color: #888;
+            font-size: 12px;
+            margin-top: 8px;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Download Bar (hidden when printing) -->
+    <div class="cv-download-bar no-print">
+        <button class="cv-download-btn" onclick="window.print()">
+            ⬇ Download as PDF
+        </button>
+        <p class="cv-tip">Click the button above, then choose "Save as PDF" in the print dialog</p>
+    </div>
+
+    <!-- CV Page -->
+    <div class="cv-page">
+
+        <!-- Header -->
+        <header class="cv-header">
+            <h1 class="cv-name">Muhammad Arsalan</h1>
+            <p class="cv-title">AI Engineer · Machine Learning · Robotics</p>
+            <div class="cv-contact">
+                <span><a href="mailto:arsalan.vault@gmail.com">arsalan.vault@gmail.com</a></span>
+                <span><a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">LinkedIn</a></span>
+                <span><a href="https://github.com/24pwai0015-max" target="_blank">GitHub</a></span>
+                <span><a href="https://instagram.com/robo.ox" target="_blank">Instagram</a></span>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Summary</h2>
+            <p class="cv-summary">
+                Driven AI & Data Science student with hands-on experience building end-to-end ML and LLM-powered applications independently. 
+                Skilled in developing multi-agent AI systems, computer vision solutions, and NLP pipelines. Currently gaining industry experience 
+                as an AI/NLP Intern at FlyRank AI. Long-term goal: becoming an Agent Automation Developer, building production-ready 
+                LangChain/CrewAI automation pipelines for real-world applications.
+            </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Experience</h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <span class="cv-item-title">AI / NLP Intern</span>
+                    <span class="cv-item-date">June 2026 – Present</span>
+                </div>
+                <div class="cv-item-subtitle">FlyRank AI — Organic & AI Search Growth Platform</div>
+                <ul>
+                    <li>Developing NLP models and ranking systems for AI-powered search optimization</li>
+                    <li>Building LLM-based workflows to enhance content ranking and organic growth pipelines</li>
+                    <li>Collaborating on production-level machine learning infrastructure and model deployment</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Education</h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <span class="cv-item-title">BS Artificial Intelligence</span>
+                    <span class="cv-item-date">2024 – 2028 (Expected)</span>
+                </div>
+                <div class="cv-item-subtitle">4th Semester · In Progress</div>
+                <ul>
+                    <li>Completed self-directed 90-day data science curriculum covering NumPy, Pandas, Matplotlib, Seaborn, classical ML, and EDA</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            <div class="cv-skills-grid">
+                <span class="cv-skill-category">Languages</span>
+                <span class="cv-skill-items">Python</span>
+
+                <span class="cv-skill-category">Data Science</span>
+                <span class="cv-skill-items">NumPy, Pandas, Matplotlib, Seaborn, EDA, Data Visualization</span>
+
+                <span class="cv-skill-category">Machine Learning</span>
+                <span class="cv-skill-items">Random Forest, Scikit-learn Pipelines, Model Training & Evaluation</span>
+
+                <span class="cv-skill-category">LLM / GenAI</span>
+                <span class="cv-skill-items">Groq API (LLaMA 3.x), Prompt Engineering, System Prompt Design, LangChain, CrewAI</span>
+
+                <span class="cv-skill-category">Computer Vision</span>
+                <span class="cv-skill-items">OpenCV, LBPH Face Recognition</span>
+
+                <span class="cv-skill-category">Web / App</span>
+                <span class="cv-skill-items">Streamlit, React, Chrome Extension Development</span>
+
+                <span class="cv-skill-category">Tools</span>
+                <span class="cv-skill-items">Git/GitHub, VS Code, PowerShell, Streamlit Cloud, Python Virtual Environments</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Projects</h2>
+
+            <div class="cv-project">
+                <div class="cv-project-header">
+                    <span class="cv-project-name">RoboNova — Humanoid Service Robot</span>
+                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/roboNova">github.com/24pwai0015-max/roboNova</a></span>
+                </div>
+                <ul>
+                    <li>Engineered a 2-year humanoid service robot project integrating AI, computer vision, and natural language interaction</li>
+                    <li>Developed voice-assistant module using Groq API (llama-3.1-8b-instant) for real-time conversational AI</li>
+                    <li>Designed multi-phase roadmap: Robotics → Electronics → Arduino → Raspberry Pi → CV → ROS2 → AI Integration</li>
+                </ul>
+            </div>
+
+            <div class="cv-project">
+                <div class="cv-project-header">
+                    <span class="cv-project-name">AI Attendance System</span>
+                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max">GitHub</a></span>
+                </div>
+                <ul>
+                    <li>Built facial-recognition attendance system using Streamlit and OpenCV LBPH algorithm</li>
+                    <li>Implemented bcrypt authentication, role-based admin/student portals, and live camera feed integration</li>
+                    <li>Created Plotly analytics dashboards and automated Gmail SMTP notification system</li>
+                </ul>
+            </div>
+
+            <div class="cv-project">
+                <div class="cv-project-header">
+                    <span class="cv-project-name">NexusAI — Autonomous Multimodal AI Platform</span>
+                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/nexus-ai">github.com/24pwai0015-max/nexus-ai</a></span>
+                </div>
+                <ul>
+                    <li>Engineered an autonomous AI engine that routes intents in real-time between reasoning, web search, image synthesis, and document authoring</li>
+                    <li>Integrated Groq/OpenAI LLMs, Tavily live web search with citations, FLUX.1 image generation, and PDF/Word document authoring</li>
+                    <li>Built production-grade FastAPI backend with SSE streaming, SQLite persistent memory, and a Python SDK for developers</li>
+                </ul>
+            </div>
+
+            <div class="cv-project">
+                <div class="cv-project-header">
+                    <span class="cv-project-name">Data Analytics & ML Projects</span>
+                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/data-analytics">GitHub</a></span>
+                </div>
+                <ul>
+                    <li>Completed Titanic EDA project answering 8 business questions with incremental data cleaning pipeline</li>
+                    <li>Built Food Delivery Time Prediction model using Random Forest regression with Streamlit dashboard</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
