@@ -1,1314 +1,1782 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="web_standard" name="shell-type"/>
-  <title>Muhammad Arsalan — AI Engineer &amp; Robotics Innovator</title>
-  <meta name="description" content="Independent AI Engineer architecting autonomous multi-agent pipelines, machine learning systems, and robotics architectures."/>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  
-  <style>
-    @layer base {
-      html { scroll-behavior: smooth; }
-      html, body { margin: 0; padding: 0; }
-      body { overscroll-behavior: none; }
-      main > :first-child { margin-top: 0 !important; }
-      main > :last-child { margin-bottom: 0 !important; }
-    }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #09090b; }
-    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Muhammad Arsalan — Independent AI Engineer architecting autonomous multi-agent pipelines, machine learning systems, and robotics architectures.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<title>Muhammad Arsalan — Build Create Experiment</title>
+<style>
+:root {
+  --paper: #F5F3EE;
+  --paper2: #EAE8E1;
+  --gray: #D8D8D2;
+  --ink: #171717;
+  --muted: #5F5F5A;
+  --blue: #315CFF;
+  --lime: #C8F04A;
+  --coral: #FF7058;
+  --violet: #9B8CFF;
+  --ease: cubic-bezier(.22, .78, .22, 1);
+  --margin: 5vw;
+  --gap: 1.2vw;
+  --grid: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc((90vw - 11 * var(--gap)) / 12),
+    rgba(23, 23, 23, 0.08) calc((90vw - 11 * var(--gap)) / 12),
+    rgba(23, 23, 23, 0.08) calc((90vw - 11 * var(--gap)) / 12 + 1px),
+    transparent calc((90vw - 11 * var(--gap)) / 12 + 1px),
+    transparent calc((90vw - 11 * var(--gap)) / 12 + var(--gap))
+  );
+}
 
-    @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
-    .animate-marquee { display: flex; width: max-content; animation: marquee 32s linear infinite; }
-    .animate-marquee:hover { animation-play-state: paused; }
+* {
+  box-sizing: border-box;
+}
 
-    /* Reveal animation classes */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal-on-scroll.is-revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    /* Stagger delay helpers */
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
-    .delay-300 { transition-delay: 300ms; }
-    .delay-400 { transition-delay: 400ms; }
-    .delay-500 { transition-delay: 500ms; }
-  </style>
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      "darkMode": "class",
-      "theme": {
-        "extend": {
-          "colors": {
-            "on-primary-fixed": "#1a1c1c",
-            "surface-pitch": "#000000",
-            "accent-star": "#e4e4e7",
-            "on-secondary": "#2f3037",
-            "secondary-fixed": "#e2e1eb",
-            "on-tertiary-fixed-variant": "#454748",
-            "on-tertiary": "#2f3132",
-            "surface-container": "#201f22",
-            "surface-variant": "#353437",
-            "text-tertiary": "#71717a",
-            "outline-variant": "#444748",
-            "error-container": "#93000a",
-            "surface-dim": "#131315",
-            "on-primary-fixed-variant": "#454747",
-            "on-error-container": "#ffdad6",
-            "tertiary-fixed": "#e2e2e3",
-            "on-tertiary-container": "#636466",
-            "primary": "#ffffff",
-            "surface-container-high": "#2a2a2c",
-            "surface-container-lowest": "#0e0e10",
-            "on-secondary-container": "#b4b4bd",
-            "primary-fixed": "#e2e2e2",
-            "surface-container-low": "#1c1b1d",
-            "primary-fixed-dim": "#c6c6c7",
-            "text-primary": "#ffffff",
-            "on-tertiary-fixed": "#1a1c1d",
-            "background": "#131315",
-            "border-hairline": "#27272a",
-            "on-secondary-fixed-variant": "#45464e",
-            "text-secondary": "#a1a1aa",
-            "surface-tint": "#c6c6c7",
-            "surface-elevated": "#121215",
-            "surface-base": "#09090b",
-            "error": "#ffb4ab",
-            "on-error": "#690005",
-            "inverse-on-surface": "#313032",
-            "tertiary-container": "#e2e2e3",
-            "border-active": "#3f3f46",
-            "secondary": "#c6c6cf",
-            "on-surface": "#e5e1e4",
-            "primary-container": "#e2e2e2",
-            "surface-bright": "#39393b",
-            "on-background": "#e5e1e4",
-            "outline": "#8e9192",
-            "surface-container-highest": "#353437",
-            "secondary-container": "#45464e",
-            "secondary-fixed-dim": "#c6c6cf",
-            "tertiary": "#ffffff",
-            "on-primary": "#2f3131",
-            "inverse-surface": "#e5e1e4",
-            "tertiary-fixed-dim": "#c6c6c7",
-            "on-surface-variant": "#c4c7c8",
-            "on-primary-container": "#636565",
-            "on-secondary-fixed": "#1a1b22",
-            "inverse-primary": "#5d5f5f",
-            "surface": "#131315"
-          },
-          "borderRadius": {
-            "DEFAULT": "0px",
-            "none": "0px",
-            "sm": "0px",
-            "md": "0px",
-            "lg": "0px",
-            "xl": "0px",
-            "full": "9999px"
-          },
-          "spacing": {
-            "gutter-tablet": "0rem",
-            "space-sm": "0.75rem",
-            "space-md": "1.25rem",
-            "space-lg": "2.25rem",
-            "margin-tablet": "2rem",
-            "space-xl": "3.5rem",
-            "gutter-desktop": "0rem",
-            "margin-desktop": "3rem",
-            "margin": "1rem",
-            "space-xs": "0.375rem",
-            "gutter": "0rem"
-          },
-          "fontFamily": {
-            "body-md": ["Space Grotesk", "sans-serif"],
-            "ticker-label": ["Space Grotesk", "sans-serif"],
-            "headline-md": ["Space Grotesk", "sans-serif"],
-            "headline-lg": ["Space Grotesk", "sans-serif"],
-            "body-lg": ["Space Grotesk", "sans-serif"],
-            "display-super": ["Space Grotesk", "sans-serif"],
-            "display-super-mobile": ["Space Grotesk", "sans-serif"],
-            "headline-editorial": ["Newsreader", "serif"],
-            "headline-xl": ["Space Grotesk", "sans-serif"],
-            "meta-mono": ["JetBrains Mono", "monospace"],
-            "headline-xl-mobile": ["Space Grotesk", "sans-serif"]
-          },
-          "fontSize": {
-            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
-            "ticker-label": ["12px", { "lineHeight": "15px", "letterSpacing": "0.15em", "fontWeight": "600" }],
-            "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-            "body-lg": ["16px", { "lineHeight": "25px", "letterSpacing": "0em", "fontWeight": "400" }],
-            "display-super": ["68px", { "lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
-            "display-super-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
-            "headline-editorial": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
-            "headline-xl": ["42px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
-            "meta-mono": ["11px", { "lineHeight": "15px", "letterSpacing": "0.08em", "fontWeight": "500" }],
-            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
-          }
+/* Hide OS cursor on fine-pointer desktop */
+@media (pointer: fine) and (min-width: 641px) {
+  body {
+    cursor: none;
+  }
+}
+
+/* Subtle 2.5% Paper-grain noise overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+a, button {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 12-column editorial grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gap);
+  margin-inline: var(--margin);
+}
+
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rule {
+  border-top: 1px solid var(--ink);
+}
+
+section[id],
+main[id] {
+  scroll-margin-top: 40px;
+}
+
+/* Site navigation */
+.site-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px var(--margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.25);
+}
+
+.mark {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+}
+
+.navlinks {
+  display: flex;
+  gap: 32px;
+}
+
+.navlinks a {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  position: relative;
+  padding-block: 4px;
+}
+
+.navlinks a::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease);
+}
+
+.navlinks a:hover::after,
+.navlinks a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 112px 0 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.hero::after,
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0 var(--margin);
+  background: var(--grid);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-count {
+  grid-column: 1 / 13;
+  text-align: right;
+}
+
+.hero-title {
+  grid-column: 1 / 13;
+  margin: 2vh 0 1vh;
+  font-size: clamp(72px, 11vw, 164px);
+  line-height: 0.82;
+  letter-spacing: -0.085em;
+  font-weight: 900;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-title span:nth-child(2) {
+  padding-left: 8.5vw;
+}
+
+.hero-title span:nth-child(3) {
+  padding-left: 2.5vw;
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: transparent;
+}
+
+.hero-bottom {
+  position: relative;
+  margin-top: auto;
+  padding-top: 48px;
+}
+
+.hero-copy {
+  grid-column: 1 / 5;
+  margin: 0;
+  max-width: 430px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.hero-actions {
+  grid-column: 5 / 9;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.scroll-note {
+  grid-column: 10 / 13;
+  text-align: right;
+  align-self: end;
+}
+
+/* Interactive 3D Sculpture */
+.sculpture {
+  --rx: -8deg;
+  --ry: 18deg;
+  --sy: 0px;
+  position: absolute;
+  right: 7vw;
+  top: 17vh;
+  width: min(38vw, 560px);
+  aspect-ratio: 1;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--sy));
+  transition: transform 0.28s var(--ease);
+  filter: drop-shadow(0 26px 22px rgba(23, 23, 23, 0.16));
+  pointer-events: none;
+}
+
+.orb, .ring3d, .plane, .bit {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.orb {
+  width: 51%;
+  height: 51%;
+  left: 24%;
+  top: 23%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #fff 0 8%, #dddcd7 22%, #676767 53%, #181818 78%);
+  box-shadow: inset -20px -22px 34px rgba(0, 0, 0, 0.28);
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), rgba(49, 92, 255, 0.42) 40%, rgba(49, 92, 255, 0.03) 70%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+.ring3d {
+  inset: 8%;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(-22deg);
+}
+
+.ring3d::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 10px solid rgba(49, 92, 255, 0.78);
+  border-right-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.plane {
+  width: 42%;
+  height: 47%;
+  right: 4%;
+  top: 7%;
+  border: 1px solid var(--ink);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(23, 23, 23, 0.22) 10px 11px);
+  transform: rotate(25deg) rotateY(-45deg);
+}
+
+.bit {
+  width: 12%;
+  aspect-ratio: 1;
+  left: 11%;
+  bottom: 14%;
+  background: var(--blue);
+  transform: rotate(22deg) translateZ(50px);
+}
+
+.bit.b2 {
+  left: auto;
+  right: 8%;
+  bottom: 31%;
+  width: 7%;
+  border-radius: 50%;
+  background: var(--lime);
+}
+
+/* Button System with vertical label swap */
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.button.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.button .swap {
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.button .swap span {
+  display: block;
+  transition: transform 0.35s var(--ease);
+}
+
+.button:hover {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.button.primary:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--paper);
+}
+
+.button:hover .swap span {
+  transform: translateY(-100%);
+}
+
+/* Introduction Section */
+.intro {
+  position: relative;
+  padding: 160px 0;
+  background: var(--paper2);
+  overflow: hidden;
+}
+
+.intro > * {
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text {
+  grid-column: 1 / 12;
+  margin: 0;
+  font-size: clamp(40px, 5.8vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+}
+
+.intro-text .accent {
+  color: var(--blue);
+}
+
+.intro-meta {
+  grid-column: 9 / 12;
+  margin-top: 64px;
+  color: var(--muted);
+}
+
+/* Selected Work Section */
+.work {
+  padding: 128px 0 160px;
+  background: var(--paper);
+}
+
+.section-head {
+  align-items: end;
+  margin-bottom: 96px;
+}
+
+.section-title {
+  grid-column: 1 / 13;
+  margin: 0;
+  font-size: clamp(64px, 9vw, 136px);
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project {
+  position: relative;
+  margin-bottom: 160px;
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--gray);
+  min-height: 560px;
+  isolation: isolate;
+  will-change: transform;
+  transition: transform 0.15s linear;
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Composition 1: Left visual, right info (RoboNova) */
+.p1 .visual {
+  grid-column: 1 / 9;
+  background: var(--blue);
+}
+
+.p1 .project-info {
+  grid-column: 9 / 13;
+}
+
+/* Composition 2: Right visual, left info (Nexus AI) */
+.p2 .visual {
+  grid-column: 5 / 13;
+  background: #c8c6bf;
+}
+
+.p2 .project-info {
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
+
+/* Composition 3: Full-width visual, overlapping lime info (FlyRank ML) */
+.p3 .visual {
+  grid-column: 1 / 13;
+  min-height: 650px;
+  background: var(--ink);
+}
+
+.p3 .project-info {
+  grid-column: 2 / 7;
+  margin-top: -96px;
+  z-index: 3;
+  background: var(--lime);
+  padding: 32px;
+  border: 1px solid var(--ink);
+}
+
+/* Composition 4: Asymmetric coral visual, overlapping paper info (Data Analytics) */
+.p4 .visual {
+  grid-column: 3 / 12;
+  min-height: 620px;
+  background: var(--coral);
+}
+
+.p4 .project-info {
+  grid-column: 1 / 5;
+  margin-top: -160px;
+  z-index: 3;
+  background: var(--paper);
+  padding: 32px;
+  border: 1px solid var(--ink);
+}
+
+.art-type {
+  position: absolute;
+  font-size: clamp(84px, 13vw, 210px);
+  line-height: 0.75;
+  letter-spacing: -0.09em;
+  font-weight: 900;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.p1 .art-type {
+  left: -0.03em;
+  bottom: -0.02em;
+  color: var(--paper);
+}
+
+.p2 .art-type {
+  right: -0.02em;
+  top: 0.08em;
+  writing-mode: vertical-rl;
+  color: var(--ink);
+}
+
+.p3 .art-type {
+  left: 4%;
+  top: 14%;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--paper);
+}
+
+.p4 .art-type {
+  right: 2%;
+  bottom: 2%;
+  color: var(--ink);
+}
+
+.art-window {
+  position: absolute;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 18px 18px 0 var(--ink);
+}
+
+.p1 .art-window {
+  width: 40%;
+  height: 56%;
+  right: 9%;
+  top: 14%;
+  background: linear-gradient(135deg, var(--paper) 50%, var(--lime) 50%);
+}
+
+.p2 .art-window {
+  width: 48%;
+  height: 48%;
+  left: 9%;
+  bottom: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fff, transparent 12%), radial-gradient(circle, var(--violet), #232323 70%);
+  box-shadow: 18px 18px 0 var(--blue);
+}
+
+.p3 .art-window {
+  width: 22%;
+  aspect-ratio: 1;
+  right: 12%;
+  top: 18%;
+  background: var(--coral);
+  transform: rotate(13deg);
+  box-shadow: 22px 22px 0 var(--paper);
+}
+
+.p4 .art-window {
+  width: 48%;
+  height: 62%;
+  left: 10%;
+  top: 12%;
+  background: repeating-linear-gradient(90deg, var(--paper) 0 12%, var(--ink) 12% 12.5%);
+  box-shadow: 20px 20px 0 var(--blue);
+}
+
+.project-info {
+  align-self: end;
+  padding: 32px 0 0 32px;
+}
+
+.p2 .project-info {
+  padding: 0 48px 32px 0;
+}
+
+.p3 .project-info,
+.p4 .project-info {
+  align-self: auto;
+}
+
+.project-num {
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  margin-bottom: 48px;
+}
+
+.project-title {
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  margin: 0 0 24px;
+}
+
+.project-desc {
+  color: var(--muted);
+  margin: 24px 0 32px;
+  max-width: 430px;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-block: 1px solid var(--ink);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  color: var(--ink);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.text-link:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+/* Digital Lab Section */
+.lab {
+  position: relative;
+  min-height: 100vh;
+  padding: 96px 0 128px;
+  background: var(--lime);
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.lab-head {
+  grid-column: 1 / 9;
+  margin: 0;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: 0.78;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.lab-copy {
+  grid-column: 9 / 13;
+  align-self: end;
+  font-size: 18px;
+}
+
+.lab-stage {
+  position: relative;
+  grid-column: 1 / 13;
+  height: 540px;
+  margin-top: 64px;
+  border: 1px solid var(--ink);
+  background: linear-gradient(90deg, rgba(23, 23, 23, 0.15) 1px, transparent 1px),
+              linear-gradient(rgba(23, 23, 23, 0.15) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.lab-stage::before {
+  content: "EXPERIMENT / MOVE CURSOR";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lab-object {
+  --r: 0deg;
+  position: absolute;
+  width: 280px;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--r));
+  transition: transform 0.2s linear;
+  pointer-events: none;
+}
+
+.lab-object::before,
+.lab-object::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.lab-object::before {
+  border: 3px solid var(--ink);
+  transform: rotate(45deg);
+  background: rgba(245, 243, 238, 0.75);
+}
+
+.lab-object::after {
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 25%, white, var(--blue) 40%, var(--ink));
+  box-shadow: 18px 20px 0 rgba(23, 23, 23, 0.95);
+}
+
+.lab-orbit {
+  position: absolute;
+  inset: -22%;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  transform: rotateX(65deg);
+}
+
+/* Capabilities Section */
+.capabilities {
+  padding: 160px 0;
+  background: var(--paper);
+}
+
+.cap-title {
+  grid-column: 1 / 5;
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  margin: 0;
+}
+
+.cap-list {
+  grid-column: 6 / 13;
+  border-top: 1px solid var(--ink);
+}
+
+.cap-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.cap-row h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 42px);
+  letter-spacing: -0.04em;
+  font-weight: 900;
+}
+
+.cap-row span:last-child {
+  color: var(--muted);
+}
+
+/* Experience Timeline */
+.experience {
+  padding: 128px 0;
+  background: var(--paper2);
+}
+
+.exp-title {
+  grid-column: 1 / 13;
+  font-size: clamp(64px, 10vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  margin: 0 0 96px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.timeline {
+  grid-column: 3 / 13;
+}
+
+.time-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--ink);
+}
+
+.time-row h3,
+.time-row p {
+  margin: 0;
+}
+
+.time-row h3 {
+  font-size: 24px;
+  letter-spacing: -0.035em;
+  font-weight: 900;
+}
+
+.time-row p {
+  color: var(--muted);
+}
+
+/* Contact Section */
+.contact {
+  position: relative;
+  min-height: 80vh;
+  padding: 128px 0 96px;
+  background: var(--blue);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.contact h2 {
+  grid-column: 1 / 12;
+  margin: 0 0 56px;
+  font-size: clamp(76px, 13vw, 190px);
+  line-height: 0.78;
+  letter-spacing: -0.085em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.contact-links {
+  grid-column: 1 / 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--paper);
+  background: transparent;
+  color: var(--paper);
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.contact-icon-btn:hover,
+.contact-icon-btn:focus-visible {
+  background: var(--paper);
+  color: var(--blue);
+  border-color: var(--paper);
+  transform: translateY(-4px);
+}
+
+.contact-orb {
+  --settle: 0px;
+  position: absolute;
+  width: 23vw;
+  aspect-ratio: 1;
+  right: -3vw;
+  bottom: -5vw;
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  background: radial-gradient(circle at 33% 28%, white 0 4%, #bbb 18%, #171717 68%);
+  opacity: 0.9;
+  transform: translateY(var(--settle));
+  transition: transform 0.2s linear;
+  pointer-events: none;
+}
+
+/* Footer */
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px var(--margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer button.top-btn {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: transparent;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s var(--ease);
+}
+
+.footer button.top-btn:hover {
+  border-color: var(--paper);
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-ring {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid white;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s, border-radius 0.3s;
+  color: transparent;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cursor-ring.active {
+  width: 64px;
+  height: 64px;
+  background: white;
+  color: black;
+  mix-blend-mode: normal;
+}
+
+.cursor-ring.project-active {
+  width: 82px;
+  height: 56px;
+  border-radius: 0;
+  background: var(--lime);
+  color: var(--ink);
+  mix-blend-mode: normal;
+}
+
+/* Reveal transition */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 900px) {
+  :root {
+    --margin: 4vw;
+    --gap: 1.5vw;
+  }
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .hero-title {
+    grid-column: 1 / 9;
+  }
+  .hero-count {
+    grid-column: 1 / 9;
+    text-align: right;
+  }
+  .sculpture {
+    right: -8vw;
+    width: 52vw;
+    top: 23vh;
+    opacity: 0.86;
+  }
+  .hero-copy {
+    grid-column: 1 / 5;
+  }
+  .hero-actions {
+    grid-column: 5 / 7;
+  }
+  .scroll-note {
+    grid-column: 7 / 9;
+  }
+  .intro-text {
+    grid-column: 1 / 9;
+  }
+  .intro-meta {
+    grid-column: 5 / 9;
+  }
+  .section-title {
+    grid-column: 1 / 9;
+  }
+  .p1 .visual {
+    grid-column: 1 / 7;
+  }
+  .p1 .project-info {
+    grid-column: 5 / 9;
+    grid-row: auto;
+    background: var(--paper);
+    z-index: 3;
+    margin-top: -80px;
+    padding: 24px;
+    border: 1px solid var(--ink);
+  }
+  .p2 .visual {
+    grid-column: 3 / 9;
+  }
+  .p2 .project-info {
+    grid-column: 1 / 5;
+    background: var(--paper);
+    z-index: 3;
+    margin-top: -80px;
+    padding: 24px;
+    border: 1px solid var(--ink);
+  }
+  .p3 .visual {
+    grid-column: 1 / 9;
+  }
+  .p3 .project-info {
+    grid-column: 1 / 6;
+  }
+  .p4 .visual {
+    grid-column: 2 / 9;
+  }
+  .p4 .project-info {
+    grid-column: 1 / 5;
+  }
+  .lab-head {
+    grid-column: 1 / 7;
+  }
+  .lab-copy {
+    grid-column: 6 / 9;
+  }
+  .lab-stage {
+    grid-column: 1 / 9;
+  }
+  .cap-title {
+    grid-column: 1 / 4;
+  }
+  .cap-list {
+    grid-column: 4 / 9;
+  }
+  .exp-title {
+    grid-column: 1 / 9;
+  }
+  .timeline {
+    grid-column: 2 / 9;
+  }
+  .contact h2 {
+    grid-column: 1 / 9;
+  }
+  .contact-links {
+    grid-column: 1 / 9;
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 640px) {
+  body {
+    cursor: auto !important;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  :root {
+    --margin: 16px;
+    --gap: 12px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .site-nav {
+    padding: 18px 16px;
+  }
+  .navlinks {
+    gap: 14px;
+  }
+  .navlinks a:nth-child(2) {
+    display: none;
+  }
+  .hero {
+    padding-top: 96px;
+    min-height: 820px;
+  }
+  .hero-count {
+    grid-column: 1 / 5;
+    text-align: right;
+  }
+  .hero-title {
+    grid-column: 1 / 5;
+    margin-top: 16vh;
+    font-size: clamp(54px, 14.8vw, 68px);
+    line-height: 0.86;
+  }
+  .hero-title span:nth-child(2) {
+    padding-left: 0;
+  }
+  .hero-title span:nth-child(3) {
+    padding-left: 8vw;
+  }
+  .sculpture {
+    width: 76vw;
+    right: -20vw;
+    top: 28vh;
+    opacity: 0.78;
+    transform: perspective(800px) rotateX(-8deg) rotateY(18deg) translateY(0) !important;
+    transition: none;
+  }
+  .hero-bottom {
+    position: relative;
+    margin-top: 48px;
+    bottom: auto;
+  }
+  .hero-copy {
+    grid-column: 1 / 5;
+    font-size: 16px;
+  }
+  .hero-actions {
+    grid-column: 1 / 5;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .scroll-note {
+    grid-column: 1 / 5;
+    text-align: left;
+    margin-top: 16px;
+  }
+  .intro,
+  .capabilities {
+    padding: 96px 0;
+  }
+  .intro-text {
+    grid-column: 1 / 5;
+    margin-top: 0;
+    font-size: 42px;
+  }
+  .intro-meta {
+    grid-column: 1 / 5;
+    margin-top: 36px;
+  }
+  .work {
+    padding: 96px 0;
+  }
+  .section-head {
+    margin-bottom: 64px;
+  }
+  .section-title {
+    grid-column: 1 / 5;
+    margin-top: 0;
+    font-size: 62px;
+  }
+  .project {
+    margin-bottom: 96px;
+  }
+  .visual,
+  .p1 .visual,
+  .p2 .visual,
+  .p3 .visual,
+  .p4 .visual {
+    grid-column: 1 / 5;
+    min-height: 400px;
+    transform: none !important;
+  }
+  .p1 .project-info,
+  .p2 .project-info,
+  .p3 .project-info,
+  .p4 .project-info {
+    grid-column: 1 / 5;
+    grid-row: auto;
+    margin: 0;
+    padding: 24px 0 0;
+    border: 0;
+    background: transparent;
+  }
+  .project-num {
+    font-size: 56px;
+    margin: 24px 0;
+  }
+  .p3 .project-info,
+  .p4 .project-info {
+    padding-inline: 16px;
+  }
+  .p3 .visual,
+  .p4 .visual {
+    min-height: 460px;
+  }
+  .lab {
+    padding: 72px 0 96px;
+  }
+  .lab-head {
+    grid-column: 1 / 5;
+    font-size: 70px;
+  }
+  .lab-copy {
+    grid-column: 1 / 5;
+    margin-top: 32px;
+  }
+  .lab-stage {
+    grid-column: 1 / 5;
+    height: 420px;
+  }
+  .lab-object {
+    width: 190px;
+  }
+  .cap-title {
+    grid-column: 1 / 5;
+  }
+  .cap-list {
+    grid-column: 1 / 5;
+    margin-top: 56px;
+  }
+  .cap-row {
+    grid-template-columns: 48px 1fr;
+  }
+  .cap-row span:last-child {
+    grid-column: 2;
+  }
+  .experience {
+    padding: 96px 0;
+  }
+  .exp-title {
+    grid-column: 1 / 5;
+    margin-bottom: 64px;
+    font-size: 61px;
+  }
+  .timeline {
+    grid-column: 1 / 5;
+  }
+  .time-row {
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+  }
+  .time-row p {
+    grid-column: 2;
+  }
+  .contact {
+    min-height: 780px;
+    padding: 96px 0 48px;
+  }
+  .contact h2 {
+    grid-column: 1 / 5;
+    font-size: 72px;
+    margin: 14vh 0 72px;
+  }
+  .contact-links {
+    grid-column: 1 / 5;
+  }
+  .contact-orb {
+    width: 52vw;
+    right: -14vw;
+  }
+  .footer {
+    font-size: 11px;
+    padding: 24px 16px;
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- Site Navigation -->
+<header class="site-nav">
+  <a class="mark" href="#top" aria-label="Muhammad Arsalan - Back to top">MA®</a>
+  <nav class="navlinks" aria-label="Primary Navigation">
+    <a href="#work">Work</a>
+    <a href="#lab">Lab</a>
+    <a href="#contact">Contact</a>
+    <a href="cv.html" target="_blank" rel="noopener noreferrer">CV ↗</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- 01 Hero Section -->
+  <section class="hero">
+    <div class="grid">
+      <div class="mono hero-count">
+        EX FLYRANK INTERN
+      </div>
+      <h1 class="hero-title">
+        <span>Build</span>
+        <span>Create</span>
+        <span>Experiment</span>
+      </h1>
+    </div>
+
+    <!-- 3D Interactive Sculpture -->
+    <div class="sculpture" aria-hidden="true">
+      <div class="ring3d"></div>
+      <div class="plane"></div>
+      <div class="orb"></div>
+      <div class="bit"></div>
+      <div class="bit b2"></div>
+    </div>
+
+    <div class="hero-bottom grid">
+      <p class="hero-copy">
+        Muhammad Arsalan — Independent AI Engineer architecting autonomous multi-agent pipelines, machine learning systems, and robotics architectures.
+      </p>
+
+      <div class="hero-actions">
+        <button type="button" class="button primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})" aria-label="Explore Systems - View Work">
+          <span class="sr-only">Explore Systems — View Work</span>
+          <span class="swap" aria-hidden="true">
+            <span>Explore Systems</span>
+            <span>View Work →</span>
+          </span>
+        </button>
+        <button type="button" class="button secondary" onclick="window.open('https://wa.me/923356157357', '_blank', 'noopener,noreferrer')" aria-label="Get in Touch on WhatsApp">
+          <span class="sr-only">Get in Touch — WhatsApp</span>
+          <span class="swap" aria-hidden="true">
+            <span>Get in Touch</span>
+            <span>WhatsApp →</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="mono scroll-note">Scroll to explore ↓</div>
+    </div>
+  </section>
+
+  <!-- 02 Introduction Section -->
+  <section class="intro">
+    <div class="grid">
+      <p class="intro-text reveal">
+        I turn complex high-dimensional problems into <span class="accent">clear autonomous systems</span> with algorithmic precision, purpose, and physical embodiment.
+      </p>
+      <p class="intro-meta reveal">
+        Specializing in LLM pipelines, autonomous agents, and closed-loop multi-DOF robotics. Ex-FlyRank AI Intern.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 Selected Work Archive -->
+  <section class="work" id="work">
+    <div class="grid section-head">
+      <h2 class="section-title reveal">Selected<br>Work</h2>
+    </div>
+
+    <!-- Project 01: RoboNova (Composition 1: Left visual, right info) -->
+    <article class="project p1 grid reveal">
+      <div class="visual project-hover" aria-label="RoboNova visual artwork">
+        <div class="art-type">Robo<br>Nova</div>
+        <div class="art-window"></div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">01</div>
+        <h3 class="project-title">RoboNova</h3>
+        <div class="project-meta mono">
+          <span>Robotics &amp; Hardware</span>
+          <span>2026</span>
+        </div>
+        <p class="project-desc">
+          Hardware-software autonomous robotics platform featuring multi-DOF kinematics, closed-loop motor drivers, and telemetry running a Sense → Think → Act loop.
+        </p>
+        <a class="text-link" href="https://github.com/24pwai0015-max" target="_blank" rel="noopener noreferrer" aria-label="View RoboNova project - Private hardware repository">
+          [Private Hardware Repo / Profile] <span>→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 02: Nexus AI (Composition 2: Right visual, left info) -->
+    <article class="project p2 grid reveal">
+      <div class="visual project-hover" aria-label="Nexus AI visual artwork">
+        <div class="art-type">Nexus<br>AI</div>
+        <div class="art-window"></div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">02</div>
+        <h3 class="project-title">Nexus AI</h3>
+        <div class="project-meta mono">
+          <span>Agent Automation</span>
+          <span>2025</span>
+        </div>
+        <p class="project-desc">
+          Autonomous multimodal intelligence platform built with FastAPI, multi-agent workflow orchestration, tool invocation, and persistent memory pipelines.
+        </p>
+        <a class="text-link" href="https://github.com/24pwai0015-max/nexus-ai" target="_blank" rel="noopener noreferrer" aria-label="View Nexus AI repository on GitHub">
+          View project <span>→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 03: FlyRank ML Pipeline (Composition 3: Full-width visual, overlapping lime info) -->
+    <article class="project p3 grid reveal">
+      <div class="visual project-hover" aria-label="FlyRank ML Pipeline visual artwork">
+        <div class="art-type">Fly<br>Rank</div>
+        <div class="art-window"></div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">03</div>
+        <h3 class="project-title">FlyRank ML Pipeline</h3>
+        <div class="project-meta mono">
+          <span>Production ML</span>
+          <span>2024</span>
+        </div>
+        <p class="project-desc">
+          Production-grade classification, evaluation, and NLP pipelines engineered during FlyRank AI internship (Completed).
+        </p>
+        <a class="text-link" href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank" rel="noopener noreferrer" aria-label="View FlyRank ML Pipeline repository on GitHub">
+          View project <span>→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 04: Data Analytics & EDA (Composition 4: Asymmetric coral visual, overlapping paper info) -->
+    <article class="project p4 grid reveal">
+      <div class="visual project-hover" aria-label="Data Analytics and EDA visual artwork">
+        <div class="art-type">Data<br>EDA</div>
+        <div class="art-window"></div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">04</div>
+        <h3 class="project-title">Data Analytics &amp; EDA</h3>
+        <div class="project-meta mono">
+          <span>Data Science &amp; ML</span>
+          <span>2024</span>
+        </div>
+        <p class="project-desc">
+          Statistical modeling, exploratory data analysis, and predictive feature engineering using NumPy, Pandas, Matplotlib, and Seaborn.
+        </p>
+        <a class="text-link" href="https://github.com/24pwai0015-max/data-analytics" target="_blank" rel="noopener noreferrer" aria-label="View Data Analytics repository on GitHub">
+          View project <span>→</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- 04 Digital Lab Section -->
+  <section class="lab" id="lab">
+    <div class="grid">
+      <h2 class="lab-head reveal">Digital<br>Lab</h2>
+      <p class="lab-copy reveal">
+        A place for multi-agent orchestration, spatial interfaces, closed-loop control, and useful accidents.
+      </p>
+      <div class="lab-stage">
+        <div class="lab-object" aria-hidden="true">
+          <div class="lab-orbit"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Capabilities Taxonomy -->
+  <section class="capabilities" id="capabilities">
+    <div class="grid">
+      <h2 class="cap-title reveal">Built across disciplines.</h2>
+      <div class="cap-list reveal">
+        <div class="cap-row">
+          <span class="mono">01</span>
+          <h3>AI &amp; Machine Learning</h3>
+          <span class="mono">Agents / LLM / Statistical Models</span>
+        </div>
+        <div class="cap-row">
+          <span class="mono">02</span>
+          <h3>Robotics &amp; Embodied AI</h3>
+          <span class="mono">Sensors / Actuators / Kinematics</span>
+        </div>
+        <div class="cap-row">
+          <span class="mono">03</span>
+          <h3>Data Science &amp; Analytics</h3>
+          <span class="mono">NumPy / Pandas / Feature Scaling</span>
+        </div>
+        <div class="cap-row">
+          <span class="mono">04</span>
+          <h3>AI + Robotics Integration</h3>
+          <span class="mono">Sense → Think → Act / Control</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Experience Timeline -->
+  <section class="experience" id="experience">
+    <div class="grid">
+      <h2 class="exp-title reveal">Experience</h2>
+      <div class="timeline reveal">
+        <div class="time-row">
+          <span class="mono">2024—2025</span>
+          <h3>FlyRank AI</h3>
+          <p>AI / NLP Engineering Intern (Completed industry ML pipelines).</p>
+        </div>
+        <div class="time-row">
+          <span class="mono">2023—Now</span>
+          <h3>BS Artificial Intelligence</h3>
+          <p>Intensive 4-semester coursework, academic &amp; systems research.</p>
+        </div>
+        <div class="time-row">
+          <span class="mono">2024—Now</span>
+          <h3>Independent AI Engineer</h3>
+          <p>Architecting RoboNova kinematics and Nexus AI agent platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 Contact Section -->
+  <section class="contact" id="contact">
+    <div class="grid">
+      <h2 class="reveal">Let's build<br>something.</h2>
+      <div class="contact-links reveal">
+        <a href="https://wa.me/923356157357" target="_blank" rel="noopener noreferrer" class="contact-icon-btn" aria-label="WhatsApp (+92 335 6157357)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.08-1.1l-.29-.17-3.12.82.83-3.04-.19-.3a8.212 8.212 0 0 1-1.26-4.45c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+          </svg>
+        </a>
+        <a href="mailto:arsalan.vault@gmail.com" class="contact-icon-btn" aria-label="Email (arsalan.vault@gmail.com)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
+        <a href="https://github.com/24pwai0015-max" target="_blank" rel="noopener noreferrer" class="contact-icon-btn" aria-label="GitHub (24pwai0015-max)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <a href="cv.html" target="_blank" rel="noopener noreferrer" class="contact-icon-btn" aria-label="Curriculum Vitae">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-orb" aria-hidden="true"></div>
+  </section>
+</main>
+
+<footer class="footer mono">
+  <span>© 2026 Muhammad Arsalan</span>
+  <span>Made with intent</span>
+  <button type="button" class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">Top ↑</button>
+</footer>
+
+<script>
+(function() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches && window.innerWidth > 640;
+
+  // Custom Cursor
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  let isCursorVisible = false;
+
+  if (isFinePointer && dot && ring) {
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!isCursorVisible) {
+        isCursorVisible = true;
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+      }
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+
+      // 3D Sculpture lerp target
+      const s = document.querySelector('.sculpture');
+      if (s) {
+        const cx = window.innerWidth * 0.78;
+        const cy = window.innerHeight * 0.42;
+        const dx = (mx - cx) / window.innerWidth;
+        const dy = (my - cy) / window.innerHeight;
+        s.style.setProperty('--ry', `${(18 + dx * 24).toFixed(2)}deg`);
+        s.style.setProperty('--rx', `${(-8 - dy * 20).toFixed(2)}deg`);
+      }
+
+      // Digital Lab Object
+      const stage = document.querySelector('.lab-stage');
+      const labObj = document.querySelector('.lab-object');
+      if (stage && labObj) {
+        const rect = stage.getBoundingClientRect();
+        if (my >= rect.top && my <= rect.bottom && mx >= rect.left && mx <= rect.right) {
+          const xPercent = Math.max(15, Math.min(85, ((mx - rect.left) / rect.width) * 100));
+          const yPercent = Math.max(20, Math.min(80, ((my - rect.top) / rect.height) * 100));
+          labObj.style.left = `${xPercent.toFixed(1)}%`;
+          labObj.style.top = `${yPercent.toFixed(1)}%`;
         }
       }
-    };
-  </script>
-</head>
-
-<body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary selection:text-surface-base min-h-screen flex flex-col justify-between">
-
-  <!-- ==================== FIXED NAVIGATION HEADER ==================== -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-surface-base/95 backdrop-blur-md border-b border-border-hairline transition-all duration-300">
-    <div class="h-16 w-full px-margin-tablet lg:px-margin-desktop flex items-center justify-between">
-      <div class="flex items-center gap-5">
-        <a class="flex items-center gap-3 focus:outline-none group" href="#hero">
-          <div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
-            <img alt="Muhammad Arsalan" class="w-full h-full object-cover object-top" src="assets/profile.jpg"/>
-          </div>
-          <span class="font-headline-md tracking-tight font-bold text-primary hidden sm:inline-block transition-colors duration-200 group-hover:text-text-secondary">
-            M. ARSALAN
-          </span>
-        </a>
-        <div class="hidden xl:flex items-center gap-2 pl-5 border-l border-border-hairline font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Ex-FlyRank AI Intern · Available for Commissions</span>
-        </div>
-      </div>
-
-      <nav class="hidden lg:flex items-center h-full">
-        <a class="h-full flex items-center px-3.5 uppercase tracking-wider text-primary border-b-2 border-primary font-medium text-xs transition-all duration-200" href="#work">01 Work</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#units">02 Units</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#skills">03 Skills</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#founder">04 Profile</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#workflow">05 Process</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#intake">06 Contact</a>
-        <a class="h-full flex items-center px-3.5 font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-all duration-200 border-b-2 border-transparent hover:border-primary" href="cv.html" target="_blank">CV ↗</a>
-      </nav>
-
-      <div class="flex items-center gap-3 sm:gap-5">
-        <a class="group relative inline-flex items-center justify-center bg-primary text-surface-base hover:bg-surface-base hover:text-primary border border-primary px-3.5 sm:px-4 py-2 font-ticker-label text-ticker-label uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.18)]" href="#intake">
-          <span>Start a Project</span>
-          <span class="inline-block transition-transform duration-300 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-        </a>
-
-        <div class="flex items-center gap-2 pl-3 border-l border-border-hairline group cursor-pointer" onclick="document.getElementById('founder').scrollIntoView({behavior:'smooth'})">
-          <div class="hidden 2xl:flex flex-col text-right">
-            <span class="font-meta-mono text-meta-mono leading-none text-primary group-hover:text-text-secondary transition-colors">M. Arsalan</span>
-            <span class="font-meta-mono text-[9px] text-text-tertiary uppercase leading-none mt-1">AI &amp; Robotics</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main class="w-full pt-16 bg-surface-base flex-1">
-    <div class="flex flex-col w-full text-on-surface">
-
-      <!-- 00 HERO SECTION -->
-      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-10 lg:py-16 flex flex-col justify-between" id="hero">
-        <!-- Meta overline bar -->
-        <div class="reveal-on-scroll flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-8">
-          <div class="flex items-center gap-3">
-            <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
-              INDEPENDENT AI ENGINEER / MACHINE LEARNING + EMBODIED ROBOTICS — MA — 01
-            </span>
-          </div>
-          <div class="flex items-center gap-3 text-text-tertiary font-meta-mono text-meta-mono uppercase tracking-wider">
-            <span>AI AGENTS / LLM / DATA SCIENCE / ROBOTICS</span>
-            <span class="hidden md:inline text-text-secondary">✦</span>
-            <span class="hidden md:inline">EX-FLYRANK AI INTERN</span>
-          </div>
-        </div>
-
-        <!-- Stark Brutalist Title & Headline Matrix -->
-        <div class="py-4 lg:py-8">
-          <h1 class="reveal-on-scroll delay-100 font-display-super text-display-super text-primary tracking-tighter uppercase font-bold leading-none select-none hover:tracking-tight transition-all duration-500">
-            MUHAMMAD<br class="hidden sm:inline"/> ARSALAN
-          </h1>
-          <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-8 reveal-on-scroll delay-200">
-              <p class="font-headline-editorial text-headline-editorial text-primary leading-tight max-w-2xl">
-                We architect <span class="italic text-text-secondary">autonomous AI systems</span>, machine intelligence and embodied robotics that are engineered to think, act, and scale.
-              </p>
-            </div>
-            <div class="lg:col-span-4 flex flex-col gap-3 reveal-on-scroll delay-300">
-              <div class="flex flex-wrap items-center gap-3">
-                <a class="group inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-elevated hover:text-primary transition-all duration-200 px-5 py-2.5 font-ticker-label text-ticker-label uppercase tracking-widest font-semibold shadow-md hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:-translate-y-0.5" href="#intake">
-                  <span>Start a project</span>
-                  <span class="inline-block transition-transform duration-300 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-                </a>
-                <a class="inline-flex items-center justify-center bg-surface-container text-primary hover:bg-surface-container-high transition-all duration-200 px-5 py-2.5 font-ticker-label text-ticker-label uppercase tracking-wider" href="#work">
-                  Explore Systems →
-                </a>
-              </div>
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">
-                SCROLL TO EXPLORE ARCHIVAL DIVISIONS &amp; ENGINEERING REPERTORY
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dual Compact Quick-Look Modules -->
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Unit 01 Card -->
-          <div class="reveal-on-scroll delay-200 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-5 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container cursor-pointer" onclick="document.getElementById('units').scrollIntoView({behavior:'smooth'})">
-            <div>
-              <div class="flex items-center justify-between pb-3">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">UNIT / 01</span>
-                <span class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform duration-300 text-lg">add</span>
-              </div>
-              <h3 class="font-headline-md text-primary font-bold uppercase tracking-tight">AI &amp; MACHINE LEARNING</h3>
-              <p class="font-body-md text-text-secondary mt-1.5 text-sm">Autonomous Agent Pipelines, Generative AI, LLM Application Architecture, and Statistical Modeling.</p>
-            </div>
-            <div class="pt-4 flex flex-wrap gap-2">
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">AI AGENTS</span>
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">LLM SYSTEMS</span>
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">DATA SCIENCE</span>
-            </div>
-          </div>
-
-          <!-- Unit 02 Card -->
-          <div class="reveal-on-scroll delay-300 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-5 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container cursor-pointer" onclick="document.getElementById('units').scrollIntoView({behavior:'smooth'})">
-            <div>
-              <div class="flex items-center justify-between pb-3">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">UNIT / 02</span>
-                <span class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform duration-300 text-lg">add</span>
-              </div>
-              <h3 class="font-headline-md text-primary font-bold uppercase tracking-tight">ROBOTICS &amp; EMBODIED AI</h3>
-              <p class="font-body-md text-text-secondary mt-1.5 text-sm">Sensors &amp; Actuators, Motor Driver Topologies, Robot Locomotion, and Sense → Think → Act Control Loops.</p>
-            </div>
-            <div class="pt-4 flex flex-wrap gap-2">
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">SENSORS</span>
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">ACTUATORS</span>
-              <span class="font-meta-mono text-[10px] px-2 py-0.5 bg-surface-container text-text-secondary border border-border-hairline">CIRCUITS</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Continuous Running Marquee Strip -->
-      <div class="w-full bg-surface-pitch py-3 overflow-hidden shadow-sm select-none border-y border-border-hairline">
-        <div class="flex whitespace-nowrap animate-marquee">
-          <div class="flex items-center gap-7 font-ticker-label text-ticker-label text-primary tracking-widest uppercase">
-            <span>AI AGENTS</span><span class="text-accent-star">✦</span>
-            <span>MACHINE LEARNING</span><span class="text-accent-star">✦</span>
-            <span>AUTONOMOUS ROBOTICS</span><span class="text-accent-star">✦</span>
-            <span>LLM ARCHITECTURE</span><span class="text-accent-star">✦</span>
-            <span>DATA SCIENCE</span><span class="text-accent-star">✦</span>
-            <span>SENSORS &amp; ACTUATORS</span><span class="text-accent-star">✦</span>
-            <span>SYSTEM ARCHITECTURE</span><span class="text-accent-star">✦</span>
-            <span>NUMPY &amp; PANDAS</span><span class="text-accent-star">✦</span>
-            <span>MOTOR DRIVERS</span><span class="text-accent-star">✦</span>
-            <span>AI AGENTS</span><span class="text-accent-star">✦</span>
-            <span>MACHINE LEARNING</span><span class="text-accent-star">✦</span>
-            <span>AUTONOMOUS ROBOTICS</span><span class="text-accent-star">✦</span>
-            <span>LLM ARCHITECTURE</span><span class="text-accent-star">✦</span>
-            <span>DATA SCIENCE</span><span class="text-accent-star">✦</span>
-            <span>SENSORS &amp; ACTUATORS</span><span class="text-accent-star">✦</span>
-            <span>SYSTEM ARCHITECTURE</span><span class="text-accent-star">✦</span>
-            <span>NUMPY &amp; PANDAS</span><span class="text-accent-star">✦</span>
-            <span>MOTOR DRIVERS</span><span class="text-accent-star">✦</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 01 SPECIALIST UNITS SPLIT SECTION (Sleek Compact Cards) -->
-      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-14 lg:py-20" id="units">
-        <div class="flex flex-col mb-10 reveal-on-scroll">
-          <div class="flex items-center gap-3">
-            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest">[ DIVISION ARCHITECTURE ]</span>
-            <span class="font-meta-mono text-meta-mono text-text-secondary uppercase tracking-widest">01 — TWO SPECIALIST UNITS. ONE ENGINEERING STANDARD.</span>
-          </div>
-          <h2 class="font-headline-xl text-primary font-bold mt-3 tracking-tight max-w-3xl">
-            We build the <span class="font-headline-editorial italic font-normal text-text-secondary">computational intelligence</span> that moves ideas.
-          </h2>
-          <p class="font-body-lg text-text-secondary mt-2 max-w-2xl text-sm sm:text-base">
-            Combining algorithmic precision, mathematical rigor, and hardware control into one unified practice. Our AI Unit engineers agentic reasoning systems and data pipelines. Our Robotics Unit translates intelligence into physical actuation and multi-DOF locomotion.
-          </p>
-        </div>
-
-        <!-- Units Dual Bento Split -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <!-- UNIT 01: AI & ML UNIT -->
-          <div class="reveal-on-scroll delay-100 bg-surface-container-low border border-border-hairline hover:border-white/40 p-6 lg:p-7 flex flex-col justify-between shadow-md group transition-all duration-300 hover:bg-zinc-900/60 hover:-translate-y-1">
-            <div>
-              <div class="flex items-center justify-between pb-4 border-b border-border-hairline/60">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary group-hover:text-primary transition-colors">UNIT / 01 — AI &amp; MACHINE LEARNING</span>
-                <span class="font-meta-mono text-meta-mono text-text-secondary uppercase">SYS_REF: AI-01</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight mt-4 group-hover:translate-x-0.5 transition-transform duration-300 font-headline-lg">
-                AI &amp; ML Unit
-              </h3>
-              <p class="font-body-md text-text-secondary mt-3 leading-relaxed text-sm">
-                Autonomous agent pipelines, generative models, LLM systems, and deep data science designed to process high-dimensional problems into reliable decisions.
-              </p>
-              <!-- Compact Service Pills Grid -->
-              <div class="mt-5 flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">AI Fundamentals</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Machine Learning</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Generative AI</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">LLM &amp; AI App Dev</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">AI Agents &amp; Automation</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">AI System Architecture</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">AI + Robotics Integration</span>
-              </div>
-            </div>
-            <div class="mt-7 pt-5 flex items-center justify-between border-t border-border-hairline">
-              <a class="inline-flex items-center gap-1.5 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:text-text-secondary transition-colors group/link" href="#work">
-                <span>[ Enter AI Unit ]</span>
-                <span class="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
-              </a>
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">07 CAPABILITIES</span>
-            </div>
-          </div>
-
-          <!-- UNIT 02: ROBOTICS UNIT -->
-          <div class="reveal-on-scroll delay-200 bg-surface-container-low border border-border-hairline hover:border-white/40 p-6 lg:p-7 flex flex-col justify-between shadow-md group transition-all duration-300 hover:bg-zinc-900/60 hover:-translate-y-1">
-            <div>
-              <div class="flex items-center justify-between pb-4 border-b border-border-hairline/60">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary group-hover:text-primary transition-colors">UNIT / 02 — ROBOTICS &amp; EMBODIED AI</span>
-                <span class="font-meta-mono text-meta-mono text-text-secondary uppercase">SYS_REF: ROB-02</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight mt-4 group-hover:translate-x-0.5 transition-transform duration-300 font-headline-lg">
-                Robotics Unit
-              </h3>
-              <p class="font-body-md text-text-secondary mt-3 leading-relaxed text-sm">
-                Robot anatomy, sensor fusion, multi-axis actuation, circuit schematics, and closed-loop motor drivers engineered for reliable physical-world operation.
-              </p>
-              <!-- Compact Service Pills Grid -->
-              <div class="mt-5 flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Robotics Fundamentals</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Robot Anatomy</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Sensors &amp; Actuators</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Degrees of Freedom (DOF)</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Robot Locomotion</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Circuits &amp; Wiring</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Motor Drivers</span>
-                <span class="px-2.5 py-1 bg-surface-container-high text-primary border border-border-hairline font-meta-mono text-[11px] uppercase">Sense → Think → Act</span>
-              </div>
-            </div>
-            <div class="mt-7 pt-5 flex items-center justify-between border-t border-border-hairline">
-              <a class="inline-flex items-center gap-1.5 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:text-text-secondary transition-colors group/link" href="#work">
-                <span>[ Enter Robotics Unit ]</span>
-                <span class="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
-              </a>
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">08 CAPABILITIES</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 02 LEADERSHIP & FOUNDER SPOTLIGHT (Using User's Profile Image) -->
-      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline" id="founder">
-        <div class="max-w-6xl mx-auto">
-          <div class="pb-6 reveal-on-scroll">
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">
-              [ ARCHITECTURAL MASTHEAD / 02 ]
-            </span>
-            <span class="ml-3 font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
-              ENGINEER / LEAD ARCHITECT, ROBONOVA &amp; NEXUS AI
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            <!-- User Profile Photo -->
-            <div class="lg:col-span-5 relative reveal-on-scroll delay-100">
-              <div class="w-full max-w-md mx-auto aspect-[3/4] bg-surface-container-lowest overflow-hidden shadow-2xl relative group border border-border-hairline hover:border-white/30 transition-all duration-500">
-                <img alt="Muhammad Arsalan - AI &amp; Robotics Engineer" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" src="assets/profile.jpg"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="absolute bottom-3 left-3 bg-surface-pitch/85 backdrop-blur-md px-3 py-1 font-meta-mono text-meta-mono text-text-secondary uppercase border border-border-hairline group-hover:border-primary/40 transition-colors">
-                  LOC: PESHAWAR, PK / GLOBAL REMOTE
-                </div>
-              </div>
-            </div>
-
-            <!-- Narrative & Editorial Statement -->
-            <div class="lg:col-span-7 flex flex-col space-y-5 reveal-on-scroll delay-200">
-              <div class="space-y-1.5">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">FOUNDER &amp; AI ENGINEER</span>
-                <h2 class="text-3xl sm:text-4xl text-primary font-bold tracking-tight font-headline-lg">
-                  Muhammad<br/>Arsalan
-                </h2>
-                <p class="font-ticker-label text-ticker-label uppercase text-text-secondary tracking-widest">
-                  FORMER AI/NLP INTERN AT FLYRANK AI (COMPLETED) · BS ARTIFICIAL INTELLIGENCE
-                </p>
-              </div>
-
-              <blockquote class="font-headline-editorial text-2xl text-primary italic leading-relaxed py-1 border-l-2 border-primary/40 pl-5 my-1 hover:border-primary transition-colors">
-                "Autonomous machines must move past toys and demos. We unite mathematical learning models, multi-agent reasoning, and closed-loop robotics into one disciplined architecture — giving software the ability to think, reason, and act in the physical world."
-              </blockquote>
-
-              <p class="font-body-md text-text-secondary leading-relaxed text-sm">
-                Completed industry-standard machine learning and natural language processing pipelines during my internship at FlyRank AI, alongside 4 semesters of intensive BS Artificial Intelligence coursework. My focus is engineering production-ready agent automation and physical multi-DOF robotics systems.
-              </p>
-
-              <div class="pt-2 flex flex-wrap items-center gap-5">
-                <a class="group inline-flex items-center gap-1.5 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:underline underline-offset-8 transition-colors text-xs" href="cv.html" target="_blank">
-                  <span>View Full Curriculum Vitae</span>
-                  <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-                <span class="text-text-tertiary">/</span>
-                <a class="font-meta-mono text-meta-mono text-text-secondary hover:text-primary uppercase tracking-wider transition-colors text-xs" href="mailto:arsalan.vault@gmail.com">
-                  arsalan.vault@gmail.com ↗
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 03 CREATIVE DIRECTIONS & FEATURED WORK SHOWCASE (Sleek Compact Cards) -->
-      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline" id="work">
-        <div class="flex flex-col md:flex-row md:items-end justify-between pb-8 gap-4 reveal-on-scroll">
-          <div>
-            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest block mb-1">
-              CURATED REPERTORY / 03
-            </span>
-            <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-              Engineered systems.<br/>
-              <span class="font-headline-editorial italic font-normal text-text-secondary text-xl sm:text-2xl">Built with mathematical rigor. Built for autonomous scale.</span>
-            </h2>
-          </div>
-          <div class="font-meta-mono text-meta-mono text-text-secondary uppercase text-right hidden md:block">
-            <div>PORTFOLIO REGISTRY 2024—2026</div>
-            <div class="text-text-tertiary text-[10px] mt-0.5">STATUS: PRODUCTION COMPLETE</div>
-          </div>
-        </div>
-
-        <!-- 3-Column Architectural Project Matrix (Compact Cards) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <!-- Direction Card 01: RoboNova -->
-          <div class="reveal-on-scroll delay-100 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-5 flex flex-col justify-between shadow-md group hover:bg-surface-container-low hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div>
-              <div class="flex items-center justify-between pb-5">
-                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors text-[10px]">A/01</span>
-                <span class="font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">ROBOTICS &amp; HARDWARE</span>
-              </div>
-              <!-- Monochromatic SVG Graphic Symbol -->
-              <div class="py-3 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
-                <svg class="w-12 h-12 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
-                  <rect height="50" width="50" x="15" y="15"></rect>
-                  <circle cx="40" cy="40" r="16" stroke-dasharray="3 3"></circle>
-                  <line x1="15" x2="65" y1="15" y2="65"></line>
-                  <circle cx="40" cy="40" r="4" fill="currentColor"></circle>
-                </svg>
-              </div>
-              <h3 class="text-lg font-bold text-primary uppercase tracking-tight mt-3 group-hover:text-white transition-colors font-headline-md">
-                ROBONOVA<br/>AUTONOMOUS ROBOTICS.
-              </h3>
-              <p class="font-body-md text-text-secondary mt-2 text-xs leading-relaxed">
-                Hardware-software robotics platform featuring multi-DOF kinematics, closed-loop motor drivers, and sensor telemetry running a Sense → Think → Act control loop.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border-hairline">
-              <span class="font-meta-mono text-[10px] uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
-              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1 text-xs" href="https://github.com/24pwai0015-max/roboNova" target="_blank">
-                <span>Sensors / Actuators / Hardware</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Direction Card 02: NEXUS AI -->
-          <div class="reveal-on-scroll delay-200 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-5 flex flex-col justify-between shadow-md group hover:bg-surface-container-low hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div>
-              <div class="flex items-center justify-between pb-5">
-                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors text-[10px]">B/02</span>
-                <span class="font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">AGENT AUTOMATION</span>
-              </div>
-              <!-- Monochromatic SVG Graphic Symbol -->
-              <div class="py-3 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
-                <svg class="w-12 h-12 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
-                  <path d="M15 15 H65 V65 H15 Z"></path>
-                  <path d="M25 25 H55 M25 35 H55 M25 45 H45 M25 55 H35"></path>
-                  <circle cx="55" cy="55" r="4" fill="currentColor"></circle>
-                </svg>
-              </div>
-              <h3 class="text-lg font-bold text-primary uppercase tracking-tight mt-3 group-hover:text-white transition-colors font-headline-md">
-                NEXUS AI<br/>MULTIMODAL INTELLIGENCE.
-              </h3>
-              <p class="font-body-md text-text-secondary mt-2 text-xs leading-relaxed">
-                Autonomous multimodal intelligence platform built with FastAPI, multi-agent workflow orchestration, tool invocation, and persistent memory pipelines.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border-hairline">
-              <span class="font-meta-mono text-[10px] uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
-              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1 text-xs" href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
-                <span>FastAPI / Agents / LLM Pipelines</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Direction Card 03: Data Analytics & EDA -->
-          <div class="reveal-on-scroll delay-300 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-5 flex flex-col justify-between shadow-md group hover:bg-surface-container-low hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div>
-              <div class="flex items-center justify-between pb-5">
-                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors text-[10px]">C/03</span>
-                <span class="font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">DATA SCIENCE &amp; ML</span>
-              </div>
-              <!-- Monochromatic SVG Graphic Symbol -->
-              <div class="py-3 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
-                <svg class="w-12 h-12 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
-                  <rect height="44" rx="0" width="56" x="12" y="18"></rect>
-                  <line x1="12" x2="68" y1="28" y2="28"></line>
-                  <circle cx="20" cy="23" fill="currentColor" r="1.5"></circle>
-                  <circle cx="26" cy="23" fill="currentColor" r="1.5"></circle>
-                  <line x1="22" x2="22" y1="52" y2="40"></line>
-                  <line x1="32" x2="32" y1="52" y2="34"></line>
-                  <line x1="42" x2="42" y1="52" y2="46"></line>
-                  <line x1="52" x2="52" y1="52" y2="36"></line>
-                </svg>
-              </div>
-              <h3 class="text-lg font-bold text-primary uppercase tracking-tight mt-3 group-hover:text-white transition-colors font-headline-md">
-                DATA ANALYTICS<br/>&amp; STATISTICAL MODELING.
-              </h3>
-              <p class="font-body-md text-text-secondary mt-2 text-xs leading-relaxed">
-                Statistical modeling, exploratory data analysis, and predictive feature engineering using NumPy, Pandas, Matplotlib, and Seaborn for complex datasets.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border-hairline">
-              <span class="font-meta-mono text-[10px] uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
-              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1 text-xs" href="https://github.com/24pwai0015-max/data-analytics" target="_blank">
-                <span>NumPy / Pandas / Statistics</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Additional Extended Project Modules (Compact) -->
-        <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="p-4 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
-            <div>
-              <span class="font-meta-mono text-[9px] text-text-tertiary uppercase">COMPUTER VISION</span>
-              <h4 class="font-headline-md text-primary font-semibold mt-1 text-base">AI Attendance System</h4>
-              <p class="font-body-md text-text-secondary text-xs mt-1.5 leading-relaxed">Real-time facial detection and recognition pipeline for automated, contactless presence tracking.</p>
-            </div>
-            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase mt-3 block text-[10px]">OpenCV / Python</span>
-          </div>
-
-          <div class="p-4 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
-            <div>
-              <span class="font-meta-mono text-[9px] text-text-tertiary uppercase">PRODUCTION ML</span>
-              <h4 class="font-headline-md text-primary font-semibold mt-1 text-base">FlyRank ML Pipeline</h4>
-              <p class="font-body-md text-text-secondary text-xs mt-1.5 leading-relaxed">Production-grade classification and NLP evaluation pipelines developed during FlyRank AI internship.</p>
-            </div>
-            <a class="font-meta-mono text-meta-mono text-primary uppercase mt-3 flex items-center justify-between hover:underline text-[10px]" href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank">
-              <span>FlyRank AI Repo</span><span>↗</span>
-            </a>
-          </div>
-
-          <div class="p-4 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
-            <div>
-              <span class="font-meta-mono text-[9px] text-text-tertiary uppercase">PREDICTIVE ANALYTICS</span>
-              <h4 class="font-headline-md text-primary font-semibold mt-1 text-base">Delivery Time Predictor</h4>
-              <p class="font-body-md text-text-secondary text-xs mt-1.5 leading-relaxed">End-to-end regression model with multi-variable feature scaling and real-time delivery estimation.</p>
-            </div>
-            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase mt-3 block text-[10px]">Scikit-Learn / Pandas</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 04 COMPREHENSIVE SKILLS & CAPABILITIES MATRIX (Sleek Compact Compartments) -->
-      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline" id="skills">
-        <div class="max-w-6xl mx-auto">
-          <div class="mb-10 reveal-on-scroll">
-            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest block mb-1">
-              TECHNICAL TAXONOMY / 04
-            </span>
-            <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-              Verified Technical Stack &amp; Capabilities.
-            </h2>
-            <p class="font-body-lg text-text-secondary mt-2 max-w-2xl text-xs sm:text-sm">
-              Core proficiencies across AI engineering, systems programming, statistical data science, physical robotics, and production platforms.
-            </p>
-          </div>
-
-          <!-- Zero-gutter architectural skills matrix (Compact) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            
-            <!-- Skill Category 01: AI & Machine Learning -->
-            <div class="bg-surface-container-low p-5 border border-border-hairline flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-border-hairline">
-                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">01 // INTELLIGENCE</span>
-                  <span class="font-meta-mono text-meta-mono text-primary font-bold text-[10px]">07 SKILLS</span>
-                </div>
-                <h3 class="font-headline-md text-primary font-bold mt-3 uppercase text-base">AI &amp; Machine Learning</h3>
-                <ul class="mt-4 space-y-1.5 font-meta-mono text-xs text-text-secondary">
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Artificial Intelligence Fundamentals</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Machine Learning Fundamentals</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Generative AI</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> LLM &amp; AI Application Development</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> AI Agents &amp; Agent Automation</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> AI System Architecture</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> AI + Robotics Integration</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Skill Category 02: Robotics & Hardware -->
-            <div class="bg-surface-container-low p-5 border border-border-hairline flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-border-hairline">
-                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">02 // EMBODIED SYSTEMS</span>
-                  <span class="font-meta-mono text-meta-mono text-primary font-bold text-[10px]">14 SKILLS</span>
-                </div>
-                <h3 class="font-headline-md text-primary font-bold mt-3 uppercase text-base">Robotics &amp; Electronics</h3>
-                <ul class="mt-4 space-y-1.5 font-meta-mono text-xs text-text-secondary">
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Robotics Fundamentals</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Robot Anatomy &amp; Architecture</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Sensors &amp; Actuators</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Degrees of Freedom (DOF)</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Robot Locomotion</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Electronics Fundamentals</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Circuits &amp; Wiring</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Voltage, Current &amp; Resistance</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Ohm's Law</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Batteries &amp; Power Systems</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Motor Drivers</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Power Distribution</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Sense → Think → Act Architecture</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Autonomous Robotics</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Skill Category 03: Data Science -->
-            <div class="bg-surface-container-low p-5 border border-border-hairline flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-border-hairline">
-                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">03 // STATISTICAL MODELING</span>
-                  <span class="font-meta-mono text-meta-mono text-primary font-bold text-[10px]">13 SKILLS</span>
-                </div>
-                <h3 class="font-headline-md text-primary font-bold mt-3 uppercase text-base">Data Science</h3>
-                <ul class="mt-4 space-y-1.5 font-meta-mono text-xs text-text-secondary">
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> NumPy &amp; Pandas</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Data Cleaning &amp; Manipulation</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Exploratory Data Analysis (EDA)</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Data Visualization</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Matplotlib &amp; Seaborn</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Statistical Data Analysis</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> DataFrame Operations</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> GroupBy &amp; Aggregation</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Data Merging &amp; Joining</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Pivot Tables &amp; Reshaping</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Skill Category 04: Programming & Development -->
-            <div class="bg-surface-container-low p-5 border border-border-hairline flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-border-hairline">
-                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">04 // SYSTEMS &amp; LANGUAGES</span>
-                  <span class="font-meta-mono text-meta-mono text-primary font-bold text-[10px]">07 SKILLS</span>
-                </div>
-                <h3 class="font-headline-md text-primary font-bold mt-3 uppercase text-base">Programming &amp; Dev</h3>
-                <ul class="mt-4 space-y-1.5 font-meta-mono text-xs text-text-secondary">
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Python (Advanced)</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> C Fundamentals</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Git &amp; GitHub Version Control</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> VS Code Architecture</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Linux / Ubuntu CLI</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> VirtualBox Virtualization</li>
-                  <li class="flex items-center gap-2"><span class="text-primary text-[10px]">✦</span> Google AI Studio</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Skill Category 05: Tools & Platforms -->
-            <div class="bg-surface-container-low p-5 border border-border-hairline flex flex-col justify-between lg:col-span-2">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-border-hairline">
-                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">05 // PLATFORMS &amp; WORKFLOWS</span>
-                  <span class="font-meta-mono text-meta-mono text-primary font-bold text-[10px]">07 SKILLS</span>
-                </div>
-                <h3 class="font-headline-md text-primary font-bold mt-3 uppercase text-base">Tools &amp; Platforms</h3>
-                <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 font-meta-mono text-xs text-text-secondary">
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> GitHub</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Google AI Studio</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Higgsfield</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Google Flow</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> VS Code</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Linux / Ubuntu</div>
-                  <div class="p-2.5 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> VirtualBox</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 5-STAGE STUDIO WORKFLOW & LIVE METRICS -->
-      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline" id="workflow">
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between pb-10 gap-5">
-          <div class="max-w-xl reveal-on-scroll">
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-1">
-              EXECUTION PARADIGM / 05
-            </span>
-            <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-              Less guesswork.<br/>
-              <span class="font-headline-editorial italic font-normal text-text-secondary text-xl sm:text-2xl">More direction.</span>
-            </h2>
-            <p class="font-body-lg text-text-secondary mt-2 text-xs sm:text-sm">
-              Every system moves through a deterministic sequence so intelligence remains verifiable without turning chaotic.
-            </p>
-          </div>
-          <div class="reveal-on-scroll delay-100">
-            <a class="inline-flex items-center justify-center bg-primary text-surface-base hover:bg-surface-elevated hover:text-primary transition-all px-5 py-2.5 font-ticker-label text-ticker-label uppercase tracking-widest font-semibold" href="#intake">
-              Discuss an architecture ↗
-            </a>
-          </div>
-        </div>
-
-        <!-- 5 Sequential Workflow Steps (Compact) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
-          <div class="reveal-on-scroll delay-100 bg-surface-container-low border border-border-hairline p-4 flex flex-col justify-between hover:bg-surface-container transition-colors">
-            <div>
-              <span class="font-display-super text-xl font-bold text-primary block leading-none mb-2">01</span>
-              <h3 class="font-headline-md text-primary font-semibold mb-1 text-sm">Understand</h3>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Establish mathematical constraints, dataset distribution, and operating parameters before coding.
-              </p>
-            </div>
-            <span class="mt-4 font-meta-mono text-[9px] text-text-tertiary uppercase tracking-widest">STAGE // DISCOVERY</span>
-          </div>
-
-          <div class="reveal-on-scroll delay-200 bg-surface-container-low border border-border-hairline p-4 flex flex-col justify-between hover:bg-surface-container transition-colors">
-            <div>
-              <span class="font-display-super text-xl font-bold text-primary block leading-none mb-2">02</span>
-              <h3 class="font-headline-md text-primary font-semibold mb-1 text-sm">Architect</h3>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Formulate agent orchestration schemas, circuit block diagrams, tool APIs, and latency budgets.
-              </p>
-            </div>
-            <span class="mt-4 font-meta-mono text-[9px] text-text-tertiary uppercase tracking-widest">STAGE // ARCHITECTURE</span>
-          </div>
-
-          <div class="reveal-on-scroll delay-300 bg-surface-container-low border border-border-hairline p-4 flex flex-col justify-between hover:bg-surface-container transition-colors">
-            <div>
-              <span class="font-display-super text-xl font-bold text-primary block leading-none mb-2">03</span>
-              <h3 class="font-headline-md text-primary font-semibold mb-1 text-sm">Develop</h3>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Engineer clean Python/C implementations, wire actuator circuits, and fine-tune reasoning prompts.
-              </p>
-            </div>
-            <span class="mt-4 font-meta-mono text-[9px] text-text-tertiary uppercase tracking-widest">STAGE // IMPLEMENTATION</span>
-          </div>
-
-          <div class="reveal-on-scroll delay-400 bg-surface-container-low border border-border-hairline p-4 flex flex-col justify-between hover:bg-surface-container transition-colors">
-            <div>
-              <span class="font-display-super text-xl font-bold text-primary block leading-none mb-2">04</span>
-              <h3 class="font-headline-md text-primary font-semibold mb-1 text-sm">Benchmark</h3>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Validate against ground truth, run stress evaluations, and benchmark sensor latency thresholds.
-              </p>
-            </div>
-            <span class="mt-4 font-meta-mono text-[9px] text-text-tertiary uppercase tracking-widest">STAGE // VERIFICATION</span>
-          </div>
-
-          <div class="reveal-on-scroll delay-500 bg-surface-container-low border border-border-hairline p-4 flex flex-col justify-between hover:bg-surface-container transition-colors">
-            <div>
-              <span class="font-display-super text-xl font-bold text-primary block leading-none mb-2">05</span>
-              <h3 class="font-headline-md text-primary font-semibold mb-1 text-sm">Deploy</h3>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Ship tested endpoints, flash embedded robotics boards, and provide structured documentation for handoff.
-              </p>
-            </div>
-            <span class="mt-4 font-meta-mono text-[9px] text-text-tertiary uppercase tracking-widest">STAGE // PRODUCTION</span>
-          </div>
-        </div>
-
-        <!-- Live Studio Metrics Ribbon (Compact) -->
-        <div class="mt-10 pt-6 grid grid-cols-2 lg:grid-cols-4 gap-4 bg-surface-container-lowest p-6 shadow-inner border border-border-hairline">
-          <div class="flex flex-col">
-            <span class="text-2xl sm:text-3xl text-primary font-bold font-headline-lg">02</span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Specialist Units</span>
-            <span class="font-meta-mono text-[10px] text-text-tertiary">AI &amp; Robotics Divisions</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-2xl sm:text-3xl text-primary font-bold font-headline-lg">06</span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Production Systems</span>
-            <span class="font-meta-mono text-[10px] text-text-tertiary">Verified Codebases</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-2xl sm:text-3xl text-primary font-bold font-headline-lg">05</span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Stage Pipeline</span>
-            <span class="font-meta-mono text-[10px] text-text-tertiary">Systematic Delivery</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-2xl sm:text-3xl text-primary font-bold font-headline-lg">∞</span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Room for Ambition</span>
-            <span class="font-meta-mono text-[10px] text-text-tertiary">Autonomous Capabilities</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 06 OPERATIONAL PRINCIPLES -->
-      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline">
-        <div class="max-w-6xl mx-auto">
-          <div class="mb-8 reveal-on-scroll">
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-1">
-              OPERATIONAL PRINCIPLES / 06
-            </span>
-            <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-              Engineering work without cognitive confusion.
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-surface-container-low border border-border-hairline p-5">
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">01</span>
-              <h4 class="font-headline-md text-primary font-medium mt-2 mb-1.5 text-base">Clear thinking</h4>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Every architectural choice is justified mathematically and practically, keeping feedback centered on outcomes rather than subjective conjecture.
-              </p>
-            </div>
-            <div class="bg-surface-container-low border border-border-hairline p-5">
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">02</span>
-              <h4 class="font-headline-md text-primary font-medium mt-2 mb-1.5 text-base">Visible progress</h4>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Structured checkpoints and traceable Git commits ensure complete visibility over model states, hardware wiring, and milestones.
-              </p>
-            </div>
-            <div class="bg-surface-container-low border border-border-hairline p-5">
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">03</span>
-              <h4 class="font-headline-md text-primary font-medium mt-2 mb-1.5 text-base">System-led design</h4>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                We engineer scalable modular pipelines rather than one-off script snippets, giving every deployment resilience and longevity.
-              </p>
-            </div>
-            <div class="bg-surface-container-low border border-border-hairline p-5">
-              <span class="font-meta-mono text-meta-mono text-text-tertiary">04</span>
-              <h4 class="font-headline-md text-primary font-medium mt-2 mb-1.5 text-base">Production discipline</h4>
-              <p class="font-body-md text-text-secondary text-xs leading-relaxed">
-                Error handling, edge cases, power dissipation, and documentation are designed from day one — never treated as late afterthoughts.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 07 FAQ & PROJECT INTAKE PANEL (With Updated WhatsApp: 03356157357) -->
-      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-14 lg:py-20 border-t border-border-hairline" id="intake">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
-          <!-- FAQ Column (Left) -->
-          <div class="lg:col-span-5 flex flex-col space-y-6">
-            <div class="reveal-on-scroll">
-              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-1">
-                DISCLOSURES &amp; CLARIFICATIONS / 07
-              </span>
-              <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-                Before we begin.
-              </h2>
-              <p class="font-body-md text-text-secondary mt-2 text-xs sm:text-sm">
-                Key details regarding multi-unit scope, engineering availability, and collaboration timelines.
-              </p>
-            </div>
-
-            <!-- Accordions -->
-            <div class="space-y-2.5" id="faq-accordion-group">
-              <!-- Accordion Item 1 -->
-              <div class="bg-surface-container-low border border-border-hairline p-4 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline-md text-sm sm:text-base text-primary font-medium pr-3">
-                    Can a project integrate both AI software and physical robotics?
-                  </span>
-                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon text-sm">add</span>
-                </div>
-                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-xs leading-relaxed">
-                  <div class="pt-3">
-                    Yes. This is the core purpose of my two-unit architecture. We can scope an end-to-end intelligent system combining computer vision or LLM reasoning with motor actuation and microcontrollers.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Accordion Item 2 -->
-              <div class="bg-surface-container-low border border-border-hairline p-4 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline-md text-sm sm:text-base text-primary font-medium pr-3">
-                    What is your engineering tech stack?
-                  </span>
-                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon text-sm">add</span>
-                </div>
-                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-xs leading-relaxed">
-                  <div class="pt-3">
-                    Primary tools include Python, C, FastAPI, NumPy, Pandas, Matplotlib, OpenCV, Git, Linux/Ubuntu, and hardware motor driver architectures. I focus on maintainable, framework-resilient engineering.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Accordion Item 3 -->
-              <div class="bg-surface-container-low border border-border-hairline p-4 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline-md text-sm sm:text-base text-primary font-medium pr-3">
-                    Are you available for remote contracts or research roles?
-                  </span>
-                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon text-sm">add</span>
-                </div>
-                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-xs leading-relaxed">
-                  <div class="pt-3">
-                    Yes. Having completed my internship at FlyRank AI, I welcome high-impact research, open-source initiatives, and contract agent automation projects globally.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Accordion Item 4 -->
-              <div class="bg-surface-container-low border border-border-hairline p-4 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline-md text-sm sm:text-base text-primary font-medium pr-3">
-                    How do collaborations start?
-                  </span>
-                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon text-sm">add</span>
-                </div>
-                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-xs leading-relaxed">
-                  <div class="pt-3">
-                    Use the project brief intake form on this page, connect on WhatsApp (+92 335 6157357), or email me directly at arsalan.vault@gmail.com with your system specifications.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Fast channel direct contacts with User's WhatsApp -->
-            <div class="pt-4">
-              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-2 text-[10px]">DIRECT COMMS</span>
-              <div class="flex flex-wrap gap-3">
-                <a class="px-3.5 py-2 bg-surface-container border border-border-hairline text-primary hover:bg-surface-container-high transition-colors font-meta-mono text-meta-mono uppercase inline-flex items-center gap-1.5 text-xs" href="https://wa.me/923356157357?text=Hi%20Arsalan%2C%20I%20want%20to%20discuss%20an%20AI%20or%20Robotics%20project." target="_blank">
-                  <span class="material-symbols-outlined text-sm text-emerald-400">chat</span>
-                  <span>WhatsApp: 03356157357 ↗</span>
-                </a>
-                <a class="px-3.5 py-2 bg-surface-container border border-border-hairline text-primary hover:bg-surface-container-high transition-colors font-meta-mono text-meta-mono uppercase inline-flex items-center gap-1.5 text-xs" href="mailto:arsalan.vault@gmail.com">
-                  <span class="material-symbols-outlined text-sm">mail</span>
-                  <span>Email Proposal ↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Brief Intake Form Panel (Right) -->
-          <div class="lg:col-span-7 bg-surface-container-lowest border border-border-hairline p-6 lg:p-8 shadow-2xl">
-            <div class="pb-5">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">SYSTEM INTAKE / 07</span>
-                <span class="font-meta-mono text-meta-mono text-text-secondary text-[10px]">DIRECT ATELIER CHANNEL</span>
-              </div>
-              <h3 class="text-xl sm:text-2xl text-primary font-bold uppercase tracking-tight font-headline-lg">
-                Tell us what you want to build.
-              </h3>
-              <p class="font-body-md text-text-secondary mt-1 text-xs">
-                Share your system specifications. We will use your brief to assess feasibility, scope, and technical milestones.
-              </p>
-            </div>
-
-            <form class="space-y-4 pt-2" onsubmit="handleFormSubmit(event)">
-              <!-- Two-Unit Selector Pills -->
-              <div>
-                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1.5 text-[10px]">1. SELECT OPERATIONAL UNIT</label>
-                <div class="grid grid-cols-3 gap-2" id="unit-selector">
-                  <button class="unit-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase tracking-wider bg-primary text-surface-base border border-primary transition-colors" onclick="selectUnit(this, 'AI & ML Unit')" type="button">
-                    AI &amp; ML Unit
-                  </button>
-                  <button class="unit-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase tracking-wider bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectUnit(this, 'Robotics Unit')" type="button">
-                    Robotics Unit
-                  </button>
-                  <button class="unit-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase tracking-wider bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectUnit(this, 'Integrated System')" type="button">
-                    Integrated System
-                  </button>
-                </div>
-                <input id="selected-unit-input" name="project_unit" type="hidden" value="AI & ML Unit"/>
-              </div>
-
-              <!-- Contact Details Grid -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1 text-[10px]">FULL NAME *</label>
-                  <input class="w-full bg-surface-base border border-border-hairline px-3.5 py-2.5 font-body-md text-primary placeholder-text-tertiary text-xs focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="e.g. Dr. Alex Mercer" required="" type="text"/>
-                </div>
-                <div>
-                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1 text-[10px]">EMAIL ADDRESS *</label>
-                  <input class="w-full bg-surface-base border border-border-hairline px-3.5 py-2.5 font-body-md text-primary placeholder-text-tertiary text-xs focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="alex@institution.edu" required="" type="email"/>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1 text-[10px]">PHONE / WHATSAPP</label>
-                  <input class="w-full bg-surface-base border border-border-hairline px-3.5 py-2.5 font-body-md text-primary placeholder-text-tertiary text-xs focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="+92 335 6157357" type="tel"/>
-                </div>
-                <div>
-                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1 text-[10px]">ORGANIZATION / LAB</label>
-                  <input class="w-full bg-surface-base border border-border-hairline px-3.5 py-2.5 font-body-md text-primary placeholder-text-tertiary text-xs focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="Autonomous Lab / Research Org" type="text"/>
-                </div>
-              </div>
-
-              <!-- Project Type / Timeline Selector -->
-              <div>
-                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1.5 text-[10px]">2. TIMELINE / ENGAGEMENT SCOPE</label>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="budget-selector">
-                  <button class="budget-btn py-2 px-2 text-center font-meta-mono text-[10px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, 'Rapid Prototype')" type="button">
-                    &lt; 2 Weeks
-                  </button>
-                  <button class="budget-btn py-2 px-2 text-center font-meta-mono text-[10px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, '1-3 Months')" type="button">
-                    1–3 Months
-                  </button>
-                  <button class="budget-btn py-2 px-2 text-center font-meta-mono text-[10px] uppercase bg-primary text-surface-base border border-primary transition-colors" onclick="selectBudget(this, 'Full Architecture')" type="button">
-                    Architecture
-                  </button>
-                  <button class="budget-btn py-2 px-2 text-center font-meta-mono text-[10px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, 'Long-term Research')" type="button">
-                    Long-term
-                  </button>
-                </div>
-                <input id="selected-budget-input" name="budget_range" type="hidden" value="Full Architecture"/>
-              </div>
-
-              <!-- Project Brief Textarea -->
-              <div>
-                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1 text-[10px]">3. SYSTEM REQUIREMENTS &amp; OBJECTIVE *</label>
-                <textarea class="w-full bg-surface-base border border-border-hairline px-3.5 py-2.5 font-body-md text-primary placeholder-text-tertiary text-xs focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="Describe the autonomous system, model specifications, robotics hardware, or computational pipeline..." required="" rows="3"></textarea>
-              </div>
-
-              <!-- Action Submission -->
-              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <button class="group w-full sm:w-auto inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-base hover:text-primary transition-all duration-300 px-6 py-3 font-ticker-label text-ticker-label uppercase tracking-widest font-bold shadow-md hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 text-xs" id="submit-brief-btn" type="submit">
-                  <span>Send system brief</span>
-                  <span class="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-                </button>
-                <span class="font-meta-mono text-[10px] text-text-tertiary text-center sm:text-right">
-                  RESPONSE WITHIN 24 BUSINESS HOURS
-                </span>
-              </div>
-
-              <div class="hidden p-3 bg-surface-container border border-primary/40 text-primary font-meta-mono text-meta-mono uppercase tracking-wider text-center text-xs" id="form-feedback">
-                ✓ Brief transmission received. Arsalan will review your specifications shortly.
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- Final Callout Monograph -->
-      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-14 lg:py-18 text-center select-none reveal-on-scroll border-t border-border-hairline">
-        <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-2 text-[10px]">
-          YOUR NEXT ARCHITECTURE DESERVES MATHEMATICAL RIGOR.
-        </span>
-        <h2 class="text-2xl sm:text-3xl text-primary font-bold tracking-tight font-headline-lg">
-          Make the next thing <span class="font-headline-editorial italic font-normal text-text-secondary hover:text-primary transition-colors duration-200">autonomous.</span>
-        </h2>
-        <div class="mt-6 flex justify-center">
-          <a class="group inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-base hover:text-primary transition-all duration-300 px-7 py-3 font-ticker-label text-ticker-label uppercase tracking-widest font-bold hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] hover:-translate-y-1 text-xs" href="#intake">
-            <span>START A PROJECT</span>
-            <span class="inline-block ml-1.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-          </a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- ==================== EDITORIAL FOOTER ==================== -->
-  <footer class="w-full bg-surface-base border-t border-border-hairline pt-space-lg pb-space-md text-on-surface">
-    <div class="w-full px-margin-tablet lg:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-0 border-b border-border-hairline pb-space-lg">
-      
-      <!-- Manifesto Col -->
-      <div class="md:col-span-5 md:pr-10 md:border-r md:border-border-hairline flex flex-col justify-between space-y-6">
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">[ MA — 01 ]</span>
-            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">ENGINEERING MANIFESTO</span>
-          </div>
-          <p class="font-headline-editorial text-xl italic text-primary leading-tight">
-            Architecture of autonomous intelligence. Mathematical rigor meets embodied physical systems.
-          </p>
-          <p class="font-body-md text-text-secondary max-w-md text-xs leading-relaxed">
-            Muhammad Arsalan is an independent AI &amp; Robotics Engineer and former AI/NLP Intern at FlyRank AI. Specializing in autonomous multi-agent pipelines, machine learning models, and robotic sensor-actuator architectures.
-          </p>
-        </div>
-        <div>
-          <span class="block font-meta-mono text-meta-mono uppercase text-text-tertiary mb-1.5 text-[10px]">DIRECT INQUIRY</span>
-          <a class="font-ticker-label text-ticker-label text-primary hover:underline underline-offset-4 tracking-wider transition-colors text-xs" href="mailto:arsalan.vault@gmail.com">
-            arsalan.vault@gmail.com ↗
-          </a>
-        </div>
-      </div>
-
-      <!-- Divisions Col -->
-      <div class="md:col-span-4 md:px-10 md:border-r md:border-border-hairline space-y-6">
-        <div class="border-b border-border-hairline pb-3">
-          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1 text-[10px]">STRUCTURE / 01</span>
-          <h4 class="font-headline-md text-primary text-base">AI &amp; Machine Learning Unit</h4>
-          <p class="font-body-md text-text-secondary mt-1 mb-2 text-xs">Agent orchestration, generative modeling, LLM pipelines, and deep statistical data science.</p>
-          <a class="font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-colors inline-flex items-center gap-1 group text-[11px]" href="#units">
-            <span>[ Enter AI Unit</span>
-            <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-            <span>]</span>
-          </a>
-        </div>
-        <div class="pt-1">
-          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1 text-[10px]">STRUCTURE / 02</span>
-          <h4 class="font-headline-md text-primary text-base">Robotics &amp; Embodied AI Unit</h4>
-          <p class="font-body-md text-text-secondary mt-1 mb-2 text-xs">Sensors, closed-loop motor drivers, multi-axis kinematics, and embedded autonomous robotics.</p>
-          <a class="font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-colors inline-flex items-center gap-1 group text-[11px]" href="#units">
-            <span>[ Enter Robotics Unit</span>
-            <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-            <span>]</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Network Directory Col -->
-      <div class="md:col-span-3 md:pl-10 flex flex-col justify-between space-y-6">
-        <div>
-          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-3 text-[10px]">NETWORK DIRECTORY</span>
-          <ul class="space-y-2.5 font-meta-mono text-meta-mono uppercase tracking-wider text-xs">
-            <li class="border-b border-border-hairline/50 pb-1.5">
-              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://github.com/24pwai0015-max" target="_blank">
-                <span>GitHub (24pwai0015-max)</span>
-                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
-            </li>
-            <li class="border-b border-border-hairline/50 pb-1.5">
-              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">
-                <span>LinkedIn</span>
-                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
-            </li>
-            <li class="border-b border-border-hairline/50 pb-1.5">
-              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://wa.me/923356157357" target="_blank">
-                <span>WhatsApp (+92 335 6157357)</span>
-                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
-            </li>
-            <li class="border-b border-border-hairline/50 pb-1.5">
-              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://instagram.com/robo.ox" target="_blank">
-                <span>Instagram (@robo.ox)</span>
-                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
-            </li>
-            <li class="pb-1">
-              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="cv.html" target="_blank">
-                <span>Curriculum Vitae (PDF)</span>
-                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="pt-2">
-          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1 text-[10px]">ENGINEERING LEAD</span>
-          <p class="font-body-md text-primary font-medium text-sm">Muhammad Arsalan</p>
-          <p class="font-meta-mono text-meta-mono text-text-secondary text-xs">AI &amp; Robotics Engineer</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Telemetry Bar -->
-    <div class="w-full px-margin-tablet lg:px-margin-desktop pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary text-[10px]">
-      <div>
-        <span>© 2026 MUHAMMAD ARSALAN. ALL RIGHTS RESERVED.</span>
-      </div>
-      <div class="flex items-center gap-5">
-        <span>LAT: 34.0151° N / LON: 71.5249° E</span>
-        <span>SYS VER 4.2.0</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
-  <script>
-    // Reveal On Scroll via IntersectionObserver
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px'
-      });
-
-      revealElements.forEach(el => observer.observe(el));
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => {
+      isCursorVisible = false;
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
     });
 
-    // FAQ Accordion Toggle
-    function toggleFaq(element) {
-      const content = element.querySelector('.faq-content');
-      const icon = element.querySelector('.faq-icon');
-      const isOpen = content.classList.contains('max-h-96');
-      
-      // Close all items in group
-      document.querySelectorAll('.faq-content').forEach(el => {
-        el.classList.remove('max-h-96', 'opacity-100');
-        el.classList.add('max-h-0', 'opacity-0');
-      });
-      document.querySelectorAll('.faq-icon').forEach(el => {
-        el.textContent = 'add';
-        el.classList.remove('rotate-45');
-      });
-      
-      if (!isOpen) {
-        content.classList.remove('max-h-0', 'opacity-0');
-        content.classList.add('max-h-96', 'opacity-100');
-        icon.classList.add('rotate-45');
+    document.addEventListener('mouseenter', () => {
+      isCursorVisible = true;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    });
+
+    // Event delegation for cursor modes
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const projectTarget = target.closest('.project-hover');
+      if (projectTarget) {
+        ring.className = 'cursor-ring project-active';
+        ring.textContent = 'VIEW';
+        return;
       }
-    }
 
-    // Unit Selector Handler
-    function selectUnit(btn, unitName) {
-      document.querySelectorAll('.unit-btn').forEach(b => {
-        b.classList.remove('bg-primary', 'text-surface-base', 'border-primary');
-        b.classList.add('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+      const interactive = target.closest('a, button, .button');
+      if (interactive) {
+        ring.className = 'cursor-ring active';
+        ring.textContent = 'OPEN';
+        return;
+      }
+
+      ring.className = 'cursor-ring';
+      ring.textContent = '';
+    }, { passive: true });
+
+    function follow() {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      ring.style.transform = `translate(${rx.toFixed(1)}px, ${ry.toFixed(1)}px) translate(-50%, -50%)`;
+      requestAnimationFrame(follow);
+    }
+    requestAnimationFrame(follow);
+  }
+
+  // Reveal & Scroll handling
+  const revealElements = document.querySelectorAll('.reveal');
+  if (reduce) {
+    revealElements.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
       });
-      btn.classList.add('bg-primary', 'text-surface-base', 'border-primary');
-      btn.classList.remove('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
-      document.getElementById('selected-unit-input').value = unitName;
-    }
+    }, { threshold: 0.18 });
+    revealElements.forEach(el => io.observe(el));
 
-    // Budget Selector Handler
-    function selectBudget(btn, budgetVal) {
-      document.querySelectorAll('.budget-btn').forEach(b => {
-        b.classList.remove('bg-primary', 'text-surface-base', 'border-primary');
-        b.classList.add('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+    let lastScroll = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        const vel = Math.max(-40, Math.min(40, sy - lastScroll));
+        lastScroll = sy;
+
+        // Sculpture scroll translation
+        const s = document.querySelector('.sculpture');
+        if (s) {
+          s.style.setProperty('--sy', `${Math.min(80, sy * 0.08).toFixed(1)}px`);
+        }
+
+        // Project visual parallax & scale (desktop/tablet only)
+        if (window.innerWidth > 640) {
+          const visuals = document.querySelectorAll('.visual');
+          const innerH = window.innerHeight;
+          visuals.forEach(v => {
+            const r = v.getBoundingClientRect();
+            if (r.top < innerH && r.bottom > 0) {
+              const progress = Math.max(0, Math.min(1, 1 - r.top / innerH));
+              const scale = 0.94 + progress * 0.06;
+              const translateY = r.top * 0.025;
+              v.style.transform = `scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`;
+            }
+          });
+        }
+
+        // Digital Lab Object subtle scroll velocity rotation
+        const labObj = document.querySelector('.lab-object');
+        if (labObj) {
+          const rot = (sy * 0.025 + vel * 0.25) % 360;
+          labObj.style.setProperty('--r', `${rot.toFixed(2)}deg`);
+        }
+
+        // Contact orb settling
+        const contactSection = document.querySelector('.contact');
+        const contactOrb = document.querySelector('.contact-orb');
+        if (contactSection && contactOrb) {
+          const cRect = contactSection.getBoundingClientRect();
+          const settle = Math.max(-70, Math.min(0, cRect.top * 0.08));
+          contactOrb.style.setProperty('--settle', `${settle.toFixed(1)}px`);
+        }
+
+        ticking = false;
       });
-      btn.classList.add('bg-primary', 'text-surface-base', 'border-primary');
-      btn.classList.remove('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
-      document.getElementById('selected-budget-input').value = budgetVal;
-    }
-
-    // Project Brief Form Submission
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('form-feedback');
-      const submitBtn = document.getElementById('submit-brief-btn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Transmitting...</span>';
-      
-      setTimeout(() => {
-        feedback.classList.remove('hidden');
-        submitBtn.innerHTML = '<span>Transmitted ↗</span>';
-      }, 600);
-    }
-  </script>
-
+    }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>

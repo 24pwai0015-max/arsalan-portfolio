@@ -1,466 +1,1805 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Arsalan — Curriculum Vitae</title>
-    <style>
-        /* ===== Architectural Editorial CV (Print & Web) ===== */
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Arsalan — AI Engineer CV</title>
+<meta name="description" content="CV of Muhammad Arsalan, an AI engineer working across machine learning, autonomous agent systems, data science, and embodied robotics.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<style>
+/* ==========================================================================
+   EDITORIAL BRUTALIST CV DESIGN SYSTEM
+   Theme: Editorial + Brutalist + Technical + Minimal + AI/Robotics
+   ========================================================================== */
+:root {
+  --paper: #F5F3EE;
+  --paper2: #EAE8E1;
+  --gray: #D8D8D2;
+  --ink: #171717;
+  --muted: #5F5F5A;
+  --blue: #315CFF;
+  --lime: #C8F04A;
+  --coral: #FF7058;
+  --violet: #9B8CFF;
+  --ease: cubic-bezier(.22, .78, .22, 1);
+  --margin: 5vw;
+  --gap: 1.2vw;
+  --grid: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc((90vw - 11 * var(--gap)) / 12),
+    rgba(23, 23, 23, 0.06) calc((90vw - 11 * var(--gap)) / 12),
+    rgba(23, 23, 23, 0.06) calc((90vw - 11 * var(--gap)) / 12 + 1px),
+    transparent calc((90vw - 11 * var(--gap)) / 12 + 1px),
+    transparent calc((90vw - 11 * var(--gap)) / 12 + var(--gap))
+  );
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: #1a1a1a;
-            background: #09090b;
-            line-height: 1.5;
-            font-size: 10pt;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        .cv-page {
-            max-width: 210mm;
-            min-height: 297mm;
-            margin: 24px auto;
-            background: #ffffff;
-            padding: 40px 48px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
-            border: 1px solid #27272a;
-        }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
 
-        /* Header */
-        .cv-header {
-            text-align: left;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #000000;
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+/* Background Subtle Editorial Grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--grid);
+  pointer-events: none;
+  z-index: 0;
+}
 
-        .cv-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 26pt;
-            font-weight: 700;
-            color: #000000;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
+/* Subtle Film Grain Texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 100;
+}
 
-        .cv-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10pt;
-            font-weight: 600;
-            color: #444;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-top: 6px;
-        }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        .cv-contact {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 8.5pt;
-            color: #333;
-        }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
 
-        .cv-contact a {
-            color: #111;
-            text-decoration: none;
-            border-bottom: 1px solid #ccc;
-        }
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
-        .cv-contact a:hover {
-            color: #000;
-            border-bottom-color: #000;
-        }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-        /* Section */
-        .cv-section {
-            margin-bottom: 20px;
-        }
+/* Global 12-column editorial grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gap);
+  row-gap: 24px;
+}
 
-        .cv-section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #000000;
-            padding-bottom: 6px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.cv-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--margin);
+}
 
-        .cv-section-title::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: #000000;
-            display: inline-block;
-        }
+/* ==========================================================================
+   TOP ACTION TOOLBAR (Web Screen Only)
+   ========================================================================== */
+.cv-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(245, 243, 238, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ink);
+  padding: 14px var(--margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        /* Summary */
-        .cv-summary {
-            font-size: 9.5pt;
-            color: #333;
-            line-height: 1.6;
-            text-align: justify;
-        }
+.cv-toolbar .brand {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
 
-        /* Experience / Education items */
-        .cv-item {
-            margin-bottom: 14px;
-        }
+.cv-toolbar .brand span {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}
 
-        .cv-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
+.cv-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-        .cv-item-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 10.5pt;
-            color: #111;
-        }
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
 
-        .cv-item-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 8.5pt;
-            color: #666;
-            font-weight: 500;
-        }
+.btn-pill.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
 
-        .cv-item-subtitle {
-            font-size: 9.5pt;
-            color: #444;
-            font-style: italic;
-            margin-bottom: 4px;
-        }
+.btn-pill.primary:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+}
 
-        .cv-item ul {
-            padding-left: 18px;
-            font-size: 9pt;
-            color: #444;
-        }
+.btn-pill.secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
 
-        .cv-item li {
-            margin-bottom: 3px;
-            line-height: 1.5;
-        }
+.btn-pill .swap {
+  position: relative;
+  height: 14px;
+  overflow: hidden;
+  display: inline-block;
+}
 
-        /* Technical Skills Grid */
-        .cv-skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 9pt;
-        }
+.btn-pill .swap span {
+  display: block;
+  transition: transform 0.3s var(--ease);
+}
 
-        .cv-skills-table tr {
-            border-bottom: 1px solid #f0f0f0;
-        }
+.btn-pill:hover .swap span {
+  transform: translateY(-100%);
+}
 
-        .cv-skills-table td {
-            padding: 6px 0;
-            vertical-align: top;
-        }
+/* ==========================================================================
+   SECTION COMMON LAYOUT
+   ========================================================================== */
+.cv-section {
+  position: relative;
+  padding: 80px 0;
+  border-bottom: 1px solid var(--ink);
+}
 
-        .cv-skill-category {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            color: #111;
-            width: 25%;
-            text-transform: uppercase;
-            font-size: 8pt;
-            letter-spacing: 0.05em;
-        }
+.cv-section:last-of-type {
+  border-bottom: none;
+}
 
-        .cv-skill-items {
-            color: #444;
-            width: 75%;
-            line-height: 1.45;
-        }
+.sec-marker {
+  grid-column: 1 / 4;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-        /* Projects */
-        .cv-project {
-            margin-bottom: 14px;
-        }
+.sec-marker .sub {
+  color: var(--muted);
+  font-size: 11px;
+}
 
-        .cv-project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
+.sec-content {
+  grid-column: 4 / 13;
+}
 
-        .cv-project-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 10pt;
-            color: #111;
-        }
+.sec-title {
+  margin: 0 0 32px;
+  font-size: clamp(32px, 4.2vw, 56px);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-        .cv-project-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 8pt;
-            color: #666;
-        }
+/* ==========================================================================
+   01 / HEADER
+   ========================================================================== */
+.cv-header {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
 
-        .cv-project-link a {
-            color: #666;
-            text-decoration: none;
-            border-bottom: 1px solid #ddd;
-        }
+.cv-header-overline {
+  grid-column: 1 / 13;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+}
 
-        .cv-project-link a:hover {
-            color: #000;
-            border-bottom-color: #000;
-        }
+.cv-header-overline .tag-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+}
 
-        .cv-project ul {
-            padding-left: 18px;
-            font-size: 9pt;
-            color: #444;
-        }
+.cv-header-overline .tag-live::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+}
 
-        .cv-project li {
-            margin-bottom: 2px;
-            line-height: 1.45;
-        }
+.cv-header-main {
+  grid-column: 1 / 9;
+  padding-top: 36px;
+}
 
-        /* Print Styles */
-        @media print {
-            body { background: white; }
-            .cv-page {
-                margin: 0;
-                padding: 25px 30px;
-                box-shadow: none;
-                border: none;
-                min-height: auto;
-            }
-            .no-print { display: none !important; }
-        }
+.cv-name {
+  margin: 0;
+  font-size: clamp(56px, 8.8vw, 120px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-        /* Download Bar */
-        .cv-download-bar {
-            text-align: center;
-            padding: 18px 24px;
-            background: #09090b;
-            border-bottom: 1px solid #27272a;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-        }
+.cv-role {
+  margin: 28px 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-        .cv-download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            background: #ffffff;
-            color: #09090b;
-            border: 1px solid #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+.cv-role span {
+  display: inline-flex;
+  align-items: center;
+}
 
-        .cv-download-btn:hover {
-            background: #09090b;
-            color: #ffffff;
-        }
+.cv-role span:not(:last-child)::after {
+  content: "/";
+  margin-left: 12px;
+  color: var(--gray);
+}
 
-        .cv-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 20px;
-            background: transparent;
-            color: #a1a1aa;
-            border: 1px solid #27272a;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            cursor: pointer;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+/* Header Compact Contact Grid */
+.cv-contact-bar {
+  grid-column: 1 / 13;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-        .cv-back-btn:hover {
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-    </style>
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  border: 1px solid var(--gray);
+  background: var(--paper);
+  transition: all 0.2s var(--ease);
+}
+
+.contact-chip:hover {
+  border-color: var(--ink);
+  background: var(--paper2);
+  color: var(--blue);
+}
+
+.contact-chip span.arrow {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+/* Subtle Geometric Header Sculpture (Secondary, Minimal) */
+.header-sculpture {
+  grid-column: 9 / 13;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.geo-orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #ffffff 0 8%, #d8d8d2 26%, #555555 58%, #171717 84%);
+  box-shadow: 16px 20px 24px rgba(23, 23, 23, 0.14);
+  position: relative;
+}
+
+.geo-ring {
+  position: absolute;
+  inset: -14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  transform: rotateX(64deg) rotateZ(-20deg);
+}
+
+.geo-box {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  bottom: 12px;
+  left: -8px;
+  background: var(--blue);
+  transform: rotate(18deg);
+}
+
+/* ==========================================================================
+   02 / PROFESSIONAL PROFILE
+   ========================================================================== */
+.profile-statement {
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink);
+}
+
+.profile-statement .highlight {
+  color: var(--blue);
+}
+
+/* ==========================================================================
+   03 / TECHNICAL CAPABILITIES
+   ========================================================================== */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cap-card {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 28px;
+}
+
+.cap-card-num {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.cap-card h3 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.cap-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cap-items li {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.cap-items li::before {
+  content: "—";
+  color: var(--muted);
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* ==========================================================================
+   04 / EXPERIENCE (Employment strictly separated from Education)
+   ========================================================================== */
+.exp-entry {
+  border-top: 1px solid var(--ink);
+  padding: 32px 0;
+}
+
+.exp-entry:last-child {
+  padding-bottom: 0;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.exp-title-group h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.exp-role {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.exp-badge {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper2);
+}
+
+.exp-badge.completed {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.exp-meta {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 6px 0 16px;
+}
+
+.exp-desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 720px;
+}
+
+/* ==========================================================================
+   05 / SELECTED PROJECTS
+   ========================================================================== */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.proj-card {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 32px;
+  position: relative;
+}
+
+.proj-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.proj-title-group h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.proj-cat {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 4px;
+}
+
+.proj-year {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.proj-desc {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 740px;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.proj-tag {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border: 1px solid var(--gray);
+  background: var(--paper2);
+}
+
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.proj-link:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.proj-badge-private {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 8px;
+  border: 1px dashed var(--muted);
+  background: var(--paper2);
+}
+
+/* ==========================================================================
+   06 / EDUCATION
+   ========================================================================== */
+.edu-box {
+  border: 1px solid var(--ink);
+  padding: 32px;
+  background: var(--paper);
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.edu-header h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.edu-year {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.edu-institution {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  background: #fff8e1;
+  border: 1px dashed #d97706;
+  color: #92400e;
+}
+
+.edu-study-areas {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray);
+}
+
+.edu-study-areas h4 {
+  margin: 0 0 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.study-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.study-tag {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  padding: 4px 8px;
+  background: var(--paper2);
+  border: 1px solid var(--gray);
+}
+
+/* ==========================================================================
+   07 / TECHNICAL STACK
+   ========================================================================== */
+.stack-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stack-table tr {
+  border-top: 1px solid var(--ink);
+}
+
+.stack-table tr:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+.stack-cat {
+  width: 32%;
+  padding: 18px 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue);
+  vertical-align: top;
+}
+
+.stack-items {
+  width: 68%;
+  padding: 18px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  vertical-align: top;
+}
+
+/* ==========================================================================
+   08 / CONTACT SECTION
+   ========================================================================== */
+.cv-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  border: 1px solid var(--ink);
+  padding: 20px;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.2s var(--ease);
+}
+
+.contact-card:hover {
+  background: var(--paper2);
+  border-color: var(--blue);
+}
+
+.contact-card-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.contact-card-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   09 / PORTFOLIO RETURN
+   ========================================================================== */
+.return-bar {
+  padding: 64px 0 96px;
+  text-align: center;
+}
+
+.return-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  padding: 0 40px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.25s var(--ease);
+}
+
+.return-button:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablet & Mobile)
+   ========================================================================== */
+@media (max-width: 900px) {
+  :root {
+    --margin: 4vw;
+  }
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .sec-marker {
+    grid-column: 1 / 9;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 24px;
+  }
+  .sec-content {
+    grid-column: 1 / 9;
+  }
+  .cv-header-main {
+    grid-column: 1 / 9;
+  }
+  .header-sculpture {
+    display: none;
+  }
+  .cap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --margin: 16px;
+    --gap: 12px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .cv-toolbar {
+    padding: 12px 16px;
+  }
+  .cv-toolbar .brand span {
+    display: none;
+  }
+  .cv-section {
+    padding: 56px 0;
+  }
+  .sec-marker {
+    grid-column: 1 / 5;
+  }
+  .sec-content {
+    grid-column: 1 / 5;
+  }
+  .cv-header {
+    padding: 48px 0 40px;
+  }
+  .cv-header-main {
+    grid-column: 1 / 5;
+  }
+  .cv-contact-bar {
+    grid-column: 1 / 5;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-chip {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .cv-contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .stack-cat {
+    width: 40%;
+  }
+  .stack-items {
+    width: 60%;
+  }
+  .return-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   13 / PRINT AND PDF MODE (@media print)
+   Calibrated for exactly 1-2 clean A4 pages
+   ========================================================================== */
+@page {
+  size: A4 portrait;
+  margin: 10mm 12mm 10mm 12mm;
+}
+
+@media print {
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.3 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body::before,
+  body::after,
+  .cv-toolbar,
+  .header-sculpture,
+  .return-bar,
+  .no-print,
+  .sec-marker {
+    display: none !important;
+  }
+
+  .cv-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .grid {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .sec-content {
+    width: 100% !important;
+  }
+
+  .cv-section {
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #dcdcdc !important;
+    page-break-inside: auto;
+  }
+
+  /* Header */
+  .cv-header {
+    padding: 0 0 10px !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+
+  .cv-header-overline {
+    padding-bottom: 4px !important;
+    font-size: 7.5pt !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  .cv-header-overline .tag-live {
+    border: 1px solid #000000 !important;
+    padding: 1px 4px !important;
+    font-size: 6.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .cv-name {
+    font-size: 24pt !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.04em !important;
+    margin-top: 4px !important;
+  }
+
+  .cv-role {
+    font-size: 8.5pt !important;
+    margin-top: 6px !important;
+    color: #222222 !important;
+    display: flex !important;
+    gap: 12px !important;
+  }
+
+  .cv-contact-bar {
+    margin-top: 8px !important;
+    padding-top: 6px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 4px 14px !important;
+    border-top: 1px solid #000000 !important;
+  }
+
+  .contact-chip {
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    font-size: 8pt !important;
+    color: #000000 !important;
+  }
+
+  .contact-chip span.arrow {
+    display: none !important;
+  }
+
+  /* Section Titles */
+  .sec-title {
+    font-size: 11pt !important;
+    margin-bottom: 6px !important;
+    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+  }
+
+  /* Profile */
+  .profile-statement {
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  .profile-statement .highlight {
+    color: #000000 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Capabilities: 2-column compact grid */
+  .cap-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px 12px !important;
+  }
+
+  .cap-card {
+    padding: 6px 8px !important;
+    border: 1px solid #dcdcdc !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .cap-card-num {
+    font-size: 6.5pt !important;
+    margin-bottom: 2px !important;
+  }
+
+  .cap-card h3 {
+    font-size: 8.5pt !important;
+    margin-bottom: 3px !important;
+  }
+
+  .cap-items {
+    margin: 0 !important;
+    padding-left: 14px !important;
+  }
+
+  .cap-items li {
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Experience */
+  .exp-entry {
+    padding: 6px 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .exp-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+  }
+
+  .exp-title-group h3 {
+    font-size: 10pt !important;
+    display: inline !important;
+    margin-right: 6px !important;
+  }
+
+  .exp-role {
+    font-size: 8pt !important;
+    color: #333333 !important;
+  }
+
+  .exp-badge {
+    font-size: 6.5pt !important;
+    padding: 1px 4px !important;
+    border: 1px solid #666666 !important;
+  }
+
+  .exp-meta {
+    font-size: 7.5pt !important;
+    color: #555555 !important;
+    margin: 2px 0 4px !important;
+  }
+
+  .exp-desc {
+    font-size: 8pt !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  /* PAGE 2 BREAK: Strictly break before projects */
+  #projects {
+    page-break-before: always !important;
+    break-before: page !important;
+    padding-top: 0 !important;
+  }
+
+  /* Projects: 2-column compact grid */
+  .projects-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .proj-card {
+    border: 1px solid #dcdcdc !important;
+    padding: 8px !important;
+    margin-bottom: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .proj-card-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    padding-bottom: 4px !important;
+    margin-bottom: 4px !important;
+    border-bottom: 1px solid #eeeeee !important;
+  }
+
+  .proj-title-group h3 {
+    font-size: 9.5pt !important;
+  }
+
+  .proj-cat {
+    font-size: 7pt !important;
+  }
+
+  .proj-year {
+    font-size: 7pt !important;
+  }
+
+  .proj-desc {
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .proj-tags {
+    margin-bottom: 6px !important;
+    gap: 3px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .proj-tag {
+    font-size: 6.5pt !important;
+    padding: 1px 3px !important;
+    border: 1px solid #e0e0e0 !important;
+    background: transparent !important;
+    color: #222222 !important;
+  }
+
+  .proj-badge-private {
+    font-size: 6.5pt !important;
+    padding: 1px 3px !important;
+    border: 1px dashed #777777 !important;
+  }
+
+  .proj-link {
+    font-size: 7.5pt !important;
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Education */
+  .edu-box {
+    padding: 6px 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .edu-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+  }
+
+  .edu-header h3 {
+    font-size: 10pt !important;
+  }
+
+  .edu-year {
+    font-size: 7.5pt !important;
+  }
+
+  .edu-institution {
+    background: transparent !important;
+    border: 1px solid #888888 !important;
+    color: #000000 !important;
+    padding: 2px 5px !important;
+    font-size: 7.5pt !important;
+    display: inline-block !important;
+    margin: 4px 0 !important;
+  }
+
+  .edu-study-areas {
+    margin-top: 6px !important;
+    padding-top: 4px !important;
+  }
+
+  .edu-study-areas h4 {
+    font-size: 7.5pt !important;
+    margin-bottom: 3px !important;
+    text-transform: uppercase !important;
+    color: #444444 !important;
+  }
+
+  .study-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3px !important;
+  }
+
+  .study-tag {
+    font-size: 7pt !important;
+    padding: 1px 4px !important;
+    border: 1px solid #dcdcdc !important;
+  }
+
+  /* Tech Stack Table */
+  .stack-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .stack-table tr {
+    border-top: 1px solid #dcdcdc !important;
+  }
+
+  .stack-cat {
+    width: 22% !important;
+    padding: 3px 6px 3px 0 !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    color: #333333 !important;
+    vertical-align: top !important;
+  }
+
+  .stack-items {
+    padding: 3px 0 !important;
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    color: #000000 !important;
+  }
+
+  /* Contact */
+  .cv-contact-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .contact-card {
+    padding: 5px 8px !important;
+    border: 1px solid #dcdcdc !important;
+    background: transparent !important;
+  }
+
+  .contact-card-label {
+    font-size: 6.5pt !important;
+    color: #666666 !important;
+    margin-bottom: 2px !important;
+    display: block !important;
+  }
+
+  .contact-card-value {
+    font-size: 7.5pt !important;
+    color: #000000 !important;
+    word-break: break-all !important;
+  }
+}
+</style>
 </head>
 <body>
 
-    <!-- On-screen action toolbar -->
-    <div class="cv-download-bar no-print">
-        <a href="index.html" class="cv-back-btn">← Back to Portfolio</a>
-        <button class="cv-download-btn" onclick="window.print()">
-            Print / Save as PDF ↗
-        </button>
+<!-- On-screen Top Action Toolbar (Hidden in Print) -->
+<header class="cv-toolbar no-print" aria-label="CV Tools and Navigation">
+  <div class="brand">
+    <a href="index.html" aria-label="Return to portfolio homepage">MA®</a>
+    <span class="mono">CURRICULUM VITAE</span>
+  </div>
+  <div class="cv-toolbar-actions">
+    <a href="index.html" class="btn-pill secondary" aria-label="Return to portfolio homepage">
+      ← Back to Portfolio
+    </a>
+    <button type="button" class="btn-pill primary" onclick="window.print()" aria-label="Print or save this CV as PDF">
+      <span class="swap">
+        <span>Print / Save PDF</span>
+        <span>A4 Layout →</span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<main class="cv-container">
+
+  <!-- 01 / Header Section -->
+  <section class="cv-header" id="header" aria-labelledby="cv-candidate-name">
+    <div class="grid">
+      <div class="cv-header-overline mono">
+        <span>CURRICULUM VITAE / 001</span>
+        <span class="tag-live">AI + MACHINE LEARNING + EMBODIED ROBOTICS</span>
+      </div>
+
+      <div class="cv-header-main">
+        <h1 class="cv-name" id="cv-candidate-name">
+          Muhammad<br>Arsalan
+        </h1>
+        <div class="cv-role">
+          <span>AI Engineer</span>
+          <span>Machine Learning</span>
+          <span>Embodied Robotics</span>
+        </div>
+      </div>
+
+      <!-- Subtle Geometric Element (Secondary, Aria-Hidden) -->
+      <div class="header-sculpture" aria-hidden="true">
+        <div class="geo-orb">
+          <div class="geo-ring"></div>
+          <div class="geo-box"></div>
+        </div>
+      </div>
+
+      <!-- Header Compact Contact Links -->
+      <nav class="cv-contact-bar" aria-label="Primary Contact Channels">
+        <a href="mailto:arsalan.vault@gmail.com" class="contact-chip" aria-label="Send email to arsalan.vault@gmail.com">
+          <span>Email: arsalan.vault@gmail.com</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/923356157357" target="_blank" rel="noopener noreferrer" class="contact-chip" aria-label="Chat on WhatsApp +92 335 6157357">
+          <span>WhatsApp: +92 335 6157357</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://github.com/24pwai0015-max" target="_blank" rel="noopener noreferrer" class="contact-chip" aria-label="Visit GitHub profile 24pwai0015-max">
+          <span>GitHub: 24pwai0015-max</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank" rel="noopener noreferrer" class="contact-chip" aria-label="Visit LinkedIn profile">
+          <span>LinkedIn: muhammad-arsalan</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://portfolio-website-nine-alpha-75.vercel.app" target="_blank" rel="noopener noreferrer" class="contact-chip" aria-label="Visit live portfolio website">
+          <span>Portfolio: portfolio-website</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
     </div>
+  </section>
 
-    <div class="cv-page">
+  <!-- 02 / Professional Profile -->
+  <section class="cv-section" id="profile" aria-labelledby="sec-02-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>02 / Profile</span>
+        <span class="sub">Overview</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-02-title">Professional Profile</h2>
+        <p class="profile-statement">
+          AI engineer focused on <span class="highlight">autonomous agent pipelines</span>, machine learning systems, data-driven applications, and embodied robotics. Builds software and hardware architectures that connect reasoning, perception, telemetry, sensors, and actuation through practical <span class="highlight">Sense → Think → Act</span> loops. Experienced with Python-based AI development, NLP workflows, data analysis, FastAPI systems, and multi-DOF robotics concepts.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Header -->
-        <header class="cv-header">
-            <div>
-                <h1 class="cv-name">Muhammad Arsalan</h1>
-                <div class="cv-title">AI Engineer &amp; Robotics Innovator</div>
+  <!-- 03 / Technical Capabilities -->
+  <section class="cv-section" id="capabilities" aria-labelledby="sec-03-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>03 / Capabilities</span>
+        <span class="sub">Discipline Taxonomy</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-03-title">Technical Capabilities</h2>
+        <div class="cap-grid">
+          
+          <article class="cap-card">
+            <div class="cap-card-num">01 // AI &amp; MACHINE LEARNING</div>
+            <h3>Machine Learning &amp; NLP</h3>
+            <ul class="cap-items">
+              <li>Machine learning workflows &amp; evaluation</li>
+              <li>Text classification &amp; feature preparation</li>
+              <li>Natural language processing pipelines</li>
+              <li>Generative AI &amp; LLM application systems</li>
+              <li>Prompt &amp; context engineering</li>
+              <li>AI + robotics integration</li>
+            </ul>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-card-num">02 // AGENT SYSTEMS</div>
+            <h3>Agent Architectures</h3>
+            <ul class="cap-items">
+              <li>Autonomous multi-agent orchestration</li>
+              <li>Tool invocation &amp; deterministic routing</li>
+              <li>Persistent memory pipelines</li>
+              <li>Multimodal AI gateway workflows</li>
+              <li>FastAPI backend services &amp; SSE streaming</li>
+              <li>Fallback &amp; execution pipelines</li>
+            </ul>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-card-num">03 // DATA SCIENCE</div>
+            <h3>Data Science &amp; EDA</h3>
+            <ul class="cap-items">
+              <li>Exploratory data analysis (EDA)</li>
+              <li>Statistical modeling &amp; distribution analysis</li>
+              <li>NumPy &amp; Pandas DataFrame operations</li>
+              <li>Multi-variable correlation &amp; outlier mitigation</li>
+              <li>Matplotlib &amp; Seaborn visual storytelling</li>
+              <li>Predictive feature preparation</li>
+            </ul>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-card-num">04 // ROBOTICS &amp; EMBODIED AI</div>
+            <h3>Embodied Robotics</h3>
+            <ul class="cap-items">
+              <li>Sense → Think → Act loop implementations</li>
+              <li>Sensors &amp; actuator telemetry acquisition</li>
+              <li>Motor drivers &amp; power distribution</li>
+              <li>Multi-DOF kinematics &amp; joint control</li>
+              <li>Closed-loop control concepts</li>
+              <li>Autonomous hardware-software integration</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / Experience (Employment strictly separated from Education) -->
+  <section class="cv-section" id="experience" aria-labelledby="sec-04-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>04 / Experience</span>
+        <span class="sub">Chronological</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-04-title">Experience</h2>
+
+        <!-- Entry 1: FlyRank AI -->
+        <article class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-title-group">
+              <h3>FlyRank AI</h3>
+              <span class="exp-role">AI / NLP Engineering Intern</span>
             </div>
-            <div class="cv-contact">
-                <span>Peshawar, Pakistan · Global Remote</span>
-                <span>WhatsApp: <a href="https://wa.me/923356157357" target="_blank">+92 335 6157357</a></span>
-                <span><a href="mailto:arsalan.vault@gmail.com">arsalan.vault@gmail.com</a></span>
-                <span><a href="https://github.com/24pwai0015-max" target="_blank">github.com/24pwai0015-max</a></span>
-                <span><a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">linkedin.com/in/muhammad-arsalan</a></span>
+            <div class="exp-badges">
+              <span class="exp-badge completed">COMPLETED</span>
             </div>
-        </header>
+          </div>
+          <div class="exp-meta">
+            <!-- Note: Provisional date per latest direction; user confirmation required before publication -->
+            <span>2024 — 2025</span> &middot; <span>Remote / Internship</span>
+          </div>
+          <p class="exp-desc">
+            Worked on machine-learning, classification, evaluation, and NLP pipeline tasks. Developed practical experience structuring AI workflows and assessing model behavior.
+          </p>
+        </article>
 
-        <!-- Professional Summary -->
-        <section class="cv-section">
-            <h2 class="cv-section-title">Professional Summary</h2>
-            <p class="cv-summary">
-                Independent AI Engineer and BS Artificial Intelligence undergraduate with completed industry experience as an AI/NLP Intern at FlyRank AI. Specializing in autonomous multi-agent pipelines, machine learning architectures, statistical data science, and embodied robotics. Proven ability to design and implement end-to-end software and physical systems, from exploratory data analysis pipelines to multi-DOF robotic hardware running closed-loop Sense → Think → Act architectures.
+        <!-- Entry 2: Independent AI Engineer -->
+        <article class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-title-group">
+              <h3>Independent AI Engineer</h3>
+              <span class="exp-role">AI, Automation &amp; Robotics Research</span>
+            </div>
+            <div class="exp-badges">
+              <span class="exp-badge">ACTIVE</span>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span>2024 — NOW</span> &middot; <span>Peshawar, Pakistan &middot; Global Remote</span>
+          </div>
+          <p class="exp-desc">
+            Designing and developing independent AI, automation, data-science, and robotics projects, including RoboNova and Nexus AI.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / Selected Projects -->
+  <section class="cv-section" id="projects" aria-labelledby="sec-05-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>05 / Projects</span>
+        <span class="sub">Selected Systems</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-05-title">Selected Projects</h2>
+
+        <div class="projects-list">
+
+          <!-- Project 01: RoboNova -->
+          <article class="proj-card">
+            <div class="proj-card-header">
+              <div class="proj-title-group">
+                <h3>RoboNova</h3>
+                <div class="proj-cat">Robotics &amp; Hardware</div>
+              </div>
+              <div class="proj-year">2026</div>
+            </div>
+            <p class="proj-desc">
+              Hardware-software autonomous robotics platform exploring multi-DOF kinematics, motor control, telemetry, sensors, actuators, and a Sense → Think → Act architecture.
             </p>
-        </section>
-
-        <!-- Experience -->
-        <section class="cv-section">
-            <h2 class="cv-section-title">Experience</h2>
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <span class="cv-item-title">FlyRank AI — AI / NLP Intern (Completed)</span>
-                    <span class="cv-item-date">June 2026 – Completed</span>
-                </div>
-                <div class="cv-item-subtitle">Remote / Internship</div>
-                <ul>
-                    <li>Engineered automated machine learning and NLP pipelines for production-level content intelligence</li>
-                    <li>Implemented text processing, classification algorithms, and feature extraction workflows in Python</li>
-                    <li>Collaborated on production-level machine learning infrastructure, model validation, and deployment</li>
-                </ul>
+            <div class="proj-tags">
+              <span class="proj-tag">PYTHON</span>
+              <span class="proj-tag">ROBOTICS</span>
+              <span class="proj-tag">KINEMATICS</span>
+              <span class="proj-tag">MOTOR CONTROL</span>
+              <span class="proj-tag">SENSORS</span>
+              <span class="proj-tag">TELEMETRY</span>
             </div>
-        </section>
-
-        <!-- Education -->
-        <section class="cv-section">
-            <h2 class="cv-section-title">Education</h2>
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <span class="cv-item-title">BS Artificial Intelligence</span>
-                    <span class="cv-item-date">2024 – 2028 (Expected)</span>
-                </div>
-                <div class="cv-item-subtitle">4th Semester · In Progress</div>
-                <ul>
-                    <li>Focus: Autonomous Multi-Agent Systems, Neural Networks, Statistical Modeling, Robot Kinematics</li>
-                    <li>Completed rigorous curriculum covering NumPy, Pandas, Matplotlib, classical ML, and advanced EDA</li>
-                </ul>
+            <div>
+              <span class="proj-badge-private">ROBONOVA / PRIVATE REPOSITORY</span>
+              &nbsp;&middot;&nbsp;
+              <a href="https://github.com/24pwai0015-max" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="Visit Muhammad Arsalan's GitHub profile for hardware project overview">
+                GitHub Profile <span aria-hidden="true">↗</span>
+              </a>
             </div>
-        </section>
+          </article>
 
-        <!-- Technical Skills (Approved Final Stack) -->
-        <section class="cv-section">
-            <h2 class="cv-section-title">Technical Proficiencies</h2>
-            <table class="cv-skills-table">
-                <tr>
-                    <td class="cv-skill-category">AI &amp; Machine Learning</td>
-                    <td class="cv-skill-items">AI Fundamentals, Machine Learning Fundamentals, Generative AI, LLM &amp; AI Application Development, AI Agents &amp; Agent Automation, AI System Architecture, AI + Robotics Integration</td>
-                </tr>
-                <tr>
-                    <td class="cv-skill-category">Programming &amp; Dev</td>
-                    <td class="cv-skill-items">Python (Advanced), C Fundamentals, Git &amp; GitHub, VS Code, Linux / Ubuntu, VirtualBox, Google AI Studio</td>
-                </tr>
-                <tr>
-                    <td class="cv-skill-category">Data Science &amp; EDA</td>
-                    <td class="cv-skill-items">NumPy, Pandas, Data Cleaning, Data Manipulation, Exploratory Data Analysis (EDA), Data Visualization, Matplotlib, Seaborn, Statistical Data Analysis, DataFrame Operations, GroupBy &amp; Aggregation, Data Merging &amp; Joining, Pivot Tables</td>
-                </tr>
-                <tr>
-                    <td class="cv-skill-category">Robotics &amp; Electronics</td>
-                    <td class="cv-skill-items">Robotics Fundamentals, Robot Anatomy &amp; Architecture, Sensors &amp; Actuators, Degrees of Freedom (DOF), Robot Locomotion, Electronics Fundamentals, Circuits &amp; Wiring, Voltage/Current/Resistance, Ohm's Law, Batteries &amp; Power Systems, Motor Drivers, Power Distribution, Sense → Think → Act Architecture, Autonomous Robotics</td>
-                </tr>
-                <tr>
-                    <td class="cv-skill-category">Tools &amp; Platforms</td>
-                    <td class="cv-skill-items">GitHub, Google AI Studio, Higgsfield, Google Flow, VS Code, Linux / Ubuntu, VirtualBox</td>
-                </tr>
-            </table>
-        </section>
-
-        <!-- Projects -->
-        <section class="cv-section">
-            <h2 class="cv-section-title">Selected Projects</h2>
-
-            <div class="cv-project">
-                <div class="cv-project-header">
-                    <span class="cv-project-name">RoboNova — Autonomous Robotics &amp; Embodied AI</span>
-                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/roboNova" target="_blank">github.com/24pwai0015-max/roboNova</a></span>
-                </div>
-                <ul>
-                    <li>Engineered multi-DOF humanoid robotics hardware integrating sensors, closed-loop motor drivers, and kinematic actuation</li>
-                    <li>Implemented a strict Sense → Think → Act control loop combining telemetry acquisition, decision logic, and power distribution</li>
-                    <li>Designed modular electronics schematics with dedicated motor driver boards and regulated power rail architecture</li>
-                </ul>
+          <!-- Project 02: Nexus AI -->
+          <article class="proj-card">
+            <div class="proj-card-header">
+              <div class="proj-title-group">
+                <h3>Nexus AI</h3>
+                <div class="proj-cat">Agent Automation</div>
+              </div>
+              <div class="proj-year">2025</div>
             </div>
-
-            <div class="cv-project">
-                <div class="cv-project-header">
-                    <span class="cv-project-name">NexusAI — Autonomous Multimodal Intelligence Platform</span>
-                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">github.com/24pwai0015-max/nexus-ai</a></span>
-                </div>
-                <ul>
-                    <li>Engineered an autonomous AI engine that routes intents in real time between reasoning, live search with citations, and document authoring</li>
-                    <li>Built production-grade FastAPI backend with SSE streaming, persistent SQLite memory, and an extensible Python SDK</li>
-                    <li>Implemented autonomous multi-agent tool execution with deterministic schema validation and error fallback pipelines</li>
-                </ul>
+            <p class="proj-desc">
+              Multimodal AI platform exploring FastAPI services, agent workflow orchestration, tool invocation, and persistent memory.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">PYTHON</span>
+              <span class="proj-tag">FASTAPI</span>
+              <span class="proj-tag">LLM</span>
+              <span class="proj-tag">MULTI-AGENT SYSTEMS</span>
+              <span class="proj-tag">TOOL CALLING</span>
+              <span class="proj-tag">MEMORY PIPELINES</span>
             </div>
+            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View Nexus AI repository on GitHub">
+              View Repository <span aria-hidden="true">↗</span>
+            </a>
+          </article>
 
-            <div class="cv-project">
-                <div class="cv-project-header">
-                    <span class="cv-project-name">Data Analytics &amp; Statistical Modeling</span>
-                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/data-analytics" target="_blank">github.com/24pwai0015-max/data-analytics</a></span>
-                </div>
-                <ul>
-                    <li>Developed exhaustive Exploratory Data Analysis (EDA) pipelines covering multi-variable correlation, outlier mitigation, and feature scaling</li>
-                    <li>Built predictive modeling pipelines with NumPy, Pandas, Matplotlib, and Seaborn for structured dataset intelligence</li>
-                </ul>
+          <!-- Project 03: FlyRank ML Pipeline -->
+          <article class="proj-card">
+            <div class="proj-card-header">
+              <div class="proj-title-group">
+                <h3>FlyRank ML Pipeline</h3>
+                <div class="proj-cat">Machine Learning / NLP</div>
+              </div>
+              <div class="proj-year">2024</div>
             </div>
-
-            <div class="cv-project">
-                <div class="cv-project-header">
-                    <span class="cv-project-name">FlyRank ML Pipeline &amp; Computer Vision Attendance</span>
-                    <span class="cv-project-link"><a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank">github.com/24pwai0015-max</a></span>
-                </div>
-                <ul>
-                    <li>Developed production machine learning classification models and automated evaluation scripts at FlyRank AI</li>
-                    <li>Engineered an OpenCV-based face detection and biometric attendance tracking system with real-time verification</li>
-                </ul>
+            <p class="proj-desc">
+              Machine-learning project covering classification, evaluation, data preparation, and NLP workflow development during the FlyRank AI internship.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">PYTHON</span>
+              <span class="proj-tag">SCIKIT-LEARN</span>
+              <span class="proj-tag">NLP</span>
+              <span class="proj-tag">CLASSIFICATION</span>
+              <span class="proj-tag">EVALUATION</span>
+              <span class="proj-tag">PANDAS</span>
             </div>
-        </section>
+            <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View FlyRank ML Pipeline repository on GitHub">
+              View Repository <span aria-hidden="true">↗</span>
+            </a>
+          </article>
 
+          <!-- Project 04: Data Analytics & EDA -->
+          <article class="proj-card">
+            <div class="proj-card-header">
+              <div class="proj-title-group">
+                <h3>Data Analytics &amp; EDA</h3>
+                <div class="proj-cat">Data Science</div>
+              </div>
+              <div class="proj-year">2024</div>
+            </div>
+            <p class="proj-desc">
+              Exploratory data analysis, statistical investigation, visualization, and predictive feature preparation using Python data-science tools.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">NUMPY</span>
+              <span class="proj-tag">PANDAS</span>
+              <span class="proj-tag">MATPLOTLIB</span>
+              <span class="proj-tag">SEABORN</span>
+              <span class="proj-tag">EDA</span>
+              <span class="proj-tag">FEATURE ENGINEERING</span>
+            </div>
+            <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View Data Analytics repository on GitHub">
+              View Repository <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- 06 / Education (Semantic separation from employment) -->
+  <section class="cv-section" id="education" aria-labelledby="sec-06-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>06 / Education</span>
+        <span class="sub">Academic</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-06-title">Education</h2>
+
+        <article class="edu-box">
+          <div class="edu-header">
+            <h3>BS Artificial Intelligence</h3>
+            <span class="edu-year">2023 — NOW</span>
+          </div>
+
+          <!-- DRAFT PLACEHOLDER: Institution to be confirmed by candidate before public release -->
+          <div class="edu-institution" data-placeholder="institution" aria-label="Institution to be confirmed">
+            ⚠ INSTITUTION / TO BE CONFIRMED
+          </div>
+
+          <!-- Clearly labeled alternative: Selected Study Areas & Independent Learning -->
+          <div class="edu-study-areas">
+            <h4>Selected Study Areas &amp; Independent Learning</h4>
+            <div class="study-tags">
+              <span class="study-tag">Autonomous Multi-Agent Systems</span>
+              <span class="study-tag">Neural Networks</span>
+              <span class="study-tag">Statistical Modeling</span>
+              <span class="study-tag">Robot Kinematics</span>
+              <span class="study-tag">Classical Machine Learning</span>
+              <span class="study-tag">Exploratory Data Analysis</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 / Technical Stack -->
+  <section class="cv-section" id="tech-stack" aria-labelledby="sec-07-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>07 / Stack</span>
+        <span class="sub">Verified Tools</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-07-title">Technical Stack</h2>
+
+        <table class="stack-table" aria-label="Demonstrable Technical Stack">
+          <tbody>
+            <tr>
+              <td class="stack-cat">Languages</td>
+              <td class="stack-items">Python (Advanced), C Fundamentals</td>
+            </tr>
+            <tr>
+              <td class="stack-cat">AI / ML</td>
+              <td class="stack-items">Machine Learning Workflows, NLP Pipelines, Text Classification, Model Evaluation, Generative AI &amp; LLM Systems, Tool Calling, Prompt Architecture</td>
+            </tr>
+            <tr>
+              <td class="stack-cat">Backend</td>
+              <td class="stack-items">FastAPI, RESTful APIs, Server-Sent Events (SSE), SQLite, Modular Architecture</td>
+            </tr>
+            <tr>
+              <td class="stack-cat">Data</td>
+              <td class="stack-items">NumPy, Pandas, Data Cleaning &amp; Preprocessing, Exploratory Data Analysis (EDA), Matplotlib, Seaborn, Statistical Modeling, Feature Preparation</td>
+            </tr>
+            <tr>
+              <td class="stack-cat">Robotics / Hardware</td>
+              <td class="stack-items">Multi-DOF Kinematics, Sensors &amp; Actuators, Motor Driver Boards, Power Distribution, Sense → Think → Act Control Loops</td>
+            </tr>
+            <tr>
+              <td class="stack-cat">Developer Tools</td>
+              <td class="stack-items">Git, GitHub, Linux / Ubuntu, VS Code, VirtualBox, Google AI Studio</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 / Contact -->
+  <section class="cv-section" id="contact" aria-labelledby="sec-08-title">
+    <div class="grid">
+      <div class="sec-marker mono">
+        <span>08 / Contact</span>
+        <span class="sub">Direct Communication</span>
+      </div>
+      <div class="sec-content">
+        <h2 class="sec-title" id="sec-08-title">Direct Contact</h2>
+
+        <div class="cv-contact-grid">
+          
+          <a href="mailto:arsalan.vault@gmail.com" class="contact-card" aria-label="Send email to arsalan.vault@gmail.com">
+            <span class="contact-card-label">EMAIL ADDRESS</span>
+            <span class="contact-card-value">arsalan.vault@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/923356157357" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Chat on WhatsApp +92 335 6157357">
+            <span class="contact-card-label">WHATSAPP / PHONE</span>
+            <span class="contact-card-value">+92 335 6157357</span>
+          </a>
+
+          <a href="https://github.com/24pwai0015-max" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visit GitHub Profile 24pwai0015-max">
+            <span class="contact-card-label">GITHUB PROFILE</span>
+            <span class="contact-card-value">github.com/24pwai0015-max</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visit LinkedIn Profile">
+            <span class="contact-card-label">LINKEDIN PROFILE</span>
+            <span class="contact-card-value">linkedin.com/in/muhammad-arsalan</span>
+          </a>
+
+          <div class="contact-card">
+            <span class="contact-card-label">LOCATION</span>
+            <span class="contact-card-value">Peshawar, Pakistan &middot; Global Remote</span>
+          </div>
+
+          <a href="https://portfolio-website-nine-alpha-75.vercel.app" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visit live portfolio website">
+            <span class="contact-card-label">VERIFIED PORTFOLIO URL</span>
+            <span class="contact-card-value">portfolio-website-nine-alpha-75.vercel.app</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 / Portfolio Return -->
+  <section class="return-bar no-print" aria-label="Portfolio Return Link">
+    <a href="index.html" class="return-button" aria-label="Return to portfolio homepage">
+      ← Return to Main Portfolio
+    </a>
+  </section>
+
+</main>
 
 </body>
 </html>
