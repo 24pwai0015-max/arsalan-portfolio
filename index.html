@@ -1,717 +1,1316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Arsalan — AI Engineer & Robotics Innovator</title>
-    <meta name="description" content="Independent AI Engineer building autonomous multi-agent systems, machine learning pipelines, and humanoid robotics through two specialist engineering units.">
-    <meta name="theme-color" content="#000000">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Muhammad Arsalan — AI Engineer &amp; Robotics Innovator</title>
+  <meta name="description" content="Independent AI Engineer architecting autonomous multi-agent pipelines, machine learning systems, and robotics architectures."/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  
+  <style>
+    @layer base {
+      html { scroll-behavior: smooth; }
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
 
-    <!-- Fonts: Montserrat (Wish Digitals Primary) & Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+    .animate-marquee:hover { animation-play-state: paused; }
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    /* Reveal animation classes */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    /* Stagger delay helpers */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      "darkMode": "class",
+      "theme": {
+        "extend": {
+          "colors": {
+            "on-primary-fixed": "#1a1c1c",
+            "surface-pitch": "#000000",
+            "accent-star": "#e4e4e7",
+            "on-secondary": "#2f3037",
+            "secondary-fixed": "#e2e1eb",
+            "on-tertiary-fixed-variant": "#454748",
+            "on-tertiary": "#2f3132",
+            "surface-container": "#201f22",
+            "surface-variant": "#353437",
+            "text-tertiary": "#71717a",
+            "outline-variant": "#444748",
+            "error-container": "#93000a",
+            "surface-dim": "#131315",
+            "on-primary-fixed-variant": "#454747",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#e2e2e3",
+            "on-tertiary-container": "#636466",
+            "primary": "#ffffff",
+            "surface-container-high": "#2a2a2c",
+            "surface-container-lowest": "#0e0e10",
+            "on-secondary-container": "#b4b4bd",
+            "primary-fixed": "#e2e2e2",
+            "surface-container-low": "#1c1b1d",
+            "primary-fixed-dim": "#c6c6c7",
+            "text-primary": "#ffffff",
+            "on-tertiary-fixed": "#1a1c1d",
+            "background": "#131315",
+            "border-hairline": "#27272a",
+            "on-secondary-fixed-variant": "#45464e",
+            "text-secondary": "#a1a1aa",
+            "surface-tint": "#c6c6c7",
+            "surface-elevated": "#121215",
+            "surface-base": "#09090b",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "inverse-on-surface": "#313032",
+            "tertiary-container": "#e2e2e3",
+            "border-active": "#3f3f46",
+            "secondary": "#c6c6cf",
+            "on-surface": "#e5e1e4",
+            "primary-container": "#e2e2e2",
+            "surface-bright": "#39393b",
+            "on-background": "#e5e1e4",
+            "outline": "#8e9192",
+            "surface-container-highest": "#353437",
+            "secondary-container": "#45464e",
+            "secondary-fixed-dim": "#c6c6cf",
+            "tertiary": "#ffffff",
+            "on-primary": "#2f3131",
+            "inverse-surface": "#e5e1e4",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-surface-variant": "#c4c7c8",
+            "on-primary-container": "#636565",
+            "on-secondary-fixed": "#1a1b22",
+            "inverse-primary": "#5d5f5f",
+            "surface": "#131315"
+          },
+          "borderRadius": {
+            "DEFAULT": "0px",
+            "none": "0px",
+            "sm": "0px",
+            "md": "0px",
+            "lg": "0px",
+            "xl": "0px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-tablet": "0rem",
+            "space-sm": "0.75rem",
+            "space-md": "1.25rem",
+            "space-lg": "2.25rem",
+            "margin-tablet": "2rem",
+            "space-xl": "4rem",
+            "gutter-desktop": "0rem",
+            "margin-desktop": "3rem",
+            "margin": "1rem",
+            "space-xs": "0.375rem",
+            "gutter": "0rem"
+          },
+          "fontFamily": {
+            "body-md": ["Space Grotesk", "sans-serif"],
+            "ticker-label": ["Space Grotesk", "sans-serif"],
+            "headline-md": ["Space Grotesk", "sans-serif"],
+            "headline-lg": ["Space Grotesk", "sans-serif"],
+            "body-lg": ["Space Grotesk", "sans-serif"],
+            "display-super": ["Space Grotesk", "sans-serif"],
+            "display-super-mobile": ["Space Grotesk", "sans-serif"],
+            "headline-editorial": ["Newsreader", "serif"],
+            "headline-xl": ["Space Grotesk", "sans-serif"],
+            "meta-mono": ["JetBrains Mono", "monospace"],
+            "headline-xl-mobile": ["Space Grotesk", "sans-serif"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "ticker-label": ["13px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-super": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "display-super-mobile": ["42px", { "lineHeight": "46px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-editorial": ["38px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-xl": ["52px", { "lineHeight": "58px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "meta-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body>
 
-    <!-- ==================== PRELOADER ==================== -->
-    <div class="wd-preloader" aria-hidden="true">
-        <div class="wd-preloader-mark">ARSALAN</div>
-        <div class="wd-preloader-line"><span></span></div>
-        <div class="wd-preloader-count">00</div>
-    </div>
+<body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary selection:text-surface-base min-h-screen flex flex-col justify-between">
 
-    <!-- ==================== CUSTOM DUAL CURSOR ==================== -->
-    <div class="wd-cursor wd-cursor-dot" aria-hidden="true"></div>
-    <div class="wd-cursor wd-cursor-ring" aria-hidden="true"><span>VIEW</span></div>
+  <!-- ==================== FIXED NAVIGATION HEADER ==================== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-surface-base/95 backdrop-blur-md border-b border-border-hairline transition-all duration-300">
+    <div class="h-20 w-full px-margin-tablet lg:px-margin-desktop flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <a class="flex items-center gap-3.5 focus:outline-none group" data-path="work" href="#hero">
+          <div class="w-8 h-8 bg-primary text-surface-base flex items-center justify-center font-meta-mono text-xs font-bold transition-transform duration-300 group-hover:scale-105">
+            MA
+          </div>
+          <span class="font-headline-md text-headline-md tracking-tight font-bold text-primary hidden sm:inline-block transition-colors duration-200 group-hover:text-text-secondary">
+            M. ARSALAN
+          </span>
+        </a>
+        <div class="hidden xl:flex items-center gap-2 pl-6 border-l border-border-hairline font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Available for AI / Robotics Commissions</span>
+        </div>
+      </div>
 
-    <!-- ==================== NAVIGATION HEADER ==================== -->
-    <header class="wd-header">
-        <a href="#hero" class="wd-logo" aria-label="Muhammad Arsalan Home">
-            <span class="wd-logo-tag">MA</span>
-            <span>ARSALAN</span>
+      <nav class="hidden lg:flex items-center h-full">
+        <a class="h-full flex items-center px-4 uppercase tracking-wider text-primary border-b-2 border-primary font-medium transition-all duration-200" href="#work">01 Work</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#units">02 Units</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#skills">03 Skills</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#founder">04 Profile</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#workflow">05 Process</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-text-secondary hover:text-primary transition-all duration-200 border-b-2 border-transparent hover:border-text-secondary" href="#intake">06 Contact</a>
+        <a class="h-full flex items-center px-4 font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-all duration-200 border-b-2 border-transparent hover:border-primary" href="cv.html" target="_blank">CV ↗</a>
+      </nav>
+
+      <div class="flex items-center gap-4 sm:gap-6">
+        <a class="group relative inline-flex items-center justify-center bg-primary text-surface-base hover:bg-surface-base hover:text-primary border border-primary px-4 sm:px-5 py-2.5 font-ticker-label text-ticker-label uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.18)]" href="#intake">
+          <span>Start a Project</span>
+          <span class="inline-block transition-transform duration-300 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
         </a>
 
-        <nav class="wd-desktop-nav" aria-label="Primary navigation">
-            <a href="#hero" class="is-active">Home</a>
-            <a href="#units">Units</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#process">Process</a>
-            <a href="#faq">FAQ</a>
-            <a href="cv.html" target="_blank">CV ↗</a>
-        </nav>
-
-        <button class="wd-header-cta js-open-popup" type="button" data-service="General Project">
-            Start a project <span>↗</span>
-        </button>
-
-        <button class="wd-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-        </button>
-    </header>
-
-    <!-- ==================== MOBILE DRAWER MENU ==================== -->
-    <div class="wd-mobile-menu" aria-hidden="true">
-        <div class="wd-mobile-links">
-            <a href="#hero">Home <em>01</em></a>
-            <a href="#units">Specialist Units <em>02</em></a>
-            <a href="#about">About Arsalan <em>03</em></a>
-            <a href="#projects">Selected Systems <em>04</em></a>
-            <a href="#process">Engineering Process <em>05</em></a>
-            <a href="#faq">FAQ <em>06</em></a>
-            <a href="cv.html" target="_blank">Download CV <em>07</em></a>
+        <div class="flex items-center gap-3 pl-4 border-l border-border-hairline group cursor-pointer">
+          <div class="relative overflow-hidden w-8 h-8 rounded-full ring-1 ring-border-hairline transition-transform duration-500 group-hover:scale-110">
+            <img alt="Muhammad Arsalan" class="w-full h-full object-cover grayscale contrast-125 filter" src="https://lh3.googleusercontent.com/aida/AEtjO1XV2_hfq_3O9wBRMhF14SLMiSxHc0CoTvfHIQIRkYMo98Va7iEgmWBu8FKmJIPogwp5YIb0dyahmOamPjzpNpaY04zgn03dnRt8srbII_eNFp2vJ7tTUxxw2QgMnkcwETTvDBxLgofzo6zPTHeFJ8rOQJ12iTlfGTg5XeALWy_RlDgPacXagVpKAuVonq-uGLoMnVMcLsUsTdrRzl8LNmS4WrlWjMaOh9AkcsACoFU1PdwpgID3m2OhHQi_"/>
+          </div>
+          <div class="hidden 2xl:flex flex-col text-left">
+            <span class="font-meta-mono text-meta-mono leading-none text-primary group-hover:text-text-secondary transition-colors">M. Arsalan</span>
+            <span class="font-meta-mono text-[10px] text-text-tertiary uppercase leading-none mt-1">AI &amp; Robotics Engineer</span>
+          </div>
         </div>
-        <button type="button" class="wd-btn wd-btn-white js-open-popup" data-service="General enquiry">
-            Start a project <span>↗</span>
-        </button>
+      </div>
     </div>
+  </header>
 
-    <main>
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="w-full pt-20 bg-surface-base flex-1">
+    <div class="flex flex-col w-full text-on-surface">
 
-        <!-- ==================== EDITORIAL HERO SECTION ==================== -->
-        <section class="wd-hero" id="hero">
-            <div class="wd-hero-grid" aria-hidden="true"></div>
-
-            <div class="wd-hero-top">
-                <span class="wd-kicker">Independent AI Engineer / Machine Learning + Robotics</span>
-                <span class="wd-hero-index">MA — 01</span>
-            </div>
-
-            <div class="wd-hero-copy">
-                <h1 class="wd-hero-title">
-                    MUHAMMAD<br>
-                    <span>ARSALAN</span>
-                </h1>
-
-                <div class="wd-hero-side">
-                    <p>
-                        Architecting autonomous agent pipelines, intelligent machines, and deep multimodal systems designed to reason, act, and solve real-world problems.
-                    </p>
-                    <div class="wd-hero-actions">
-                        <button class="wd-btn wd-btn-white js-open-popup" data-service="Engineering Collaboration" type="button">
-                            Start a project <span>↗</span>
-                        </button>
-                        <a class="wd-btn wd-btn-outline" href="#projects">
-                            Explore Systems <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Parallax Geometric Stage -->
-            <div class="wd-hero-stage">
-                <div class="wd-hero-tag">AI &amp; ML SYSTEMS UNIT</div>
-                <div class="wd-cross">+</div>
-                <div class="wd-hero-circle"></div>
-                <div class="wd-cross">+</div>
-                <div class="wd-hero-tag">ROBOTICS &amp; EMBODIED AI</div>
-            </div>
-
-            <div class="wd-hero-bottom">
-                <span>Scroll to explore</span>
-                <span>Autonomous Agents / LLM Pipelines / Robotics / Vision</span>
-            </div>
-        </section>
-
-        <!-- ==================== MARQUEE TICKER ==================== -->
-        <section class="wd-marquee" aria-label="Capabilities">
-            <div class="wd-marquee-track">
-                <span>AUTONOMOUS AGENTS</span><i>✦</i>
-                <span>ROBOTICS INNOVATION</span><i>✦</i>
-                <span>MACHINE LEARNING</span><i>✦</i>
-                <span>CREWAI MULTI-AGENT</span><i>✦</i>
-                <span>COMPUTER VISION</span><i>✦</i>
-                <span>FASTAPI &amp; LLMS</span><i>✦</i>
-                <span>ROS2 SYSTEMS</span><i>✦</i>
-                <span>DATA ARCHITECTURE</span><i>✦</i>
-                <span>AUTONOMOUS AGENTS</span><i>✦</i>
-                <span>ROBOTICS INNOVATION</span><i>✦</i>
-                <span>MACHINE LEARNING</span><i>✦</i>
-                <span>CREWAI MULTI-AGENT</span><i>✦</i>
-                <span>COMPUTER VISION</span><i>✦</i>
-                <span>FASTAPI &amp; LLMS</span><i>✦</i>
-                <span>ROS2 SYSTEMS</span><i>✦</i>
-                <span>DATA ARCHITECTURE</span><i>✦</i>
-            </div>
-        </section>
-
-        <!-- ==================== MANIFESTO / INTRO ==================== -->
-        <section class="wd-section wd-intro">
-            <div class="wd-section-label">
-                <span>01</span>
-                <p>Two specialist units.<br>One standard of engineering intelligence.</p>
-            </div>
-
-            <div class="wd-intro-main">
-                <h2>
-                    We build the <em>computational architecture</em> around ideas — from cognitive agent pipelines to physical machines that interact with our world.
-                </h2>
-
-                <div class="wd-intro-columns">
-                    <p>
-                        Muhammad Arsalan combines mathematical rigor, modern LLM orchestration, and hardware integration into one focused engineering discipline.
-                    </p>
-                    <p>
-                        The <strong>AI &amp; ML Unit</strong> engineers autonomous agents, NLP pipelines, and data systems. The <strong>Robotics Unit</strong> builds humanoid robotics, computer vision perception, and physical automation.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== TWO SPECIALIST UNITS ==================== -->
-        <section class="wd-section" id="units">
-            <div class="wd-section-label">
-                <span>02</span>
-                <p>Engineering Disciplines</p>
-            </div>
-
-            <h2 class="wd-section-title">Two Specialist<br><span>Units.</span></h2>
-
-            <div class="wd-units-grid">
-                <!-- UNIT 01: AI & ML (Dark Card) -->
-                <div class="wd-unit-panel wd-unit-dark" data-tilt>
-                    <div>
-                        <div class="wd-unit-head">
-                            <span>UNIT / 01</span>
-                            <span>Intelligence &amp; Software</span>
-                        </div>
-                        <h2>AI &amp; ML<br>Systems</h2>
-                        <p>
-                            Autonomous multi-agent workflows, search ranking algorithms, predictive modeling, and scalable LLM orchestration.
-                        </p>
-                        <div class="wd-unit-services">
-                            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
-                                <span>Multi-Agent Systems (CrewAI / LangChain)</span><i>↗</i>
-                            </a>
-                            <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank">
-                                <span>NLP &amp; Search Growth Ranking (FlyRank AI)</span><i>↗</i>
-                            </a>
-                            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
-                                <span>LLM API Engineering &amp; Intent Routing</span><i>↗</i>
-                            </a>
-                            <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank">
-                                <span>Data Science &amp; Predictive Machine Learning</span><i>↗</i>
-                            </a>
-                        </div>
-                    </div>
-                    <button class="wd-btn wd-btn-white js-open-popup" data-service="AI & ML Systems Unit" type="button">
-                        Consult AI Unit <span>→</span>
-                    </button>
-                </div>
-
-                <!-- UNIT 02: ROBOTICS (High-Contrast Light Card) -->
-                <div class="wd-unit-panel wd-unit-light" data-tilt>
-                    <div>
-                        <div class="wd-unit-head">
-                            <span>UNIT / 02</span>
-                            <span>Embodied AI &amp; Hardware</span>
-                        </div>
-                        <h2>Robotics<br>Unit</h2>
-                        <p>
-                            Physical humanoid robotics, real-time computer vision recognition, edge AI processing, and embedded automation.
-                        </p>
-                        <div class="wd-unit-services">
-                            <a href="https://github.com/24pwai0015-max/roboNova" target="_blank">
-                                <span>RoboNova Humanoid Service Robot</span><i>↗</i>
-                            </a>
-                            <a href="https://instagram.com/robo.ox" target="_blank">
-                                <span>Hardware &amp; Prototype Builds (@robo.ox)</span><i>↗</i>
-                            </a>
-                            <a href="https://github.com/24pwai0015-max" target="_blank">
-                                <span>OpenCV Computer Vision &amp; Face ID</span><i>↗</i>
-                            </a>
-                            <a href="https://github.com/24pwai0015-max/roboNova" target="_blank">
-                                <span>Conversational Voice AI (Groq LLaMA)</span><i>↗</i>
-                            </a>
-                        </div>
-                    </div>
-                    <button class="wd-btn wd-btn-black js-open-popup" data-service="Robotics Unit" type="button">
-                        Consult Robotics Unit <span>→</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== LEADERSHIP / ABOUT SECTION ==================== -->
-        <section class="wd-section" id="about">
-            <div class="wd-section-label">
-                <span>03</span>
-                <p>Architect &amp; Innovator</p>
-            </div>
-
-            <div class="wd-spotlight-grid">
-                <div class="wd-spotlight-visual" data-tilt>
-                    <div class="wd-spotlight-box">
-                        <i class="fas fa-microchip"></i>
-                        <span class="wd-spotlight-box-title">ARSALAN</span>
-                        <span class="wd-spotlight-role">AI ENGINEER / 24PWAI0015</span>
-                    </div>
-                </div>
-
-                <div class="wd-spotlight-copy">
-                    <span class="wd-kicker">Background &amp; Philosophy</span>
-                    <h3>Muhammad<br>Arsalan</h3>
-                    <h4>BS Artificial Intelligence (4th Sem) · AI/NLP Intern @ FlyRank AI</h4>
-                    <p>
-                        I build end-to-end ML, NLP, and LLM applications independently rather than passively following tutorials. Every system I design is structured to move from mathematical concept to production deployment without losing speed or reliability.
-                    </p>
-                    <p>
-                        Currently engineering ranking models and LLM workflows at <strong>FlyRank AI</strong>, while developing <strong>RoboNova</strong> — a multi-year humanoid service robot integrating natural conversational intelligence and computer vision. Long-term, my goal is to become an <strong>Agent Automation Developer</strong> building production-ready LangChain/CrewAI automation pipelines.
-                    </p>
-                    <div style="margin-top: 32px; display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="cv.html" target="_blank" class="wd-btn wd-btn-white">
-                            View Official CV <span>↗</span>
-                        </a>
-                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-btn wd-btn-outline">
-                            GitHub Profile <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== SELECTED PROJECTS SHOWCASE ==================== -->
-        <section class="wd-section" id="projects">
-            <div class="wd-section-label">
-                <span>04</span>
-                <p>Selected Engineering Work</p>
-            </div>
-
-            <h2 class="wd-section-title">Built to Reason.<br><span>Built to Execute.</span></h2>
-
-            <div class="wd-showcase-grid">
-
-                <!-- 1. NexusAI -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 01</span>
-                        <div class="wd-work-headline">AUTONOMOUS<br>MULTIMODAL<br>INTELLIGENCE</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>NexusAI Platform</h3>
-                        <p>Autonomous AI engine with real-time intent routing between deep reasoning, live web search with citations, FLUX.1 image generation, and PDF/Word document authoring.</p>
-                        <div class="wd-work-tags">
-                            <span>FastAPI</span>
-                            <span>Groq API</span>
-                            <span>Tavily</span>
-                            <span>SQLite</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- 2. RoboNova -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 02</span>
-                        <div class="wd-work-headline">HUMANOID<br>SERVICE<br>ROBOTICS</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>RoboNova Robot</h3>
-                        <p>A multi-year humanoid robotics project featuring a real-time voice-assistant module on Groq LLaMA-3.1, environmental perception, ROS2 architecture, and custom electronics.</p>
-                        <div class="wd-work-tags">
-                            <span>Robotics</span>
-                            <span>ROS2</span>
-                            <span>Voice AI</span>
-                            <span>OpenCV</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max/roboNova" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- 3. AI Attendance System -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 03</span>
-                        <div class="wd-work-headline">FACIAL<br>BIOMETRICS<br>&amp; SECURITY</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>AI Attendance System</h3>
-                        <p>Facial-recognition attendance verification utilizing Streamlit and OpenCV LBPH algorithm with bcrypt security, role-based portals, and automated SMTP notifications.</p>
-                        <div class="wd-work-tags">
-                            <span>OpenCV</span>
-                            <span>Streamlit</span>
-                            <span>Python</span>
-                            <span>Bcrypt</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- 4. Data Analytics -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 04</span>
-                        <div class="wd-work-headline">PREDICTIVE<br>MODELING<br>&amp; ANALYTICS</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>Data Science Pipelines</h3>
-                        <p>Complete 90-day exploratory curriculum covering feature engineering, Titanic survival modeling, wine quality classification, and delivery time regression forecasting.</p>
-                        <div class="wd-work-tags">
-                            <span>NumPy</span>
-                            <span>Pandas</span>
-                            <span>Scikit-Learn</span>
-                            <span>EDA</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- 5. FlyRank ML -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 05</span>
-                        <div class="wd-work-headline">NLP &amp; SEARCH<br>ALGORITHMIC<br>RANKING</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>FlyRank AI Growth Engine</h3>
-                        <p>Production NLP models, ranking architectures, and LLM-assisted workflows built during industry internship at organic AI search growth platform FlyRank AI.</p>
-                        <div class="wd-work-tags">
-                            <span>NLP</span>
-                            <span>Ranking Models</span>
-                            <span>LLM Pipelines</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- 6. LinkedIn Productivity Suite -->
-                <article class="wd-work-card" data-tilt>
-                    <div class="wd-work-art">
-                        <span class="wd-work-index">MA / SYS — 06</span>
-                        <div class="wd-work-headline">PRODUCTIVITY<br>EXTENSIONS<br>&amp; AUTOMATION</div>
-                    </div>
-                    <div class="wd-work-info">
-                        <h3>LinkedIn Assistant Tools</h3>
-                        <p>React-powered web applications and Chrome extensions designed to automate professional outreach, content drafting, and profile telemetry optimization.</p>
-                        <div class="wd-work-tags">
-                            <span>React</span>
-                            <span>Chrome Extension</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-work-link">
-                            Inspect Repository <span>↗</span>
-                        </a>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- ==================== 5-STAGE PROCESS ==================== -->
-        <section class="wd-section" id="process">
-            <div class="wd-section-label">
-                <span>05</span>
-                <p>System Discipline</p>
-            </div>
-
-            <div class="wd-process-grid">
-                <div class="wd-process-sticky">
-                    <span class="wd-kicker">How Systems Are Built</span>
-                    <h2>Less noise.<br>More <span>direction.</span></h2>
-                    <p>Every algorithm, model, and robot follows a structured sequence so development remains disciplined and production-ready.</p>
-                    <button class="wd-btn wd-btn-white js-open-popup" data-service="System Architecture Consultation" type="button">
-                        Discuss a system <span>↗</span>
-                    </button>
-                </div>
-
-                <div class="wd-process-list">
-                    <div class="wd-process-item">
-                        <span>01</span>
-                        <div>
-                            <h3>Understand &amp; Formulate</h3>
-                            <p>We define the objective, data characteristics, operational constraints, and domain requirements before writing any code.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-process-item">
-                        <span>02</span>
-                        <div>
-                            <h3>Architect &amp; Pipeline Design</h3>
-                            <p>We turn requirements into technical topology: selecting model foundations, memory persistence, API schemas, and hardware interfaces.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-process-item">
-                        <span>03</span>
-                        <div>
-                            <h3>Train, Code &amp; Synthesize</h3>
-                            <p>We build the components: training models, tuning prompts, integrating OpenCV feeds, and orchestrating CrewAI agent swarms.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-process-item">
-                        <span>04</span>
-                        <div>
-                            <h3>Benchmark &amp; Optimize</h3>
-                            <p>We measure inference latency, validation metrics, failure rates, and hardware power draw to ensure stability under load.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-process-item">
-                        <span>05</span>
-                        <div>
-                            <h3>Deploy &amp; Integrate</h3>
-                            <p>We containerize and deploy with clean APIs, Streamlit dashboards, or embedded microcontrollers for seamless production use.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== METRICS SECTION ==================== -->
-        <section class="wd-metrics" aria-label="Key Numbers">
-            <div class="wd-metric">
-                <strong class="counter" data-target="2">0</strong>
-                <span>Specialist Units</span>
-            </div>
-            <div class="wd-metric">
-                <strong class="counter" data-target="6">0</strong>
-                <span>Production Systems</span>
-            </div>
-            <div class="wd-metric">
-                <strong class="counter" data-target="90">0</strong>
-                <span>Days ML Curriculum</span>
-            </div>
-            <div class="wd-metric">
-                <strong>∞</strong>
-                <span>Room for Innovation</span>
-            </div>
-        </section>
-
-        <!-- ==================== COLLABORATION STANDARDS ==================== -->
-        <section class="wd-section">
-            <div class="wd-section-label">
-                <span>06</span>
-                <p>Engineering Principles</p>
-            </div>
-
-            <h2 class="wd-section-title">What collaborating<br><span>feels like.</span></h2>
-
-            <div class="wd-expect-grid">
-                <div class="wd-expect-item">
-                    <span>01</span>
-                    <h3>Autonomous Execution</h3>
-                    <p>I take problem statements and translate them into functional, end-to-end architectures without needing step-by-step guidance.</p>
-                </div>
-                <div class="wd-expect-item">
-                    <span>02</span>
-                    <h3>Transparent Repos</h3>
-                    <p>Every project features clean directory layouts, documented installation steps, and reproducible Python environments.</p>
-                </div>
-                <div class="wd-expect-item">
-                    <span>03</span>
-                    <h3>Production Discipline</h3>
-                    <p>Error handling, API authentication, and edge cases are handled upfront rather than patched on after deployment.</p>
-                </div>
-                <div class="wd-expect-item">
-                    <span>04</span>
-                    <h3>Constant Evolution</h3>
-                    <p>Active exploration in cutting-edge areas: multi-agent autonomy (CrewAI), Groq inference, and physical ROS2 robotics.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== FAQ ACCORDION ==================== -->
-        <section class="wd-section" id="faq">
-            <div class="wd-section-label">
-                <span>07</span>
-                <p>Inquiries</p>
-            </div>
-
-            <div class="wd-faq-grid">
-                <div>
-                    <span class="wd-kicker">Frequently Asked</span>
-                    <h2 class="wd-section-title">Before we<br><span>begin.</span></h2>
-                    <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 16px;">
-                        Have questions about collaboration, AI development, or robotics builds? Here are common answers.
-                    </p>
-                </div>
-
-                <div class="wd-accordion">
-                    <div class="wd-accordion-item">
-                        <button type="button" class="wd-accordion-header">
-                            <span>Can you build custom CrewAI multi-agent pipelines?</span>
-                            <i>+</i>
-                        </button>
-                        <div class="wd-accordion-content">
-                            <p>Yes. I build multi-agent architectures where autonomous agents with distinct personas, tools, and memory collaborate to handle complex tasks like market research, automated content generation, and algorithmic ranking.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-accordion-item">
-                        <button type="button" class="wd-accordion-header">
-                            <span>What is the current status of the RoboNova robot?</span>
-                            <i>+</i>
-                        </button>
-                        <div class="wd-accordion-content">
-                            <p>RoboNova is an active 2-year humanoid service robot project. Current progress includes voice-assistant modules via Groq API (LLaMA-3.1), sensor schematics, and vision tracking, documented on Instagram at @robo.ox.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-accordion-item">
-                        <button type="button" class="wd-accordion-header">
-                            <span>Are you available for freelance projects or internships?</span>
-                            <i>+</i>
-                        </button>
-                        <div class="wd-accordion-content">
-                            <p>Yes. I am open to impactful AI engineering projects, NLP collaborations, and technical partnerships. Use the "Start a project" button to share your requirements.</p>
-                        </div>
-                    </div>
-
-                    <div class="wd-accordion-item">
-                        <button type="button" class="wd-accordion-header">
-                            <span>How do we start a technical collaboration?</span>
-                            <i>+</i>
-                        </button>
-                        <div class="wd-accordion-content">
-                            <p>Click "Start a project" to submit your project brief with budget expectations and scope. I will review and reply within 24 hours via email or WhatsApp.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="wd-footer">
-        <div class="wd-footer-top">
-            <div class="wd-footer-statement">
-                <span class="wd-kicker">Muhammad Arsalan Studio</span>
-                <h2>Make intelligent systems<br><span>worth noticing.</span></h2>
-            </div>
-            <button class="wd-btn wd-btn-white js-open-popup" type="button" data-service="General project">
-                Start a project <span>↗</span>
-            </button>
+      <!-- 00 HERO SECTION -->
+      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-12 lg:py-20 flex flex-col justify-between" id="hero">
+        <!-- Meta overline bar -->
+        <div class="reveal-on-scroll flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-10">
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
+              INDEPENDENT AI ENGINEER / MACHINE LEARNING + EMBODIED ROBOTICS — MA — 01
+            </span>
+          </div>
+          <div class="flex items-center gap-4 text-text-tertiary font-meta-mono text-meta-mono uppercase tracking-wider">
+            <span>AI AGENTS / LLM / DATA SCIENCE / ROBOTICS</span>
+            <span class="hidden md:inline text-text-secondary">✦</span>
+            <span class="hidden md:inline">FLYRANK AI INTERN</span>
+          </div>
         </div>
 
-        <div class="wd-footer-grid">
-            <div>
-                <a class="wd-logo" href="#hero">
-                    <span class="wd-logo-tag">MA</span>
-                    <span>ARSALAN</span>
+        <!-- Stark Brutalist Title & Headline Matrix -->
+        <div class="py-6 lg:py-12">
+          <h1 class="reveal-on-scroll delay-100 font-display-super text-display-super text-primary tracking-tighter uppercase font-bold leading-none select-none hover:tracking-tight transition-all duration-500">
+            MUHAMMAD<br class="hidden sm:inline"/> ARSALAN
+          </h1>
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-8 reveal-on-scroll delay-200">
+              <p class="font-headline-editorial text-headline-editorial text-primary leading-tight max-w-3xl">
+                We architect <span class="italic text-text-secondary">autonomous AI systems</span>, machine intelligence and embodied robotics that are engineered to think, act, and scale.
+              </p>
+            </div>
+            <div class="lg:col-span-4 flex flex-col gap-4 reveal-on-scroll delay-300">
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="group inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-elevated hover:text-primary transition-all duration-200 px-6 py-3 font-ticker-label text-ticker-label uppercase tracking-widest font-semibold shadow-md hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5" href="#intake">
+                  <span>Start a project</span>
+                  <span class="inline-block transition-transform duration-300 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
                 </a>
-                <p style="color: var(--text-secondary); margin-top: 18px; line-height: 1.8; max-width: 320px;">
-                    Two specialist units. Autonomous AI pipelines, NLP search ranking, and embodied robotics built with discipline.
-                </p>
+                <a class="inline-flex items-center justify-center bg-surface-container text-primary hover:bg-surface-container-high transition-all duration-200 px-6 py-3 font-ticker-label text-ticker-label uppercase tracking-wider" href="#work">
+                  Explore Systems →
+                </a>
+              </div>
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">
+                SCROLL TO EXPLORE ARCHIVAL DIVISIONS &amp; ENGINEERING REPERTORY
+              </span>
             </div>
-
-            <div>
-                <h4>Navigation</h4>
-                <div class="wd-footer-links">
-                    <a href="#hero">Home</a>
-                    <a href="#units">Specialist Units</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Selected Projects</a>
-                    <a href="cv.html" target="_blank">Download CV</a>
-                </div>
-            </div>
-
-            <div>
-                <h4>Direct Channels</h4>
-                <div class="wd-footer-links">
-                    <a href="mailto:arsalan.vault@gmail.com">arsalan.vault@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">LinkedIn Profile</a>
-                    <a href="https://github.com/24pwai0015-max" target="_blank">GitHub Repositories</a>
-                    <a href="https://instagram.com/robo.ox" target="_blank">Instagram (@robo.ox)</a>
-                </div>
-            </div>
-
-            <div>
-                <h4>Discipline</h4>
-                <p style="color: var(--text-secondary); line-height: 1.8;">
-                    AI &amp; ML Systems<br>
-                    Humanoid Robotics<br>
-                    Worldwide Collaboration
-                </p>
-            </div>
+          </div>
         </div>
 
-        <div class="wd-footer-bottom">
-            <span>© 2026 Muhammad Arsalan. All rights reserved.</span>
-            <span>Independent AI Engineer &amp; Robotics Innovator.</span>
+        <!-- Dual Interactive Quick-Look Modules -->
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Unit 01 Card -->
+          <div class="reveal-on-scroll delay-200 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-6 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container cursor-pointer" onclick="document.getElementById('units').scrollIntoView({behavior:'smooth'})">
+            <div>
+              <div class="flex items-center justify-between pb-4">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">UNIT / 01</span>
+                <span class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform duration-300">add</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-primary font-bold uppercase tracking-tight">AI &amp; MACHINE LEARNING</h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-2">Autonomous Agent Pipelines, Generative AI, LLM Application Architecture, and Statistical Modeling.</p>
+            </div>
+            <div class="pt-6 flex flex-wrap gap-2">
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">AI AGENTS</span>
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">LLM SYSTEMS</span>
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">DATA SCIENCE</span>
+            </div>
+          </div>
+
+          <!-- Unit 02 Card -->
+          <div class="reveal-on-scroll delay-300 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-6 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container cursor-pointer" onclick="document.getElementById('units').scrollIntoView({behavior:'smooth'})">
+            <div>
+              <div class="flex items-center justify-between pb-4">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">UNIT / 02</span>
+                <span class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform duration-300">add</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-primary font-bold uppercase tracking-tight">ROBOTICS &amp; EMBODIED AI</h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-2">Sensors &amp; Actuators, Motor Driver Topologies, Robot Locomotion, and Sense → Think → Act Control Loops.</p>
+            </div>
+            <div class="pt-6 flex flex-wrap gap-2">
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">SENSORS</span>
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">ACTUATORS</span>
+              <span class="font-meta-mono text-[11px] px-2.5 py-1 bg-surface-container text-text-secondary">CIRCUITS</span>
+            </div>
+          </div>
         </div>
-    </footer>
+      </section>
 
-    <!-- ==================== PROJECT BRIEF POPUP MODAL ==================== -->
-    <div class="wd-popup" id="projectPopup" aria-hidden="true">
-        <div class="wd-popup-backdrop js-close-popup"></div>
-        <div class="wd-popup-panel" role="dialog" aria-modal="true" aria-labelledby="projectPopupTitle">
-            <button class="wd-popup-close js-close-popup" type="button" aria-label="Close dialog">×</button>
+      <!-- Continuous Running Marquee Strip -->
+      <div class="w-full bg-surface-pitch py-4 overflow-hidden shadow-sm select-none border-y border-border-hairline">
+        <div class="flex whitespace-nowrap animate-marquee">
+          <div class="flex items-center gap-8 font-ticker-label text-ticker-label text-primary tracking-widest uppercase">
+            <span>AI AGENTS</span><span class="text-accent-star">✦</span>
+            <span>MACHINE LEARNING</span><span class="text-accent-star">✦</span>
+            <span>AUTONOMOUS ROBOTICS</span><span class="text-accent-star">✦</span>
+            <span>LLM ARCHITECTURE</span><span class="text-accent-star">✦</span>
+            <span>DATA SCIENCE</span><span class="text-accent-star">✦</span>
+            <span>SENSORS &amp; ACTUATORS</span><span class="text-accent-star">✦</span>
+            <span>SYSTEM ARCHITECTURE</span><span class="text-accent-star">✦</span>
+            <span>NUMPY &amp; PANDAS</span><span class="text-accent-star">✦</span>
+            <span>MOTOR DRIVERS</span><span class="text-accent-star">✦</span>
+            <span>AI AGENTS</span><span class="text-accent-star">✦</span>
+            <span>MACHINE LEARNING</span><span class="text-accent-star">✦</span>
+            <span>AUTONOMOUS ROBOTICS</span><span class="text-accent-star">✦</span>
+            <span>LLM ARCHITECTURE</span><span class="text-accent-star">✦</span>
+            <span>DATA SCIENCE</span><span class="text-accent-star">✦</span>
+            <span>SENSORS &amp; ACTUATORS</span><span class="text-accent-star">✦</span>
+            <span>SYSTEM ARCHITECTURE</span><span class="text-accent-star">✦</span>
+            <span>NUMPY &amp; PANDAS</span><span class="text-accent-star">✦</span>
+            <span>MOTOR DRIVERS</span><span class="text-accent-star">✦</span>
+          </div>
+        </div>
+      </div>
 
-            <div class="wd-popup-copy">
-                <span class="wd-kicker">Direct Consultation</span>
-                <h2 id="projectPopupTitle">Tell me what you want to build.</h2>
-                <p>Share your vision. I will use your brief to assess feasibility, scope, and the optimal architectural direction.</p>
+      <!-- 01 SPECIALIST UNITS SPLIT SECTION -->
+      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-20 lg:py-28" id="units">
+        <div class="flex flex-col mb-14 reveal-on-scroll">
+          <div class="flex items-center gap-3">
+            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest">[ DIVISION ARCHITECTURE ]</span>
+            <span class="font-meta-mono text-meta-mono text-text-secondary uppercase tracking-widest">01 — TWO SPECIALIST UNITS. ONE ENGINEERING STANDARD.</span>
+          </div>
+          <h2 class="font-headline-xl text-headline-xl text-primary font-bold mt-4 tracking-tight max-w-4xl">
+            We build the <span class="font-headline-editorial italic font-normal text-text-secondary">computational intelligence</span> that moves ideas — from autonomous reasoning to physical execution.
+          </h2>
+          <p class="font-body-lg text-body-lg text-text-secondary mt-4 max-w-2xl">
+            Combining algorithmic precision, mathematical rigor, and hardware control into one unified practice. Our AI Unit engineers agentic reasoning systems and data pipelines. Our Robotics Unit translates intelligence into physical actuation and multi-DOF locomotion.
+          </p>
+        </div>
+
+        <!-- Units Dual Bento Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- UNIT 01: AI & ML UNIT -->
+          <div class="reveal-on-scroll delay-100 bg-surface-container-low border border-border-hairline hover:border-white/40 p-8 lg:p-12 flex flex-col justify-between shadow-lg group transition-all duration-300 hover:bg-zinc-900/60 hover:-translate-y-1 hover:shadow-2xl">
+            <div>
+              <div class="flex items-center justify-between pb-6 border-b border-border-hairline/60">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary group-hover:text-primary transition-colors">UNIT / 01 — AI &amp; MACHINE LEARNING</span>
+                <span class="font-meta-mono text-meta-mono text-text-secondary uppercase">SYS_REF: AI-01</span>
+              </div>
+              <h3 class="font-display-super text-headline-xl text-primary font-bold tracking-tight mt-6 group-hover:translate-x-1 transition-transform duration-300">
+                AI &amp; ML<br/>Unit
+              </h3>
+              <p class="font-body-lg text-body-lg text-text-secondary mt-6 leading-relaxed">
+                Autonomous agent pipelines, generative models, LLM systems, and deep data science designed to process high-dimensional problems into reliable decisions.
+              </p>
+              <!-- Interactive Service Pills Grid -->
+              <div class="mt-8 flex flex-wrap gap-2.5">
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">AI Fundamentals</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Machine Learning</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Generative AI</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">LLM &amp; AI App Dev</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">AI Agents &amp; Automation</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">AI System Architecture</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">AI + Robotics Integration</span>
+              </div>
+            </div>
+            <div class="mt-12 pt-8 flex items-center justify-between border-t border-border-hairline">
+              <a class="inline-flex items-center gap-2 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:text-text-secondary transition-colors group/link" href="#work">
+                <span>[ Enter AI Unit ]</span>
+                <span class="inline-block transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
+              </a>
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">07 CAPABILITIES</span>
+            </div>
+          </div>
+
+          <!-- UNIT 02: ROBOTICS UNIT -->
+          <div class="reveal-on-scroll delay-200 bg-surface-container-low border border-border-hairline hover:border-white/40 p-8 lg:p-12 flex flex-col justify-between shadow-lg group transition-all duration-300 hover:bg-zinc-900/60 hover:-translate-y-1 hover:shadow-2xl">
+            <div>
+              <div class="flex items-center justify-between pb-6 border-b border-border-hairline/60">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary group-hover:text-primary transition-colors">UNIT / 02 — ROBOTICS &amp; EMBODIED AI</span>
+                <span class="font-meta-mono text-meta-mono text-text-secondary uppercase">SYS_REF: ROB-02</span>
+              </div>
+              <h3 class="font-display-super text-headline-xl text-primary font-bold tracking-tight mt-6 group-hover:translate-x-1 transition-transform duration-300">
+                Robotics<br/>Unit
+              </h3>
+              <p class="font-body-lg text-body-lg text-text-secondary mt-6 leading-relaxed">
+                Robot anatomy, sensor fusion, multi-axis actuation, circuit schematics, and closed-loop motor drivers engineered for reliable physical-world operation.
+              </p>
+              <!-- Interactive Service Pills Grid -->
+              <div class="mt-8 flex flex-wrap gap-2.5">
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Robotics Fundamentals</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Robot Anatomy</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Sensors &amp; Actuators</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Degrees of Freedom (DOF)</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Robot Locomotion</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Circuits &amp; Wiring</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Motor Drivers</span>
+                <span class="px-3.5 py-2 bg-surface-container-high text-primary border border-transparent font-meta-mono text-meta-mono uppercase">Sense → Think → Act</span>
+              </div>
+            </div>
+            <div class="mt-12 pt-8 flex items-center justify-between border-t border-border-hairline">
+              <a class="inline-flex items-center gap-2 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:text-text-secondary transition-colors group/link" href="#work">
+                <span>[ Enter Robotics Unit ]</span>
+                <span class="inline-block transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
+              </a>
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">08 CAPABILITIES</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 LEADERSHIP & FOUNDER SPOTLIGHT -->
+      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-20 lg:py-28" id="founder">
+        <div class="max-w-7xl mx-auto">
+          <div class="pb-8 reveal-on-scroll">
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">
+              [ ARCHITECTURAL MASTHEAD / 02 ]
+            </span>
+            <span class="ml-3 font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">
+              ENGINEER / LEAD ARCHITECT, ROBONOVA &amp; NEXUS AI
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Founder Portrait Image with subtle hover zoom -->
+            <div class="lg:col-span-5 relative reveal-on-scroll delay-100">
+              <div class="w-full aspect-square bg-surface-container-lowest overflow-hidden shadow-2xl relative group border border-border-hairline hover:border-white/30 transition-all duration-500">
+                <img alt="Muhammad Arsalan - AI &amp; Robotics Engineer" class="w-full h-full object-cover grayscale contrast-125 filter transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XV2_hfq_3O9wBRMhF14SLMiSxHc0CoTvfHIQIRkYMo98Va7iEgmWBu8FKmJIPogwp5YIb0dyahmOamPjzpNpaY04zgn03dnRt8srbII_eNFp2vJ7tTUxxw2QgMnkcwETTvDBxLgofzo6zPTHeFJ8rOQJ12iTlfGTg5XeALWy_RlDgPacXagVpKAuVonq-uGLoMnVMcLsUsTdrRzl8LNmS4WrlWjMaOh9AkcsACoFU1PdwpgID3m2OhHQi_"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                <div class="absolute bottom-4 left-4 bg-surface-pitch/85 backdrop-blur-md px-3 py-1 font-meta-mono text-meta-mono text-text-secondary uppercase border border-border-hairline group-hover:border-primary/40 transition-colors">
+                  LOC: PESHAWAR, PK / GLOBAL REMOTE
+                </div>
+              </div>
             </div>
 
-            <form class="wd-form">
-                <div class="wd-form-row">
-                    <label>
-                        Your Name
-                        <input type="text" name="name" required placeholder="Muhammad Ali">
-                    </label>
-                    <label>
-                        Email Address
-                        <input type="email" name="email" required placeholder="name@company.com">
-                    </label>
+            <!-- Narrative & Editorial Statement -->
+            <div class="lg:col-span-7 flex flex-col space-y-6 reveal-on-scroll delay-200">
+              <div class="space-y-2">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">FOUNDER &amp; AI ENGINEER</span>
+                <h2 class="font-display-super text-headline-xl text-primary font-bold tracking-tight">
+                  Muhammad<br/>Arsalan
+                </h2>
+                <p class="font-ticker-label text-ticker-label uppercase text-text-secondary tracking-widest">
+                  AI/NLP INTERN AT FLYRANK AI · BS ARTIFICIAL INTELLIGENCE
+                </p>
+              </div>
+
+              <blockquote class="font-headline-editorial text-headline-editorial text-primary italic leading-relaxed py-2 border-l-2 border-primary/40 pl-6 my-2 hover:border-primary transition-colors">
+                "Autonomous machines must move past toys and demos. We unite mathematical learning models, multi-agent reasoning, and closed-loop robotics into one disciplined architecture — giving software the ability to think, reason, and act in the physical world."
+              </blockquote>
+
+              <p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Currently in the 4th semester of BS Artificial Intelligence while engineering machine learning solutions as an AI/NLP Intern at FlyRank AI. My work is centered on building autonomous multi-agent pipelines and intelligent robotics systems that combine sensor telemetry with edge computing.
+              </p>
+
+              <div class="pt-4 flex flex-wrap items-center gap-6">
+                <a class="group inline-flex items-center gap-2 font-ticker-label text-ticker-label uppercase tracking-widest text-primary hover:underline underline-offset-8 transition-colors" href="cv.html" target="_blank">
+                  <span>View Full Curriculum Vitae</span>
+                  <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
+                <span class="text-text-tertiary">/</span>
+                <a class="font-meta-mono text-meta-mono text-text-secondary hover:text-primary uppercase tracking-wider transition-colors" href="mailto:arsalan.vault@gmail.com">
+                  arsalan.vault@gmail.com ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 CREATIVE DIRECTIONS & FEATURED WORK SHOWCASE -->
+      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-20 lg:py-28" id="work">
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-12 gap-6 reveal-on-scroll">
+          <div>
+            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest block mb-2">
+              CURATED REPERTORY / 03
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight max-w-xl">
+              Engineered systems.<br/>
+              <span class="font-headline-editorial italic font-normal text-text-secondary">Built with mathematical rigor. Built for autonomous scale.</span>
+            </h2>
+          </div>
+          <div class="font-meta-mono text-meta-mono text-text-secondary uppercase text-right hidden md:block">
+            <div>PORTFOLIO REGISTRY 2024—2026</div>
+            <div class="text-text-tertiary text-[11px] mt-1">STATUS: PRODUCTION COMPLETE</div>
+          </div>
+        </div>
+
+        <!-- 3-Column Architectural Project Matrix -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Direction Card 01: RoboNova -->
+          <div class="reveal-on-scroll delay-100 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-8 flex flex-col justify-between shadow-lg group hover:bg-surface-container-low hover:-translate-y-1.5 transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between pb-8">
+                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors">A/01</span>
+                <span class="font-meta-mono text-[11px] text-text-tertiary uppercase tracking-widest">ROBOTICS &amp; HARDWARE</span>
+              </div>
+              <!-- Monochromatic SVG Graphic Symbol -->
+              <div class="py-6 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
+                <svg class="w-20 h-20 transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
+                  <rect height="50" width="50" x="15" y="15"></rect>
+                  <circle cx="40" cy="40" r="16" stroke-dasharray="3 3"></circle>
+                  <line x1="15" x2="65" y1="15" y2="65"></line>
+                  <circle cx="40" cy="40" r="4" fill="currentColor"></circle>
+                </svg>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg text-primary font-bold uppercase tracking-tight mt-4 group-hover:text-white transition-colors">
+                ROBONOVA<br/>AUTONOMOUS<br/>ROBOTICS.
+              </h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-4">
+                Hardware-software robotics platform featuring multi-DOF kinematics, closed-loop motor drivers, and sensor telemetry running a Sense → Think → Act control loop.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-border-hairline">
+              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
+              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1" href="https://github.com/24pwai0015-max/roboNova" target="_blank">
+                <span>Sensors / Actuators / Hardware</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Direction Card 02: NEXUS AI -->
+          <div class="reveal-on-scroll delay-200 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-8 flex flex-col justify-between shadow-lg group hover:bg-surface-container-low hover:-translate-y-1.5 transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between pb-8">
+                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors">B/02</span>
+                <span class="font-meta-mono text-[11px] text-text-tertiary uppercase tracking-widest">AGENT AUTOMATION</span>
+              </div>
+              <!-- Monochromatic SVG Graphic Symbol -->
+              <div class="py-6 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
+                <svg class="w-20 h-20 transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
+                  <path d="M15 15 H65 V65 H15 Z"></path>
+                  <path d="M25 25 H55 M25 35 H55 M25 45 H45 M25 55 H35"></path>
+                  <circle cx="55" cy="55" r="4" fill="currentColor"></circle>
+                </svg>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg text-primary font-bold uppercase tracking-tight mt-4 group-hover:text-white transition-colors">
+                NEXUS AI<br/>MULTIMODAL<br/>INTELLIGENCE.
+              </h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-4">
+                Autonomous multimodal intelligence platform built with FastAPI, multi-agent workflow orchestration, tool invocation, and persistent memory pipelines.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-border-hairline">
+              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
+              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1" href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
+                <span>FastAPI / Agents / LLM Pipelines</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Direction Card 03: Data Analytics & EDA -->
+          <div class="reveal-on-scroll delay-300 bg-surface-container-lowest border border-border-hairline hover:border-white/40 p-8 flex flex-col justify-between shadow-lg group hover:bg-surface-container-low hover:-translate-y-1.5 transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between pb-8">
+                <span class="font-meta-mono text-meta-mono text-primary font-bold px-2 py-0.5 bg-surface-container group-hover:bg-primary group-hover:text-surface-base transition-colors">C/03</span>
+                <span class="font-meta-mono text-[11px] text-text-tertiary uppercase tracking-widest">DATA SCIENCE &amp; ML</span>
+              </div>
+              <!-- Monochromatic SVG Graphic Symbol -->
+              <div class="py-6 flex justify-center text-primary/80 group-hover:text-primary transition-colors">
+                <svg class="w-20 h-20 transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 80 80">
+                  <rect height="44" rx="0" width="56" x="12" y="18"></rect>
+                  <line x1="12" x2="68" y1="28" y2="28"></line>
+                  <circle cx="20" cy="23" fill="currentColor" r="1.5"></circle>
+                  <circle cx="26" cy="23" fill="currentColor" r="1.5"></circle>
+                  <line x1="22" x2="22" y1="52" y2="40"></line>
+                  <line x1="32" x2="32" y1="52" y2="34"></line>
+                  <line x1="42" x2="42" y1="52" y2="46"></line>
+                  <line x1="52" x2="52" y1="52" y2="36"></line>
+                </svg>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg text-primary font-bold uppercase tracking-tight mt-4 group-hover:text-white transition-colors">
+                DATA<br/>ANALYTICS<br/>&amp; STATS.
+              </h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-4">
+                Statistical modeling, exploratory data analysis, and predictive feature engineering using NumPy, Pandas, Matplotlib, and Seaborn for complex datasets.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-border-hairline">
+              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block">PRACTICE SUITE</span>
+              <a class="font-meta-mono text-meta-mono uppercase text-primary hover:underline flex items-center justify-between mt-1" href="https://github.com/24pwai0015-max/data-analytics" target="_blank">
+                <span>NumPy / Pandas / Statistical Modeling</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Extended Project Modules -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
+            <div>
+              <span class="font-meta-mono text-[10px] text-text-tertiary uppercase">COMPUTER VISION</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-semibold mt-1">AI Attendance System</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm mt-2">Real-time facial detection and recognition pipeline for automated, contactless presence tracking.</p>
+            </div>
+            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase mt-4 block">OpenCV / Python</span>
+          </div>
+
+          <div class="p-6 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
+            <div>
+              <span class="font-meta-mono text-[10px] text-text-tertiary uppercase">PRODUCTION ML</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-semibold mt-1">FlyRank ML Pipeline</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm mt-2">Production-grade classification and NLP evaluation pipelines developed during FlyRank AI internship.</p>
+            </div>
+            <a class="font-meta-mono text-meta-mono text-primary uppercase mt-4 flex items-center justify-between hover:underline" href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank">
+              <span>FlyRank AI Repo</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="p-6 bg-surface-container-low border border-border-hairline flex flex-col justify-between">
+            <div>
+              <span class="font-meta-mono text-[10px] text-text-tertiary uppercase">PREDICTIVE ANALYTICS</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-semibold mt-1">Delivery Time Predictor</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm mt-2">End-to-end regression model with multi-variable feature scaling and real-time delivery estimation.</p>
+            </div>
+            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase mt-4 block">Scikit-Learn / Pandas</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 COMPREHENSIVE SKILLS & CAPABILITIES MATRIX -->
+      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-20 lg:py-28 border-t border-border-hairline" id="skills">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-14 reveal-on-scroll">
+            <span class="font-meta-mono text-meta-mono text-text-tertiary uppercase tracking-widest block mb-2">
+              TECHNICAL TAXONOMY / 04
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">
+              Verified Technical Stack &amp; Capabilities.
+            </h2>
+            <p class="font-body-lg text-body-lg text-text-secondary mt-3 max-w-3xl">
+              A comprehensive directory of core proficiencies across AI engineering, systems programming, statistical data science, physical robotics, and production platforms.
+            </p>
+          </div>
+
+          <!-- Zero-gutter architectural skills matrix -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Skill Category 01: AI & Machine Learning -->
+            <div class="bg-surface-container-low p-8 border border-border-hairline flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-4 border-b border-border-hairline">
+                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">01 // INTELLIGENCE</span>
+                  <span class="font-meta-mono text-meta-mono text-primary font-bold">07 PROFICIENCIES</span>
                 </div>
+                <h3 class="font-headline-md text-headline-md text-primary font-bold mt-4 uppercase">AI &amp; Machine Learning</h3>
+                <ul class="mt-6 space-y-2.5 font-meta-mono text-meta-mono text-text-secondary">
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Artificial Intelligence Fundamentals</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Machine Learning Fundamentals</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Generative AI</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> LLM &amp; AI Application Development</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> AI Agents &amp; Agent Automation</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> AI System Architecture</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> AI + Robotics Integration</li>
+                </ul>
+              </div>
+            </div>
 
-                <div class="wd-form-row">
-                    <label>
-                        Target Engineering Unit
-                        <select name="unit" class="js-project-select">
-                            <option>AI &amp; ML Systems Unit</option>
-                            <option>Robotics &amp; Embodied AI Unit</option>
-                            <option>Both Specialist Units</option>
-                            <option>General Consultation / Research</option>
-                        </select>
-                    </label>
-                    <label>
-                        Budget Expectation
-                        <select name="budget">
-                            <option value="">Select an investment range</option>
-                            <option>Under $1,000</option>
-                            <option>$1,000 – $3,000</option>
-                            <option>$3,000 – $7,500</option>
-                            <option>$7,500+</option>
-                            <option>Open Discussion / Research</option>
-                        </select>
-                    </label>
+            <!-- Skill Category 02: Robotics & Hardware -->
+            <div class="bg-surface-container-low p-8 border border-border-hairline flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-4 border-b border-border-hairline">
+                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">02 // EMBODIED SYSTEMS</span>
+                  <span class="font-meta-mono text-meta-mono text-primary font-bold">14 PROFICIENCIES</span>
                 </div>
+                <h3 class="font-headline-md text-headline-md text-primary font-bold mt-4 uppercase">Robotics &amp; Electronics</h3>
+                <ul class="mt-6 space-y-2 font-meta-mono text-meta-mono text-text-secondary">
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Robotics Fundamentals</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Robot Anatomy &amp; Architecture</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Sensors &amp; Actuators</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Degrees of Freedom (DOF)</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Robot Locomotion</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Electronics Fundamentals</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Circuits &amp; Wiring</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Voltage, Current &amp; Resistance</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Ohm's Law</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Batteries &amp; Power Systems</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Motor Drivers</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Power Distribution</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Sense → Think → Act Architecture</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Autonomous Robotics</li>
+                </ul>
+              </div>
+            </div>
 
-                <label>
-                    Project Brief &amp; Objectives
-                    <textarea name="message" required rows="4" placeholder="What are you engineering, automating, or solving?"></textarea>
-                </label>
+            <!-- Skill Category 03: Data Science -->
+            <div class="bg-surface-container-low p-8 border border-border-hairline flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-4 border-b border-border-hairline">
+                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">03 // STATISTICAL MODELING</span>
+                  <span class="font-meta-mono text-meta-mono text-primary font-bold">13 PROFICIENCIES</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary font-bold mt-4 uppercase">Data Science</h3>
+                <ul class="mt-6 space-y-2 font-meta-mono text-meta-mono text-text-secondary">
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> NumPy &amp; Pandas</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Data Cleaning &amp; Manipulation</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Exploratory Data Analysis (EDA)</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Data Visualization</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Matplotlib &amp; Seaborn</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Statistical Data Analysis</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> DataFrame Operations</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> GroupBy &amp; Aggregation</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Data Merging &amp; Joining</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Pivot Tables &amp; Reshaping</li>
+                </ul>
+              </div>
+            </div>
 
-                <button class="wd-btn wd-btn-white" type="submit">
-                    Send Technical Brief <span>↗</span>
+            <!-- Skill Category 04: Programming & Development -->
+            <div class="bg-surface-container-low p-8 border border-border-hairline flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-4 border-b border-border-hairline">
+                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">04 // SYSTEMS &amp; LANGUAGES</span>
+                  <span class="font-meta-mono text-meta-mono text-primary font-bold">07 PROFICIENCIES</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary font-bold mt-4 uppercase">Programming &amp; Dev</h3>
+                <ul class="mt-6 space-y-2.5 font-meta-mono text-meta-mono text-text-secondary">
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Python (Advanced)</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> C Fundamentals</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Git &amp; GitHub Version Control</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> VS Code Architecture</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Linux / Ubuntu CLI</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> VirtualBox Virtualization</li>
+                  <li class="flex items-center gap-2"><span class="text-primary">✦</span> Google AI Studio</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Skill Category 05: Tools & Platforms -->
+            <div class="bg-surface-container-low p-8 border border-border-hairline flex flex-col justify-between lg:col-span-2">
+              <div>
+                <div class="flex items-center justify-between pb-4 border-b border-border-hairline">
+                  <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">05 // PLATFORMS &amp; WORKFLOWS</span>
+                  <span class="font-meta-mono text-meta-mono text-primary font-bold">07 PROFICIENCIES</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary font-bold mt-4 uppercase">Tools &amp; Platforms</h3>
+                <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 font-meta-mono text-meta-mono text-text-secondary">
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> GitHub</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Google AI Studio</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Higgsfield</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Google Flow</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> VS Code</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> Linux / Ubuntu</div>
+                  <div class="p-3 bg-surface-container border border-border-hairline/60"><span class="text-primary">✦</span> VirtualBox</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 5-STAGE STUDIO WORKFLOW & LIVE METRICS -->
+      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-20 lg:py-28" id="workflow">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between pb-16 gap-6">
+          <div class="max-w-2xl reveal-on-scroll">
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-2">
+              EXECUTION PARADIGM / 05
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">
+              Less guesswork.<br/>
+              <span class="font-headline-editorial italic font-normal text-text-secondary">More direction.</span>
+            </h2>
+            <p class="font-body-lg text-body-lg text-text-secondary mt-4">
+              Every system moves through a deterministic sequence so intelligence remains verifiable without turning chaotic.
+            </p>
+          </div>
+          <div class="reveal-on-scroll delay-100">
+            <a class="inline-flex items-center justify-center bg-primary text-surface-base hover:bg-surface-elevated hover:text-primary transition-all px-6 py-3 font-ticker-label text-ticker-label uppercase tracking-widest font-semibold" href="#intake">
+              Discuss an architecture ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 5 Sequential Workflow Steps (Zero-gutter style compartment cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+          <!-- Step 01 -->
+          <div class="reveal-on-scroll delay-100 bg-surface-container-low border border-border-hairline p-6 flex flex-col justify-between hover:bg-surface-container transition-colors">
+            <div>
+              <span class="font-display-super text-headline-lg font-bold text-primary block leading-none mb-4">01</span>
+              <h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">Understand</h3>
+              <p class="font-body-md text-body-md text-text-secondary text-sm leading-relaxed">
+                Establish the mathematical constraints, dataset distribution, and physical operating parameters before touching code.
+              </p>
+            </div>
+            <span class="mt-8 font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">STAGE // DISCOVERY</span>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="reveal-on-scroll delay-200 bg-surface-container-low border border-border-hairline p-6 flex flex-col justify-between hover:bg-surface-container transition-colors">
+            <div>
+              <span class="font-display-super text-headline-lg font-bold text-primary block leading-none mb-4">02</span>
+              <h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">Architect</h3>
+              <p class="font-body-md text-body-md text-text-secondary text-sm leading-relaxed">
+                Formulate agent orchestration schemas, circuit block diagrams, tool APIs, and latency budgets.
+              </p>
+            </div>
+            <span class="mt-8 font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">STAGE // ARCHITECTURE</span>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="reveal-on-scroll delay-300 bg-surface-container-low border border-border-hairline p-6 flex flex-col justify-between hover:bg-surface-container transition-colors">
+            <div>
+              <span class="font-display-super text-headline-lg font-bold text-primary block leading-none mb-4">03</span>
+              <h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">Develop</h3>
+              <p class="font-body-md text-body-md text-text-secondary text-sm leading-relaxed">
+                Engineer clean Python/C implementations, wire actuator circuits, and fine-tune reasoning prompts.
+              </p>
+            </div>
+            <span class="mt-8 font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">STAGE // IMPLEMENTATION</span>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="reveal-on-scroll delay-400 bg-surface-container-low border border-border-hairline p-6 flex flex-col justify-between hover:bg-surface-container transition-colors">
+            <div>
+              <span class="font-display-super text-headline-lg font-bold text-primary block leading-none mb-4">04</span>
+              <h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">Benchmark</h3>
+              <p class="font-body-md text-body-md text-text-secondary text-sm leading-relaxed">
+                Validate against ground truth, run stress evaluations, and benchmark sensor latency thresholds.
+              </p>
+            </div>
+            <span class="mt-8 font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">STAGE // VERIFICATION</span>
+          </div>
+
+          <!-- Step 05 -->
+          <div class="reveal-on-scroll delay-500 bg-surface-container-low border border-border-hairline p-6 flex flex-col justify-between hover:bg-surface-container transition-colors">
+            <div>
+              <span class="font-display-super text-headline-lg font-bold text-primary block leading-none mb-4">05</span>
+              <h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">Deploy</h3>
+              <p class="font-body-md text-body-md text-text-secondary text-sm leading-relaxed">
+                Ship tested endpoints, flash embedded robotics boards, and provide structured documentation for handoff.
+              </p>
+            </div>
+            <span class="mt-8 font-meta-mono text-[10px] text-text-tertiary uppercase tracking-widest">STAGE // PRODUCTION</span>
+          </div>
+        </div>
+
+        <!-- Live Studio Metrics Ribbon -->
+        <div class="mt-14 pt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 bg-surface-container-lowest p-8 shadow-inner border border-border-hairline">
+          <div class="flex flex-col">
+            <span class="font-display-super text-headline-xl text-primary font-bold">02</span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Specialist Units</span>
+            <span class="font-meta-mono text-[11px] text-text-tertiary">AI &amp; Robotics Divisions</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display-super text-headline-xl text-primary font-bold">06</span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Production Systems</span>
+            <span class="font-meta-mono text-[11px] text-text-tertiary">Verified Codebases</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display-super text-headline-xl text-primary font-bold">05</span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Stage Pipeline</span>
+            <span class="font-meta-mono text-[11px] text-text-tertiary">Systematic Delivery</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display-super text-headline-xl text-primary font-bold">∞</span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary mt-1">Room for Ambition</span>
+            <span class="font-meta-mono text-[11px] text-text-tertiary">Autonomous Capabilities</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 OPERATIONAL PRINCIPLES -->
+      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-20 border-t border-border-hairline">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal-on-scroll">
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-1">
+              OPERATIONAL PRINCIPLES / 06
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">
+              Engineering work without cognitive confusion.
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-surface-container-low border border-border-hairline p-6">
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">01</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-medium mt-3 mb-2">Clear thinking</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm">
+                Every architectural choice is justified mathematically and practically, keeping feedback centered on outcomes rather than subjective conjecture.
+              </p>
+            </div>
+            <div class="bg-surface-container-low border border-border-hairline p-6">
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">02</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-medium mt-3 mb-2">Visible progress</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm">
+                Structured checkpoints and traceable Git commits ensure complete visibility over model states, hardware wiring, and milestones.
+              </p>
+            </div>
+            <div class="bg-surface-container-low border border-border-hairline p-6">
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">03</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-medium mt-3 mb-2">System-led design</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm">
+                We engineer scalable modular pipelines rather than one-off script snippets, giving every deployment resilience and longevity.
+              </p>
+            </div>
+            <div class="bg-surface-container-low border border-border-hairline p-6">
+              <span class="font-meta-mono text-meta-mono text-text-tertiary">04</span>
+              <h4 class="font-headline-md text-headline-md text-primary font-medium mt-3 mb-2">Production discipline</h4>
+              <p class="font-body-md text-body-md text-text-secondary text-sm">
+                Error handling, edge cases, power dissipation, and documentation are designed from day one — never treated as late afterthoughts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 FAQ & PROJECT INTAKE PANEL -->
+      <section class="w-full bg-surface-pitch px-margin-tablet lg:px-margin-desktop py-20 lg:py-28 border-t border-border-hairline" id="intake">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <!-- FAQ Column (Left) -->
+          <div class="lg:col-span-5 flex flex-col space-y-8">
+            <div class="reveal-on-scroll">
+              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-2">
+                DISCLOSURES &amp; CLARIFICATIONS / 07
+              </span>
+              <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">
+                Before we begin.
+              </h2>
+              <p class="font-body-md text-body-md text-text-secondary mt-3">
+                Key details regarding multi-unit scope, engineering availability, and collaboration timelines.
+              </p>
+            </div>
+
+            <!-- Accordions -->
+            <div class="space-y-3" id="faq-accordion-group">
+              <!-- Accordion Item 1 -->
+              <div class="bg-surface-container-low border border-border-hairline p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between">
+                  <span class="font-headline-md text-body-lg text-primary font-medium pr-4">
+                    Can a project integrate both AI software and physical robotics?
+                  </span>
+                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon">add</span>
+                </div>
+                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-body-md leading-relaxed">
+                  <div class="pt-4">
+                    Yes. This is the core purpose of my two-unit architecture. We can scope an end-to-end intelligent system combining computer vision or LLM reasoning with motor actuation and microcontrollers.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion Item 2 -->
+              <div class="bg-surface-container-low border border-border-hairline p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between">
+                  <span class="font-headline-md text-body-lg text-primary font-medium pr-4">
+                    What is your engineering tech stack?
+                  </span>
+                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon">add</span>
+                </div>
+                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-body-md leading-relaxed">
+                  <div class="pt-4">
+                    Primary tools include Python, C, FastAPI, NumPy, Pandas, Matplotlib, OpenCV, Git, Linux/Ubuntu, and hardware motor driver architectures. I focus on maintainable, framework-resilient engineering.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion Item 3 -->
+              <div class="bg-surface-container-low border border-border-hairline p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between">
+                  <span class="font-headline-md text-body-lg text-primary font-medium pr-4">
+                    Are you available for remote contracts or research internships?
+                  </span>
+                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon">add</span>
+                </div>
+                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-body-md leading-relaxed">
+                  <div class="pt-4">
+                    Yes. While currently working as an AI/NLP intern at FlyRank AI, I welcome high-impact research, open-source initiatives, and contract agent automation projects globally.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion Item 4 -->
+              <div class="bg-surface-container-low border border-border-hairline p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between">
+                  <span class="font-headline-md text-body-lg text-primary font-medium pr-4">
+                    How do collaborations start?
+                  </span>
+                  <span class="material-symbols-outlined text-text-secondary transition-transform duration-200 faq-icon">add</span>
+                </div>
+                <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pt-0 text-text-secondary font-body-md text-body-md leading-relaxed">
+                  <div class="pt-4">
+                    Use the project brief intake form on this page or email me directly at arsalan.vault@gmail.com with your system requirements, timeline, and goals.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fast channel direct contacts -->
+            <div class="pt-6">
+              <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-3">DIRECT COMMS</span>
+              <div class="flex flex-wrap gap-4">
+                <a class="px-4 py-2.5 bg-surface-container border border-border-hairline text-primary hover:bg-surface-container-high transition-colors font-meta-mono text-meta-mono uppercase inline-flex items-center gap-2" href="https://wa.me/923130222474?text=Hi%20Arsalan%2C%20I%20want%20to%20discuss%20an%20AI%20or%20Robotics%20project." target="_blank">
+                  <span class="material-symbols-outlined text-sm">chat</span>
+                  <span>WhatsApp Direct ↗</span>
+                </a>
+                <a class="px-4 py-2.5 bg-surface-container border border-border-hairline text-primary hover:bg-surface-container-high transition-colors font-meta-mono text-meta-mono uppercase inline-flex items-center gap-2" href="mailto:arsalan.vault@gmail.com">
+                  <span class="material-symbols-outlined text-sm">mail</span>
+                  <span>Email Proposal ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Brief Intake Form Panel (Right) -->
+          <div class="lg:col-span-7 bg-surface-container-lowest border border-border-hairline p-8 lg:p-12 shadow-2xl">
+            <div class="pb-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">SYSTEM INTAKE / 07</span>
+                <span class="font-meta-mono text-meta-mono text-text-secondary">DIRECT ATELIER CHANNEL</span>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg text-primary font-bold uppercase tracking-tight">
+                Tell us what you want to build.
+              </h3>
+              <p class="font-body-md text-body-md text-text-secondary mt-2">
+                Share your system specifications. We will use your brief to assess feasibility, scope, and technical milestones.
+              </p>
+            </div>
+
+            <form class="space-y-6 pt-4" onsubmit="handleFormSubmit(event)">
+              <!-- Two-Unit Selector Pills -->
+              <div>
+                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-2">1. SELECT OPERATIONAL UNIT</label>
+                <div class="grid grid-cols-3 gap-2" id="unit-selector">
+                  <button class="unit-btn py-3 px-2 text-center font-meta-mono text-meta-mono uppercase tracking-wider bg-primary text-surface-base border border-primary transition-colors" onclick="selectUnit(this, 'AI & ML Unit')" type="button">
+                    AI &amp; ML Unit
+                  </button>
+                  <button class="unit-btn py-3 px-2 text-center font-meta-mono text-meta-mono uppercase tracking-wider bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectUnit(this, 'Robotics Unit')" type="button">
+                    Robotics Unit
+                  </button>
+                  <button class="unit-btn py-3 px-2 text-center font-meta-mono text-meta-mono uppercase tracking-wider bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectUnit(this, 'Integrated System')" type="button">
+                    Integrated System
+                  </button>
+                </div>
+                <input id="selected-unit-input" name="project_unit" type="hidden" value="AI & ML Unit"/>
+              </div>
+
+              <!-- Contact Details Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1">FULL NAME *</label>
+                  <input class="w-full bg-surface-base border border-border-hairline px-4 py-3 font-body-md text-body-md text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="e.g. Dr. Alex Mercer" required="" type="text"/>
+                </div>
+                <div>
+                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1">EMAIL ADDRESS *</label>
+                  <input class="w-full bg-surface-base border border-border-hairline px-4 py-3 font-body-md text-body-md text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="alex@institution.edu" required="" type="email"/>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1">PHONE NUMBER</label>
+                  <input class="w-full bg-surface-base border border-border-hairline px-4 py-3 font-body-md text-body-md text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="+1 (000) 000-0000" type="tel"/>
+                </div>
+                <div>
+                  <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1">ORGANIZATION / LAB</label>
+                  <input class="w-full bg-surface-base border border-border-hairline px-4 py-3 font-body-md text-body-md text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="Autonomous Lab / Research Org" type="text"/>
+                </div>
+              </div>
+
+              <!-- Project Type / Timeline Selector -->
+              <div>
+                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-2">2. TIMELINE / ENGAGEMENT SCOPE</label>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="budget-selector">
+                  <button class="budget-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, 'Rapid Prototype')" type="button">
+                    &lt; 2 Weeks
+                  </button>
+                  <button class="budget-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, '1-3 Months')" type="button">
+                    1–3 Months
+                  </button>
+                  <button class="budget-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase bg-primary text-surface-base border border-primary transition-colors" onclick="selectBudget(this, 'Full Architecture')" type="button">
+                    Architecture
+                  </button>
+                  <button class="budget-btn py-2.5 px-2 text-center font-meta-mono text-[11px] uppercase bg-surface-container border border-border-hairline text-text-secondary hover:text-primary transition-colors" onclick="selectBudget(this, 'Long-term Research')" type="button">
+                    Long-term
+                  </button>
+                </div>
+                <input id="selected-budget-input" name="budget_range" type="hidden" value="Full Architecture"/>
+              </div>
+
+              <!-- Project Brief Textarea -->
+              <div>
+                <label class="font-meta-mono text-meta-mono text-text-tertiary uppercase block mb-1">3. SYSTEM REQUIREMENTS &amp; OBJECTIVE *</label>
+                <textarea class="w-full bg-surface-base border border-border-hairline px-4 py-3 font-body-md text-body-md text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:bg-surface-elevated transition-colors" placeholder="Describe the autonomous system, model specifications, robotics hardware, or computational pipeline..." required="" rows="4"></textarea>
+              </div>
+
+              <!-- Action Submission -->
+              <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <button class="group w-full sm:w-auto inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-base hover:text-primary transition-all duration-300 px-8 py-4 font-ticker-label text-ticker-label uppercase tracking-widest font-bold shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5" id="submit-brief-btn" type="submit">
+                  <span>Send system brief</span>
+                  <span class="inline-block ml-1.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
                 </button>
+                <span class="font-meta-mono text-[11px] text-text-tertiary text-center sm:text-right">
+                  RESPONSE WITHIN 24 BUSINESS HOURS
+                </span>
+              </div>
+
+              <div class="hidden p-4 bg-surface-container border border-primary/40 text-primary font-meta-mono text-meta-mono uppercase tracking-wider text-center" id="form-feedback">
+                ✓ Brief transmission received. Arsalan will review your specifications shortly.
+              </div>
             </form>
+          </div>
         </div>
+      </section>
+
+      <!-- Final Callout Monograph -->
+      <section class="w-full bg-surface-base px-margin-tablet lg:px-margin-desktop py-20 text-center select-none reveal-on-scroll border-t border-border-hairline">
+        <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary block mb-3">
+          YOUR NEXT ARCHITECTURE DESERVES MATHEMATICAL RIGOR.
+        </span>
+        <h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">
+          Make the next thing <span class="font-headline-editorial italic font-normal text-text-secondary hover:text-primary transition-colors duration-200">autonomous.</span>
+        </h2>
+        <div class="mt-8 flex justify-center">
+          <a class="group inline-flex items-center justify-center bg-primary text-surface-base border border-primary hover:bg-surface-base hover:text-primary transition-all duration-300 px-8 py-4 font-ticker-label text-ticker-label uppercase tracking-widest font-bold hover:shadow-[0_0_25px_rgba(255,255,255,0.25)] hover:-translate-y-1" href="#intake">
+            <span>START A PROJECT</span>
+            <span class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== EDITORIAL FOOTER ==================== -->
+  <footer class="w-full bg-surface-base border-t border-border-hairline pt-space-xl pb-space-lg text-on-surface">
+    <div class="w-full px-margin-tablet lg:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-0 border-b border-border-hairline pb-space-xl">
+      
+      <!-- Manifesto Col -->
+      <div class="md:col-span-5 md:pr-12 md:border-r md:border-border-hairline flex flex-col justify-between space-y-8">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">[ MA — 01 ]</span>
+            <span class="font-meta-mono text-meta-mono uppercase tracking-widest text-text-secondary">ENGINEERING MANIFESTO</span>
+          </div>
+          <p class="font-headline-editorial text-headline-editorial italic text-primary leading-tight">
+            Architecture of autonomous intelligence. Mathematical rigor meets embodied physical systems.
+          </p>
+          <p class="font-body-md text-body-md text-text-secondary max-w-md">
+            Muhammad Arsalan is an independent AI &amp; Robotics Engineer and AI/NLP Intern at FlyRank AI. Specializing in autonomous multi-agent pipelines, machine learning models, and robotic sensor-actuator architectures.
+          </p>
+        </div>
+        <div>
+          <span class="block font-meta-mono text-meta-mono uppercase text-text-tertiary mb-2">DIRECT INQUIRY</span>
+          <a class="font-ticker-label text-ticker-label text-primary hover:underline underline-offset-4 tracking-wider transition-colors" href="mailto:arsalan.vault@gmail.com">
+            arsalan.vault@gmail.com ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Divisions Col -->
+      <div class="md:col-span-4 md:px-12 md:border-r md:border-border-hairline space-y-8">
+        <div class="border-b border-border-hairline pb-4">
+          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1">STRUCTURE / 01</span>
+          <h4 class="font-headline-md text-headline-md text-primary">AI &amp; Machine Learning Unit</h4>
+          <p class="font-body-md text-body-md text-text-secondary mt-1 mb-3">Agent orchestration, generative modeling, LLM pipelines, and deep statistical data science.</p>
+          <a class="font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-colors inline-flex items-center gap-1 group" href="#units">
+            <span>[ Enter AI Unit</span>
+            <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            <span>]</span>
+          </a>
+        </div>
+        <div class="pt-2">
+          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1">STRUCTURE / 02</span>
+          <h4 class="font-headline-md text-headline-md text-primary">Robotics &amp; Embodied AI Unit</h4>
+          <p class="font-body-md text-body-md text-text-secondary mt-1 mb-3">Sensors, closed-loop motor drivers, multi-axis kinematics, and embedded autonomous robotics.</p>
+          <a class="font-meta-mono text-meta-mono uppercase tracking-wider text-primary hover:text-text-secondary transition-colors inline-flex items-center gap-1 group" href="#units">
+            <span>[ Enter Robotics Unit</span>
+            <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            <span>]</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Network Directory Col -->
+      <div class="md:col-span-3 md:pl-12 flex flex-col justify-between space-y-8">
+        <div>
+          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-4">NETWORK DIRECTORY</span>
+          <ul class="space-y-3 font-meta-mono text-meta-mono uppercase tracking-wider">
+            <li class="border-b border-border-hairline/50 pb-2">
+              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://github.com/24pwai0015-max" target="_blank">
+                <span>GitHub (24pwai0015-max)</span>
+                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </li>
+            <li class="border-b border-border-hairline/50 pb-2">
+              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">
+                <span>LinkedIn</span>
+                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </li>
+            <li class="border-b border-border-hairline/50 pb-2">
+              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="https://instagram.com/robo.ox" target="_blank">
+                <span>Instagram (@robo.ox)</span>
+                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </li>
+            <li class="border-b border-border-hairline/50 pb-2">
+              <a class="text-text-secondary hover:text-primary transition-colors flex justify-between items-center group" href="cv.html" target="_blank">
+                <span>Curriculum Vitae (PDF)</span>
+                <span class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="pt-4">
+          <span class="font-meta-mono text-meta-mono uppercase text-text-tertiary block mb-1">ENGINEERING LEAD</span>
+          <p class="font-body-md text-body-md text-primary font-medium">Muhammad Arsalan</p>
+          <p class="font-meta-mono text-meta-mono text-text-secondary">AI &amp; Robotics Engineer</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Main JavaScript -->
-    <script src="js/main.js"></script>
+    <!-- Telemetry Bar -->
+    <div class="w-full px-margin-tablet lg:px-margin-desktop pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-meta-mono text-meta-mono uppercase tracking-widest text-text-tertiary">
+      <div>
+        <span>© 2026 MUHAMMAD ARSALAN. ALL RIGHTS RESERVED.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <span>LAT: 34.0151° N / LON: 71.5249° E</span>
+        <span>SYS VER 4.2.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+  <script>
+    // Reveal On Scroll via IntersectionObserver
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+    });
+
+    // FAQ Accordion Toggle
+    function toggleFaq(element) {
+      const content = element.querySelector('.faq-content');
+      const icon = element.querySelector('.faq-icon');
+      const isOpen = content.classList.contains('max-h-96');
+      
+      // Close all items in group
+      document.querySelectorAll('.faq-content').forEach(el => {
+        el.classList.remove('max-h-96', 'opacity-100');
+        el.classList.add('max-h-0', 'opacity-0');
+      });
+      document.querySelectorAll('.faq-icon').forEach(el => {
+        el.textContent = 'add';
+        el.classList.remove('rotate-45');
+      });
+      
+      if (!isOpen) {
+        content.classList.remove('max-h-0', 'opacity-0');
+        content.classList.add('max-h-96', 'opacity-100');
+        icon.classList.add('rotate-45');
+      }
+    }
+
+    // Unit Selector Handler
+    function selectUnit(btn, unitName) {
+      document.querySelectorAll('.unit-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-surface-base', 'border-primary');
+        b.classList.add('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+      });
+      btn.classList.add('bg-primary', 'text-surface-base', 'border-primary');
+      btn.classList.remove('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+      document.getElementById('selected-unit-input').value = unitName;
+    }
+
+    // Budget Selector Handler
+    function selectBudget(btn, budgetVal) {
+      document.querySelectorAll('.budget-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-surface-base', 'border-primary');
+        b.classList.add('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+      });
+      btn.classList.add('bg-primary', 'text-surface-base', 'border-primary');
+      btn.classList.remove('bg-surface-container', 'text-text-secondary', 'border-border-hairline');
+      document.getElementById('selected-budget-input').value = budgetVal;
+    }
+
+    // Project Brief Form Submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('form-feedback');
+      const submitBtn = document.getElementById('submit-brief-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Transmitting...</span>';
+      
+      setTimeout(() => {
+        feedback.classList.remove('hidden');
+        submitBtn.innerHTML = '<span>Transmitted ↗</span>';
+      }, 600);
+    }
+  </script>
+
 </body>
 </html>
