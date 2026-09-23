@@ -3,519 +3,715 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Arsalan | AI Engineer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts -->
+    <title>Muhammad Arsalan — AI Engineer & Robotics Innovator</title>
+    <meta name="description" content="Independent AI Engineer building autonomous multi-agent systems, machine learning pipelines, and humanoid robotics through two specialist engineering units.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Fonts: Montserrat (Wish Digitals Primary) & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ==================== NAVBAR ==================== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>Arsalan<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-                <span class="hamburger"></span>
-            </button>
-        </div>
-    </nav>
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="wd-preloader" aria-hidden="true">
+        <div class="wd-preloader-mark">ARSALAN</div>
+        <div class="wd-preloader-line"><span></span></div>
+        <div class="wd-preloader-count">00</div>
+    </div>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="hero">
-        <canvas id="particles-canvas"></canvas>
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-name">Muhammad Arsalan</h1>
-            <h2 class="hero-title">
-                AI Engineer | NLP Intern @ FlyRank | <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
-            </h2>
-            <p class="hero-description">
-                BS AI Student building intelligent systems end-to-end.
-                Exploring the frontiers of NLP, Robotics & Multi-Agent AI.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Explore My Work
-                </a>
-                <a href="cv.html" class="btn btn-secondary" target="_blank" id="cv-download">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-            </div>
-        </div>
-        <a href="#about" class="scroll-indicator">
-            <span class="scroll-text">Scroll Down</span>
-            <i class="fas fa-chevron-down scroll-arrow"></i>
+    <!-- ==================== CUSTOM DUAL CURSOR ==================== -->
+    <div class="wd-cursor wd-cursor-dot" aria-hidden="true"></div>
+    <div class="wd-cursor wd-cursor-ring" aria-hidden="true"><span>VIEW</span></div>
+
+    <!-- ==================== NAVIGATION HEADER ==================== -->
+    <header class="wd-header">
+        <a href="#hero" class="wd-logo" aria-label="Muhammad Arsalan Home">
+            <span class="wd-logo-tag">MA</span>
+            <span>ARSALAN</span>
         </a>
-    </section>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">01.</span> About Me
-            </h2>
-            <div class="about-grid">
-                <div class="about-text">
+        <nav class="wd-desktop-nav" aria-label="Primary navigation">
+            <a href="#hero" class="is-active">Home</a>
+            <a href="#units">Units</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+            <a href="#faq">FAQ</a>
+            <a href="cv.html" target="_blank">CV ↗</a>
+        </nav>
+
+        <button class="wd-header-cta js-open-popup" type="button" data-service="General Project">
+            Start a project <span>↗</span>
+        </button>
+
+        <button class="wd-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ==================== MOBILE DRAWER MENU ==================== -->
+    <div class="wd-mobile-menu" aria-hidden="true">
+        <div class="wd-mobile-links">
+            <a href="#hero">Home <em>01</em></a>
+            <a href="#units">Specialist Units <em>02</em></a>
+            <a href="#about">About Arsalan <em>03</em></a>
+            <a href="#projects">Selected Systems <em>04</em></a>
+            <a href="#process">Engineering Process <em>05</em></a>
+            <a href="#faq">FAQ <em>06</em></a>
+            <a href="cv.html" target="_blank">Download CV <em>07</em></a>
+        </div>
+        <button type="button" class="wd-btn wd-btn-white js-open-popup" data-service="General enquiry">
+            Start a project <span>↗</span>
+        </button>
+    </div>
+
+    <main>
+
+        <!-- ==================== EDITORIAL HERO SECTION ==================== -->
+        <section class="wd-hero" id="hero">
+            <div class="wd-hero-grid" aria-hidden="true"></div>
+
+            <div class="wd-hero-top">
+                <span class="wd-kicker">Independent AI Engineer / Machine Learning + Robotics</span>
+                <span class="wd-hero-index">MA — 01</span>
+            </div>
+
+            <div class="wd-hero-copy">
+                <h1 class="wd-hero-title">
+                    MUHAMMAD<br>
+                    <span>ARSALAN</span>
+                </h1>
+
+                <div class="wd-hero-side">
                     <p>
-                        Hi! I'm <span class="highlight">Muhammad Arsalan</span>, a 
-                        <span class="highlight">BS Artificial Intelligence</span> student (4th semester) 
-                        who builds end-to-end ML and LLM-powered projects independently rather than 
-                        following tutorials passively.
+                        Architecting autonomous agent pipelines, intelligent machines, and deep multimodal systems designed to reason, act, and solve real-world problems.
                     </p>
-                    <p>
-                        Currently working as an <span class="highlight">AI/NLP Intern at FlyRank AI</span>, 
-                        where I develop NLP models, ranking systems, and LLM-based workflows. I'm passionate 
-                        about multi-agent AI systems with <span class="highlight">CrewAI</span>, computer vision, 
-                        and building intelligent robots — my ongoing project 
-                        <span class="highlight">RoboNova</span> is a humanoid service robot powered by AI.
-                    </p>
-                    <p>
-                        My long-term goal is to become an <span class="highlight">Agent Automation Developer</span>, 
-                        building production-ready LangChain/CrewAI automation pipelines that solve real-world problems.
-                    </p>
-                </div>
-                <div class="about-skills">
-                    <h3 class="skills-heading">Tech Stack & Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
-                        <div class="skill-tag"><i class="fas fa-brain"></i> Machine Learning</div>
-                        <div class="skill-tag"><i class="fas fa-chart-bar"></i> Data Science</div>
-                        <div class="skill-tag"><i class="fas fa-robot"></i> Robotics</div>
-                        <div class="skill-tag"><i class="fas fa-users-cog"></i> CrewAI</div>
-                        <div class="skill-tag"><i class="fas fa-microchip"></i> Groq API / LLMs</div>
-                        <div class="skill-tag"><i class="fas fa-eye"></i> OpenCV</div>
-                        <div class="skill-tag"><i class="fas fa-stream"></i> Streamlit</div>
-                        <div class="skill-tag"><i class="fab fa-react"></i> React</div>
-                        <div class="skill-tag"><i class="fas fa-database"></i> Pandas / NumPy</div>
-                        <div class="skill-tag"><i class="fab fa-git-alt"></i> Git / GitHub</div>
-                        <div class="skill-tag"><i class="fas fa-project-diagram"></i> NLP</div>
+                    <div class="wd-hero-actions">
+                        <button class="wd-btn wd-btn-white js-open-popup" data-service="Engineering Collaboration" type="button">
+                            Start a project <span>↗</span>
+                        </button>
+                        <a class="wd-btn wd-btn-outline" href="#projects">
+                            Explore Systems <span>→</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==================== SERVICES SECTION ==================== -->
-    <section class="section services" id="services">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">02.</span> My Services
-            </h2>
-            <p class="section-subtitle">What I can help you with</p>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="service-name">Machine Learning</h3>
-                    <p class="service-desc">
-                        Building and deploying ML models & pipelines. From data preprocessing 
-                        to model evaluation and deployment.
+            <!-- Parallax Geometric Stage -->
+            <div class="wd-hero-stage">
+                <div class="wd-hero-tag">AI &amp; ML SYSTEMS UNIT</div>
+                <div class="wd-cross">+</div>
+                <div class="wd-hero-circle"></div>
+                <div class="wd-cross">+</div>
+                <div class="wd-hero-tag">ROBOTICS &amp; EMBODIED AI</div>
+            </div>
+
+            <div class="wd-hero-bottom">
+                <span>Scroll to explore</span>
+                <span>Autonomous Agents / LLM Pipelines / Robotics / Vision</span>
+            </div>
+        </section>
+
+        <!-- ==================== MARQUEE TICKER ==================== -->
+        <section class="wd-marquee" aria-label="Capabilities">
+            <div class="wd-marquee-track">
+                <span>AUTONOMOUS AGENTS</span><i>✦</i>
+                <span>ROBOTICS INNOVATION</span><i>✦</i>
+                <span>MACHINE LEARNING</span><i>✦</i>
+                <span>CREWAI MULTI-AGENT</span><i>✦</i>
+                <span>COMPUTER VISION</span><i>✦</i>
+                <span>FASTAPI &amp; LLMS</span><i>✦</i>
+                <span>ROS2 SYSTEMS</span><i>✦</i>
+                <span>DATA ARCHITECTURE</span><i>✦</i>
+                <span>AUTONOMOUS AGENTS</span><i>✦</i>
+                <span>ROBOTICS INNOVATION</span><i>✦</i>
+                <span>MACHINE LEARNING</span><i>✦</i>
+                <span>CREWAI MULTI-AGENT</span><i>✦</i>
+                <span>COMPUTER VISION</span><i>✦</i>
+                <span>FASTAPI &amp; LLMS</span><i>✦</i>
+                <span>ROS2 SYSTEMS</span><i>✦</i>
+                <span>DATA ARCHITECTURE</span><i>✦</i>
+            </div>
+        </section>
+
+        <!-- ==================== MANIFESTO / INTRO ==================== -->
+        <section class="wd-section wd-intro">
+            <div class="wd-section-label">
+                <span>01</span>
+                <p>Two specialist units.<br>One standard of engineering intelligence.</p>
+            </div>
+
+            <div class="wd-intro-main">
+                <h2>
+                    We build the <em>computational architecture</em> around ideas — from cognitive agent pipelines to physical machines that interact with our world.
+                </h2>
+
+                <div class="wd-intro-columns">
+                    <p>
+                        Muhammad Arsalan combines mathematical rigor, modern LLM orchestration, and hardware integration into one focused engineering discipline.
+                    </p>
+                    <p>
+                        The <strong>AI &amp; ML Unit</strong> engineers autonomous agents, NLP pipelines, and data systems. The <strong>Robotics Unit</strong> builds humanoid robotics, computer vision perception, and physical automation.
                     </p>
                 </div>
-                <!-- Service 2 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+            </div>
+        </section>
+
+        <!-- ==================== TWO SPECIALIST UNITS ==================== -->
+        <section class="wd-section" id="units">
+            <div class="wd-section-label">
+                <span>02</span>
+                <p>Engineering Disciplines</p>
+            </div>
+
+            <h2 class="wd-section-title">Two Specialist<br><span>Units.</span></h2>
+
+            <div class="wd-units-grid">
+                <!-- UNIT 01: AI & ML (Dark Card) -->
+                <div class="wd-unit-panel wd-unit-dark" data-tilt>
+                    <div>
+                        <div class="wd-unit-head">
+                            <span>UNIT / 01</span>
+                            <span>Intelligence &amp; Software</span>
+                        </div>
+                        <h2>AI &amp; ML<br>Systems</h2>
+                        <p>
+                            Autonomous multi-agent workflows, search ranking algorithms, predictive modeling, and scalable LLM orchestration.
+                        </p>
+                        <div class="wd-unit-services">
+                            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
+                                <span>Multi-Agent Systems (CrewAI / LangChain)</span><i>↗</i>
+                            </a>
+                            <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank">
+                                <span>NLP &amp; Search Growth Ranking (FlyRank AI)</span><i>↗</i>
+                            </a>
+                            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank">
+                                <span>LLM API Engineering &amp; Intent Routing</span><i>↗</i>
+                            </a>
+                            <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank">
+                                <span>Data Science &amp; Predictive Machine Learning</span><i>↗</i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="service-name">Data Science</h3>
-                    <p class="service-desc">
-                        Data analysis, visualization & extracting actionable insights. 
-                        Turning raw data into meaningful stories.
-                    </p>
+                    <button class="wd-btn wd-btn-white js-open-popup" data-service="AI & ML Systems Unit" type="button">
+                        Consult AI Unit <span>→</span>
+                    </button>
                 </div>
-                <!-- Service 3 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
-                        <i class="fas fa-users-cog"></i>
+
+                <!-- UNIT 02: ROBOTICS (High-Contrast Light Card) -->
+                <div class="wd-unit-panel wd-unit-light" data-tilt>
+                    <div>
+                        <div class="wd-unit-head">
+                            <span>UNIT / 02</span>
+                            <span>Embodied AI &amp; Hardware</span>
+                        </div>
+                        <h2>Robotics<br>Unit</h2>
+                        <p>
+                            Physical humanoid robotics, real-time computer vision recognition, edge AI processing, and embedded automation.
+                        </p>
+                        <div class="wd-unit-services">
+                            <a href="https://github.com/24pwai0015-max/roboNova" target="_blank">
+                                <span>RoboNova Humanoid Service Robot</span><i>↗</i>
+                            </a>
+                            <a href="https://instagram.com/robo.ox" target="_blank">
+                                <span>Hardware &amp; Prototype Builds (@robo.ox)</span><i>↗</i>
+                            </a>
+                            <a href="https://github.com/24pwai0015-max" target="_blank">
+                                <span>OpenCV Computer Vision &amp; Face ID</span><i>↗</i>
+                            </a>
+                            <a href="https://github.com/24pwai0015-max/roboNova" target="_blank">
+                                <span>Conversational Voice AI (Groq LLaMA)</span><i>↗</i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="service-name">Crew AI</h3>
-                    <p class="service-desc">
-                        Building multi-agent AI systems with the CrewAI framework. 
-                        Orchestrating teams of AI agents to solve complex tasks.
-                    </p>
+                    <button class="wd-btn wd-btn-black js-open-popup" data-service="Robotics Unit" type="button">
+                        Consult Robotics Unit <span>→</span>
+                    </button>
                 </div>
-                <!-- Service 4 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="service-name">Robotics</h3>
-                    <p class="service-desc">
-                        AI-powered robotics solutions & automation. Bridging the gap 
-                        between intelligent software and physical machines.
-                    </p>
-                </div>
-                <!-- Service 5 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
+            </div>
+        </section>
+
+        <!-- ==================== LEADERSHIP / ABOUT SECTION ==================== -->
+        <section class="wd-section" id="about">
+            <div class="wd-section-label">
+                <span>03</span>
+                <p>Architect &amp; Innovator</p>
+            </div>
+
+            <div class="wd-spotlight-grid">
+                <div class="wd-spotlight-visual" data-tilt>
+                    <div class="wd-spotlight-box">
                         <i class="fas fa-microchip"></i>
+                        <span class="wd-spotlight-box-title">ARSALAN</span>
+                        <span class="wd-spotlight-role">AI ENGINEER / 24PWAI0015</span>
                     </div>
-                    <h3 class="service-name">AI Brain</h3>
-                    <p class="service-desc">
-                        Intelligent AI systems & cognitive architectures. Designing systems 
-                        that think, learn, and adapt autonomously.
-                    </p>
                 </div>
-                <!-- Service 6 -->
-                <div class="service-card" data-reveal>
-                    <div class="service-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="service-name">Model Training</h3>
-                    <p class="service-desc">
-                        Custom model training, fine-tuning & optimization. Getting the best 
-                        performance from your AI models.
+
+                <div class="wd-spotlight-copy">
+                    <span class="wd-kicker">Background &amp; Philosophy</span>
+                    <h3>Muhammad<br>Arsalan</h3>
+                    <h4>BS Artificial Intelligence (4th Sem) · AI/NLP Intern @ FlyRank AI</h4>
+                    <p>
+                        I build end-to-end ML, NLP, and LLM applications independently rather than passively following tutorials. Every system I design is structured to move from mathematical concept to production deployment without losing speed or reliability.
                     </p>
+                    <p>
+                        Currently engineering ranking models and LLM workflows at <strong>FlyRank AI</strong>, while developing <strong>RoboNova</strong> — a multi-year humanoid service robot integrating natural conversational intelligence and computer vision. Long-term, my goal is to become an <strong>Agent Automation Developer</strong> building production-ready LangChain/CrewAI automation pipelines.
+                    </p>
+                    <div style="margin-top: 32px; display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="cv.html" target="_blank" class="wd-btn wd-btn-white">
+                            View Official CV <span>↗</span>
+                        </a>
+                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-btn wd-btn-outline">
+                            GitHub Profile <span>→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== PROJECTS SECTION ==================== -->
-    <section class="section projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">03.</span> Projects
-            </h2>
-            <p class="section-subtitle">Things I've built & explored</p>
-            <div class="projects-grid">
-                <!-- Project 1: RoboNova -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max/roboNova" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+        <!-- ==================== SELECTED PROJECTS SHOWCASE ==================== -->
+        <section class="wd-section" id="projects">
+            <div class="wd-section-label">
+                <span>04</span>
+                <p>Selected Engineering Work</p>
+            </div>
+
+            <h2 class="wd-section-title">Built to Reason.<br><span>Built to Execute.</span></h2>
+
+            <div class="wd-showcase-grid">
+
+                <!-- 1. NexusAI -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 01</span>
+                        <div class="wd-work-headline">AUTONOMOUS<br>MULTIMODAL<br>INTELLIGENCE</div>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-name">RoboNova — Humanoid Service Robot</h3>
-                        <p class="project-desc">
-                            A 2-year robotics project building a humanoid service robot with AI voice assistant, 
-                            computer vision, and natural interaction capabilities using Groq API.
-                        </p>
-                        <div class="project-tags">
-                            <span>Robotics</span>
-                            <span>Groq API</span>
-                            <span>ROS2</span>
-                            <span>CV</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2: AI Attendance System -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-user-check"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-name">AI Attendance System</h3>
-                        <p class="project-desc">
-                            Facial-recognition attendance system with Streamlit + OpenCV LBPH, bcrypt auth, 
-                            role-based portals, Plotly dashboards, and Gmail SMTP notifications.
-                        </p>
-                        <div class="project-tags">
-                            <span>OpenCV</span>
-                            <span>Streamlit</span>
-                            <span>Python</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3: NexusAI Chatbot -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-name">NexusAI — Autonomous Multimodal AI Platform</h3>
-                        <p class="project-desc">
-                            Autonomous AI engine with real-time intent routing between deep reasoning, 
-                            live web search, FLUX.1 image synthesis, and PDF/Word document authoring. Claude-inspired UI.
-                        </p>
-                        <div class="project-tags">
+                    <div class="wd-work-info">
+                        <h3>NexusAI Platform</h3>
+                        <p>Autonomous AI engine with real-time intent routing between deep reasoning, live web search with citations, FLUX.1 image generation, and PDF/Word document authoring.</p>
+                        <div class="wd-work-tags">
                             <span>FastAPI</span>
                             <span>Groq API</span>
                             <span>Tavily</span>
                             <span>SQLite</span>
                         </div>
+                        <a href="https://github.com/24pwai0015-max/nexus-ai" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
+                        </a>
                     </div>
-                </div>
-                <!-- Project 4: Data Analytics -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+                </article>
+
+                <!-- 2. RoboNova -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 02</span>
+                        <div class="wd-work-headline">HUMANOID<br>SERVICE<br>ROBOTICS</div>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-name">Data Analytics & ML Projects</h3>
-                        <p class="project-desc">
-                            Titanic EDA with 8 business questions, data cleaning pipelines, Wine Quality analysis, 
-                            and in-depth NumPy/Pandas curriculum projects.
-                        </p>
-                        <div class="project-tags">
-                            <span>Pandas</span>
-                            <span>EDA</span>
-                            <span>ML</span>
+                    <div class="wd-work-info">
+                        <h3>RoboNova Robot</h3>
+                        <p>A multi-year humanoid robotics project featuring a real-time voice-assistant module on Groq LLaMA-3.1, environmental perception, ROS2 architecture, and custom electronics.</p>
+                        <div class="wd-work-tags">
+                            <span>Robotics</span>
+                            <span>ROS2</span>
+                            <span>Voice AI</span>
+                            <span>OpenCV</span>
                         </div>
+                        <a href="https://github.com/24pwai0015-max/roboNova" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
+                        </a>
                     </div>
-                </div>
-                <!-- Project 5: FlyRank ML -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+                </article>
+
+                <!-- 3. AI Attendance System -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 03</span>
+                        <div class="wd-work-headline">FACIAL<br>BIOMETRICS<br>&amp; SECURITY</div>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-name">FlyRank ML — NLP & Ranking</h3>
-                        <p class="project-desc">
-                            NLP and ranking model work for FlyRank AI internship. Building 
-                            LLM-based workflows for AI-powered search optimization.
-                        </p>
-                        <div class="project-tags">
-                            <span>NLP</span>
-                            <span>Ranking</span>
-                            <span>LLMs</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6: Food Delivery Prediction -->
-                <div class="project-card" data-reveal>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/24pwai0015-max" target="_blank" class="project-link" title="View Code">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-name">Food Delivery Time Prediction</h3>
-                        <p class="project-desc">
-                            Random Forest regression model on synthetic delivery data with a 
-                            Streamlit dashboard for interactive predictions and visualization.
-                        </p>
-                        <div class="project-tags">
-                            <span>Random Forest</span>
+                    <div class="wd-work-info">
+                        <h3>AI Attendance System</h3>
+                        <p>Facial-recognition attendance verification utilizing Streamlit and OpenCV LBPH algorithm with bcrypt security, role-based portals, and automated SMTP notifications.</p>
+                        <div class="wd-work-tags">
+                            <span>OpenCV</span>
                             <span>Streamlit</span>
-                            <span>ML</span>
+                            <span>Python</span>
+                            <span>Bcrypt</span>
                         </div>
+                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
+                        </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- ==================== BLOG SECTION ==================== -->
-    <section class="section blog" id="blog">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">04.</span> Blog
-            </h2>
-            <p class="section-subtitle">Thoughts, tutorials & insights</p>
-            <div class="blog-grid">
-                <!-- Blog Post 1 -->
-                <article class="blog-card" data-reveal>
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                        <span class="blog-date">Coming Soon</span>
+                <!-- 4. Data Analytics -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 04</span>
+                        <div class="wd-work-headline">PREDICTIVE<br>MODELING<br>&amp; ANALYTICS</div>
                     </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title">Getting Started with Machine Learning</h3>
-                        <p class="blog-excerpt">
-                            A beginner-friendly guide to understanding ML concepts, 
-                            tools, and your first model training experience.
-                        </p>
-                        <a href="#" class="blog-read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
+                    <div class="wd-work-info">
+                        <h3>Data Science Pipelines</h3>
+                        <p>Complete 90-day exploratory curriculum covering feature engineering, Titanic survival modeling, wine quality classification, and delivery time regression forecasting.</p>
+                        <div class="wd-work-tags">
+                            <span>NumPy</span>
+                            <span>Pandas</span>
+                            <span>Scikit-Learn</span>
+                            <span>EDA</span>
+                        </div>
+                        <a href="https://github.com/24pwai0015-max/data-analytics" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
                         </a>
                     </div>
                 </article>
-                <!-- Blog Post 2 -->
-                <article class="blog-card" data-reveal>
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                        <span class="blog-date">Coming Soon</span>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title">Introduction to CrewAI Framework</h3>
-                        <p class="blog-excerpt">
-                            Exploring multi-agent AI systems — how to build teams of 
-                            AI agents that collaborate to solve complex problems.
-                        </p>
-                        <a href="#" class="blog-read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                <!-- Blog Post 3 -->
-                <article class="blog-card" data-reveal>
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                        <span class="blog-date">Coming Soon</span>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title">The Future of AI in Robotics</h3>
-                        <p class="blog-excerpt">
-                            How artificial intelligence is revolutionizing robotics 
-                            and what it means for the future of automation.
-                        </p>
-                        <a href="#" class="blog-read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">05.</span> Get In Touch
-            </h2>
-            <p class="section-subtitle">Have a project in mind? Let's talk!</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                <!-- 5. FlyRank ML -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 05</span>
+                        <div class="wd-work-headline">NLP &amp; SEARCH<br>ALGORITHMIC<br>RANKING</div>
+                    </div>
+                    <div class="wd-work-info">
+                        <h3>FlyRank AI Growth Engine</h3>
+                        <p>Production NLP models, ranking architectures, and LLM-assisted workflows built during industry internship at organic AI search growth platform FlyRank AI.</p>
+                        <div class="wd-work-tags">
+                            <span>NLP</span>
+                            <span>Ranking Models</span>
+                            <span>LLM Pipelines</span>
                         </div>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:arsalan.vault@gmail.com">arsalan.vault@gmail.com</a>
+                        <a href="https://github.com/24pwai0015-max/flyrank-ml-muhammad-arsalan" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 6. LinkedIn Productivity Suite -->
+                <article class="wd-work-card" data-tilt>
+                    <div class="wd-work-art">
+                        <span class="wd-work-index">MA / SYS — 06</span>
+                        <div class="wd-work-headline">PRODUCTIVITY<br>EXTENSIONS<br>&amp; AUTOMATION</div>
+                    </div>
+                    <div class="wd-work-info">
+                        <h3>LinkedIn Assistant Tools</h3>
+                        <p>React-powered web applications and Chrome extensions designed to automate professional outreach, content drafting, and profile telemetry optimization.</p>
+                        <div class="wd-work-tags">
+                            <span>React</span>
+                            <span>Chrome Extension</span>
+                            <span>JavaScript</span>
                         </div>
+                        <a href="https://github.com/24pwai0015-max" target="_blank" class="wd-work-link">
+                            Inspect Repository <span>↗</span>
+                        </a>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Available Worldwide (Remote)</p>
-                        </div>
-                    </div>
-                    <div class="contact-socials">
-                        <h4>Follow Me</h4>
-                        <div class="social-links">
-                            <a href="https://github.com/24pwai0015-max" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://instagram.com/robo.ox" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="form-name" placeholder="Your Name" required>
-                        <label for="form-name">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="form-email" placeholder="Your Email" required>
-                        <label for="form-email">Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="form-subject" placeholder="Subject" required>
-                        <label for="form-subject">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="form-message" placeholder="Your Message" rows="5" required></textarea>
-                        <label for="form-message">Your Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        <i class="fas fa-paper-plane"></i> Send Message
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==================== 5-STAGE PROCESS ==================== -->
+        <section class="wd-section" id="process">
+            <div class="wd-section-label">
+                <span>05</span>
+                <p>System Discipline</p>
+            </div>
+
+            <div class="wd-process-grid">
+                <div class="wd-process-sticky">
+                    <span class="wd-kicker">How Systems Are Built</span>
+                    <h2>Less noise.<br>More <span>direction.</span></h2>
+                    <p>Every algorithm, model, and robot follows a structured sequence so development remains disciplined and production-ready.</p>
+                    <button class="wd-btn wd-btn-white js-open-popup" data-service="System Architecture Consultation" type="button">
+                        Discuss a system <span>↗</span>
                     </button>
-                </form>
+                </div>
+
+                <div class="wd-process-list">
+                    <div class="wd-process-item">
+                        <span>01</span>
+                        <div>
+                            <h3>Understand &amp; Formulate</h3>
+                            <p>We define the objective, data characteristics, operational constraints, and domain requirements before writing any code.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-process-item">
+                        <span>02</span>
+                        <div>
+                            <h3>Architect &amp; Pipeline Design</h3>
+                            <p>We turn requirements into technical topology: selecting model foundations, memory persistence, API schemas, and hardware interfaces.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-process-item">
+                        <span>03</span>
+                        <div>
+                            <h3>Train, Code &amp; Synthesize</h3>
+                            <p>We build the components: training models, tuning prompts, integrating OpenCV feeds, and orchestrating CrewAI agent swarms.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-process-item">
+                        <span>04</span>
+                        <div>
+                            <h3>Benchmark &amp; Optimize</h3>
+                            <p>We measure inference latency, validation metrics, failure rates, and hardware power draw to ensure stability under load.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-process-item">
+                        <span>05</span>
+                        <div>
+                            <h3>Deploy &amp; Integrate</h3>
+                            <p>We containerize and deploy with clean APIs, Streamlit dashboards, or embedded microcontrollers for seamless production use.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ==================== METRICS SECTION ==================== -->
+        <section class="wd-metrics" aria-label="Key Numbers">
+            <div class="wd-metric">
+                <strong class="counter" data-target="2">0</strong>
+                <span>Specialist Units</span>
+            </div>
+            <div class="wd-metric">
+                <strong class="counter" data-target="6">0</strong>
+                <span>Production Systems</span>
+            </div>
+            <div class="wd-metric">
+                <strong class="counter" data-target="90">0</strong>
+                <span>Days ML Curriculum</span>
+            </div>
+            <div class="wd-metric">
+                <strong>∞</strong>
+                <span>Room for Innovation</span>
+            </div>
+        </section>
+
+        <!-- ==================== COLLABORATION STANDARDS ==================== -->
+        <section class="wd-section">
+            <div class="wd-section-label">
+                <span>06</span>
+                <p>Engineering Principles</p>
+            </div>
+
+            <h2 class="wd-section-title">What collaborating<br><span>feels like.</span></h2>
+
+            <div class="wd-expect-grid">
+                <div class="wd-expect-item">
+                    <span>01</span>
+                    <h3>Autonomous Execution</h3>
+                    <p>I take problem statements and translate them into functional, end-to-end architectures without needing step-by-step guidance.</p>
+                </div>
+                <div class="wd-expect-item">
+                    <span>02</span>
+                    <h3>Transparent Repos</h3>
+                    <p>Every project features clean directory layouts, documented installation steps, and reproducible Python environments.</p>
+                </div>
+                <div class="wd-expect-item">
+                    <span>03</span>
+                    <h3>Production Discipline</h3>
+                    <p>Error handling, API authentication, and edge cases are handled upfront rather than patched on after deployment.</p>
+                </div>
+                <div class="wd-expect-item">
+                    <span>04</span>
+                    <h3>Constant Evolution</h3>
+                    <p>Active exploration in cutting-edge areas: multi-agent autonomy (CrewAI), Groq inference, and physical ROS2 robotics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ ACCORDION ==================== -->
+        <section class="wd-section" id="faq">
+            <div class="wd-section-label">
+                <span>07</span>
+                <p>Inquiries</p>
+            </div>
+
+            <div class="wd-faq-grid">
+                <div>
+                    <span class="wd-kicker">Frequently Asked</span>
+                    <h2 class="wd-section-title">Before we<br><span>begin.</span></h2>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 16px;">
+                        Have questions about collaboration, AI development, or robotics builds? Here are common answers.
+                    </p>
+                </div>
+
+                <div class="wd-accordion">
+                    <div class="wd-accordion-item">
+                        <button type="button" class="wd-accordion-header">
+                            <span>Can you build custom CrewAI multi-agent pipelines?</span>
+                            <i>+</i>
+                        </button>
+                        <div class="wd-accordion-content">
+                            <p>Yes. I build multi-agent architectures where autonomous agents with distinct personas, tools, and memory collaborate to handle complex tasks like market research, automated content generation, and algorithmic ranking.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-accordion-item">
+                        <button type="button" class="wd-accordion-header">
+                            <span>What is the current status of the RoboNova robot?</span>
+                            <i>+</i>
+                        </button>
+                        <div class="wd-accordion-content">
+                            <p>RoboNova is an active 2-year humanoid service robot project. Current progress includes voice-assistant modules via Groq API (LLaMA-3.1), sensor schematics, and vision tracking, documented on Instagram at @robo.ox.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-accordion-item">
+                        <button type="button" class="wd-accordion-header">
+                            <span>Are you available for freelance projects or internships?</span>
+                            <i>+</i>
+                        </button>
+                        <div class="wd-accordion-content">
+                            <p>Yes. I am open to impactful AI engineering projects, NLP collaborations, and technical partnerships. Use the "Start a project" button to share your requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="wd-accordion-item">
+                        <button type="button" class="wd-accordion-header">
+                            <span>How do we start a technical collaboration?</span>
+                            <i>+</i>
+                        </button>
+                        <div class="wd-accordion-content">
+                            <p>Click "Start a project" to submit your project brief with budget expectations and scope. I will review and reply within 24 hours via email or WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#hero" class="nav-logo">
-                        <span class="logo-bracket">&lt;</span>Arsalan<span class="logo-bracket">/&gt;</span>
-                    </a>
-                    <p>AI Engineer passionate about building intelligent systems for the future.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-cta">
-                    <h4>Let's Work Together</h4>
-                    <p>Have an AI project in mind?</p>
-                    <a href="#contact" class="btn btn-primary btn-small">Get In Touch</a>
+    <footer class="wd-footer">
+        <div class="wd-footer-top">
+            <div class="wd-footer-statement">
+                <span class="wd-kicker">Muhammad Arsalan Studio</span>
+                <h2>Make intelligent systems<br><span>worth noticing.</span></h2>
+            </div>
+            <button class="wd-btn wd-btn-white js-open-popup" type="button" data-service="General project">
+                Start a project <span>↗</span>
+            </button>
+        </div>
+
+        <div class="wd-footer-grid">
+            <div>
+                <a class="wd-logo" href="#hero">
+                    <span class="wd-logo-tag">MA</span>
+                    <span>ARSALAN</span>
+                </a>
+                <p style="color: var(--text-secondary); margin-top: 18px; line-height: 1.8; max-width: 320px;">
+                    Two specialist units. Autonomous AI pipelines, NLP search ranking, and embodied robotics built with discipline.
+                </p>
+            </div>
+
+            <div>
+                <h4>Navigation</h4>
+                <div class="wd-footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#units">Specialist Units</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Selected Projects</a>
+                    <a href="cv.html" target="_blank">Download CV</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Muhammad Arsalan. All rights reserved.</p>
-                <p>Built with <i class="fas fa-heart" style="color: var(--primary);"></i> and AI</p>
+
+            <div>
+                <h4>Direct Channels</h4>
+                <div class="wd-footer-links">
+                    <a href="mailto:arsalan.vault@gmail.com">arsalan.vault@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/muhammad-arsalan-a16546384" target="_blank">LinkedIn Profile</a>
+                    <a href="https://github.com/24pwai0015-max" target="_blank">GitHub Repositories</a>
+                    <a href="https://instagram.com/robo.ox" target="_blank">Instagram (@robo.ox)</a>
+                </div>
             </div>
+
+            <div>
+                <h4>Discipline</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    AI &amp; ML Systems<br>
+                    Humanoid Robotics<br>
+                    Worldwide Collaboration
+                </p>
+            </div>
+        </div>
+
+        <div class="wd-footer-bottom">
+            <span>© 2026 Muhammad Arsalan. All rights reserved.</span>
+            <span>Independent AI Engineer &amp; Robotics Innovator.</span>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/particles.js"></script>
+    <!-- ==================== PROJECT BRIEF POPUP MODAL ==================== -->
+    <div class="wd-popup" id="projectPopup" aria-hidden="true">
+        <div class="wd-popup-backdrop js-close-popup"></div>
+        <div class="wd-popup-panel" role="dialog" aria-modal="true" aria-labelledby="projectPopupTitle">
+            <button class="wd-popup-close js-close-popup" type="button" aria-label="Close dialog">×</button>
+
+            <div class="wd-popup-copy">
+                <span class="wd-kicker">Direct Consultation</span>
+                <h2 id="projectPopupTitle">Tell me what you want to build.</h2>
+                <p>Share your vision. I will use your brief to assess feasibility, scope, and the optimal architectural direction.</p>
+            </div>
+
+            <form class="wd-form">
+                <div class="wd-form-row">
+                    <label>
+                        Your Name
+                        <input type="text" name="name" required placeholder="Muhammad Ali">
+                    </label>
+                    <label>
+                        Email Address
+                        <input type="email" name="email" required placeholder="name@company.com">
+                    </label>
+                </div>
+
+                <div class="wd-form-row">
+                    <label>
+                        Target Engineering Unit
+                        <select name="unit" class="js-project-select">
+                            <option>AI &amp; ML Systems Unit</option>
+                            <option>Robotics &amp; Embodied AI Unit</option>
+                            <option>Both Specialist Units</option>
+                            <option>General Consultation / Research</option>
+                        </select>
+                    </label>
+                    <label>
+                        Budget Expectation
+                        <select name="budget">
+                            <option value="">Select an investment range</option>
+                            <option>Under $1,000</option>
+                            <option>$1,000 – $3,000</option>
+                            <option>$3,000 – $7,500</option>
+                            <option>$7,500+</option>
+                            <option>Open Discussion / Research</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label>
+                    Project Brief &amp; Objectives
+                    <textarea name="message" required rows="4" placeholder="What are you engineering, automating, or solving?"></textarea>
+                </label>
+
+                <button class="wd-btn wd-btn-white" type="submit">
+                    Send Technical Brief <span>↗</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>

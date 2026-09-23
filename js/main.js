@@ -1,242 +1,260 @@
-/* ============================================
-   MAIN.JS - Navigation, Typing, Scroll Effects
-   ============================================ */
+/* ==========================================================================
+   MUHAMMAD ARSALAN — EDITORIAL PORTFOLIO SCRIPTS
+   Inspired by Wish Digitals Interactive Mechanics
+   ========================================================================== */
 
-// ==================== DOM ELEMENTS ====================
-const navbar = document.getElementById('navbar');
-const navMenu = document.getElementById('nav-menu');
-const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('.section, .hero');
-const typingText = document.getElementById('typing-text');
-const contactForm = document.getElementById('contact-form');
-
-// ==================== TYPING EFFECT ====================
-const words = [
-    'Machine Learning',
-    'Data Science',
-    'Robotics',
-    'Crew AI',
-    'AI Brain',
-    'Model Training',
-    'Deep Learning',
-    'Neural Networks'
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typeSpeed = 100;
-
-function typeEffect() {
-    const currentWord = words[wordIndex];
-
-    if (isDeleting) {
-        typingText.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 50;
-    } else {
-        typingText.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 100;
-    }
-
-    if (!isDeleting && charIndex === currentWord.length) {
-        // Pause at end of word
-        typeSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 400;
-    }
-
-    setTimeout(typeEffect, typeSpeed);
-}
-
-// Start typing effect
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeEffect, 1500);
-});
 
-// ==================== NAVBAR SCROLL ====================
-window.addEventListener('scroll', () => {
-    // Add scrolled class
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    /* =========================================
+       1. PRELOADER COUNTER
+    ========================================= */
+    const preloader = document.querySelector('.wd-preloader');
+    const preloaderCount = document.querySelector('.wd-preloader-count');
+    const preloaderLine = document.querySelector('.wd-preloader-line span');
+
+    if (preloader && preloaderCount) {
+        let count = 0;
+        const interval = setInterval(() => {
+            count += Math.floor(Math.random() * 4) + 2;
+            if (count > 100) count = 100;
+
+            const formatted = count < 10 ? `0${count}` : `${count}`;
+            preloaderCount.textContent = formatted;
+            if (preloaderLine) preloaderLine.style.width = `${count}%`;
+
+            if (count === 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('is-loaded');
+                }, 400);
+            }
+        }, 30);
     }
 
-    // Active nav link based on scroll position
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
+    /* =========================================
+       2. CUSTOM DUAL CURSOR
+    ========================================= */
+    const cursorDot = document.querySelector('.wd-cursor-dot');
+    const cursorRing = document.querySelector('.wd-cursor-ring');
+    const cursorText = cursorRing ? cursorRing.querySelector('span') : null;
+
+    if (cursorDot && cursorRing && window.innerWidth > 992) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        // Smooth follower loop for ring
+        function renderCursor() {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+            requestAnimationFrame(renderCursor);
         }
-    });
+        renderCursor();
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// ==================== MOBILE MENU ====================
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-// Close menu when clicking a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
+        // Hover detection
+        const hoverTargets = document.querySelectorAll('a, button, [data-tilt], .wd-work-card, .wd-unit-panel');
+        hoverTargets.forEach((target) => {
+            target.addEventListener('mouseenter', () => {
+                cursorRing.classList.add('is-hover');
+                const label = target.getAttribute('data-cursor') || (target.classList.contains('wd-work-card') ? 'VIEW' : '↗');
+                if (cursorText) cursorText.textContent = label;
+            });
+            target.addEventListener('mouseleave', () => {
+                cursorRing.classList.remove('is-hover');
+                if (cursorText) cursorText.textContent = 'VIEW';
+            });
+        });
     }
-});
 
-// ==================== SCROLL REVEAL ====================
-const revealElements = document.querySelectorAll('[data-reveal]');
+    /* =========================================
+       3. 3D TILT EFFECT FOR CARDS
+    ========================================= */
+    const tiltElements = document.querySelectorAll('[data-tilt]');
+    tiltElements.forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+            if (window.innerWidth < 992) return;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            revealObserver.unobserve(entry.target);
-        }
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        });
     });
-}, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-});
 
-revealElements.forEach(el => {
-    revealObserver.observe(el);
-});
+    /* =========================================
+       4. HEADER SCROLL STATE
+    ========================================= */
+    const header = document.querySelector('.wd-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('is-scrolled');
+            } else {
+                header.classList.remove('is-scrolled');
+            }
+        });
+    }
 
-// Also reveal section titles and content
-const revealSections = document.querySelectorAll('.section-title, .section-subtitle, .about-grid, .contact-grid');
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            sectionObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1
-});
+    /* =========================================
+       5. MOBILE MENU TOGGLE
+    ========================================= */
+    const menuToggle = document.querySelector('.wd-menu-toggle');
+    const mobileMenu = document.querySelector('.wd-mobile-menu');
+    const mobileLinks = document.querySelectorAll('.wd-mobile-links a');
 
-revealSections.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    sectionObserver.observe(el);
-});
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            const isActive = mobileMenu.classList.contains('is-active');
+            menuToggle.setAttribute('aria-expanded', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
 
-// ==================== SMOOTH SCROLL ====================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        mobileLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    /* =========================================
+       6. FAQ ACCORDION
+    ========================================= */
+    const accordionItems = document.querySelectorAll('.wd-accordion-item');
+    accordionItems.forEach((item) => {
+        const btn = item.querySelector('.wd-accordion-header');
+        const content = item.querySelector('.wd-accordion-content');
+
+        if (btn && content) {
+            btn.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+
+                // Close all others
+                accordionItems.forEach((other) => {
+                    other.classList.remove('is-open');
+                    const otherContent = other.querySelector('.wd-accordion-content');
+                    if (otherContent) otherContent.style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    content.style.maxHeight = `${content.scrollHeight}px`;
+                }
             });
         }
     });
-});
 
-// ==================== CONTACT FORM ====================
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    /* =========================================
+       7. PROJECT BRIEF POPUP MODAL
+    ========================================= */
+    const popup = document.getElementById('projectPopup');
+    const openButtons = document.querySelectorAll('.js-open-popup');
+    const closeButtons = document.querySelectorAll('.js-close-popup');
+    const projectTypeSelect = document.querySelector('.js-project-select');
 
-    const name = document.getElementById('form-name').value;
-    const email = document.getElementById('form-email').value;
-    const subject = document.getElementById('form-subject').value;
-    const message = document.getElementById('form-message').value;
+    if (popup) {
+        openButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const targetService = btn.getAttribute('data-service');
+                if (targetService && projectTypeSelect) {
+                    // Preselect if matched
+                    Array.from(projectTypeSelect.options).forEach((opt) => {
+                        if (opt.text.toLowerCase().includes(targetService.toLowerCase())) {
+                            opt.selected = true;
+                        }
+                    });
+                }
+                popup.classList.add('is-active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
 
-    // Simple validation
-    if (!name || !email || !subject || !message) {
-        showNotification('Please fill in all fields!', 'error');
-        return;
+        closeButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                popup.classList.remove('is-active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('is-active')) {
+                popup.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }
+        });
     }
 
-    // Simulate form submission
-    const submitBtn = contactForm.querySelector('.btn-submit');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
+    /* =========================================
+       8. CONTACT FORM SUBMISSION
+    ========================================= */
+    const briefForm = document.querySelector('.wd-form');
+    if (briefForm) {
+        briefForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = briefForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
 
-    setTimeout(() => {
-        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        contactForm.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 1500);
+            submitBtn.innerHTML = 'Sending Brief...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Thank you, Arsalan has received your brief! You will get a response within 24 hours.');
+                briefForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                if (popup) popup.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }, 1000);
+        });
+    }
+
+    /* =========================================
+       9. NUMERICAL COUNTER ANIMATION
+    ========================================= */
+    const counters = document.querySelectorAll('.counter');
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                let current = 0;
+                const step = Math.ceil(target / 40);
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = current;
+                    }
+                }, 35);
+
+                countObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach((counter) => countObserver.observe(counter));
+
 });
-
-// ==================== NOTIFICATION ====================
-function showNotification(message, type) {
-    // Remove existing notification
-    const existing = document.querySelector('.notification');
-    if (existing) existing.remove();
-
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
-
-    // Notification styles
-    Object.assign(notification.style, {
-        position: 'fixed',
-        bottom: '30px',
-        right: '30px',
-        padding: '16px 24px',
-        borderRadius: '10px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-        fontSize: '0.95rem',
-        fontFamily: "'Space Grotesk', sans-serif",
-        zIndex: '9999',
-        animation: 'fadeInUp 0.4s ease',
-        background: type === 'success' ? 'rgba(255, 140, 0, 0.15)' : 'rgba(255, 50, 50, 0.15)',
-        border: `1px solid ${type === 'success' ? 'rgba(255, 140, 0, 0.4)' : 'rgba(255, 50, 50, 0.4)'}`,
-        color: type === 'success' ? '#ff8c00' : '#ff5050',
-        backdropFilter: 'blur(10px)'
-    });
-
-    document.body.appendChild(notification);
-
-    // Auto remove
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transform = 'translateY(20px)';
-        notification.style.transition = 'all 0.4s ease';
-        setTimeout(() => notification.remove(), 400);
-    }, 4000);
-}
-
-// ==================== CV DOWNLOAD ====================
-// CV link now points to cv.html directly — no JS override needed
